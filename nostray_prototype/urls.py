@@ -15,9 +15,11 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
+from register.views import create_user
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^register/$', create_user),
     #url(r'^community/', include('community.urls', namespace='community')),
     #url(r'^raise/', include('raise.urls', namespace='raise')),
 ]
