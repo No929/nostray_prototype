@@ -14,8 +14,14 @@ class UserInfo(models.Model):
 		('C', u'Station'),
 		('D', u'Station_plus'),
 	]
+	SEX_CHOICES = [
+		('MALE', 'male'),
+		('FEMALE', 'female'),
+		('SECRET', 'secret'),
+	]
 	user_id = models.AutoField(max_length=10, primary_key=True, verbose_name=u"用户主键ID")
 	username = models.CharField(max_length=16, null=True, blank=True, verbose_name=u"用户名")
+	sex = models.CharField(max_length=6, choices=SEX_CHOICES, verbose_name=u"性别")
 	password = models.CharField(max_length=16,verbose_name=u"密码")
 	introduce = models.CharField(max_length=100, verbose_name=u"介绍")
 	kind = models.CharField(max_length=1, choices=USER_KIND_CHOICES, verbose_name=u"用户类型")
