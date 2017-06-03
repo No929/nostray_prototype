@@ -1,0 +1,15 @@
+@CHARSET "UTF-8";
+#back_top{
+	width:30px;
+	height:30px;
+	/*不设置浮动偏移，会显示在 wrap div 下面，而看不到*/
+	position:fixed;
+	left:50%;
+	bottom:30px;
+	margin-left:600px;
+	display:none;
+	background:url(../img/return_top.png) no-repeat left top;
+}
+#back_top:hover{
+	background:url(../img/return_top.png) no-repeat left -30px;
+}
