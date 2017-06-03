@@ -11,6 +11,7 @@ class Raised(models.Model):
 	add_time = models.DateTimeField(default=timezone.now, verbose_name=u"领养时间")
 
 	class Meta:
+		pass
 
 
 class Animals(models.Model):
@@ -19,16 +20,18 @@ class Animals(models.Model):
 		('CAT', 'cat'),
 		('OTHER', 'other'),
 	]
+	'''
 	DOG_CHOICES = [
-		(),
-		(),
-		(),
+		('', ),
+		('', ),
+		('', ),
 	]
 	CAT_CHOICES = [
 		(),
 		(),
 		(),
 	]
+	'''
 	SEX_CHOICES = [
 		('MALE', 'male'),
 		('FEMALE', 'female'),
@@ -42,6 +45,6 @@ class Animals(models.Model):
 	price = models.CharField(max_length=10, default='free', verbose_name=u"价格")
 	add_time = models.DateTimeField(default=timezone.now, verbose_name=u"入站日期")
 	species = models.CharField(max_length=4, choices=SPECIES_CHOICES, verbose_name=u"物种")
-	dog_var = models.CharField(max_length=10, choices=DOG_CHOICES, null=True, verbose_name=u"狗品种")
-	cat_var = models.CharField(max_length=10, choices=CAT_CHOICES, null=True, verbose_name=u"猫品种")
+	#dog_var = models.CharField(max_length=10, choices=DOG_CHOICES, null=True, verbose_name=u"狗品种")
+	#cat_var = models.CharField(max_length=10, choices=CAT_CHOICES, null=True, verbose_name=u"猫品种")
 	photo = models.ImageField(upload_to='animal_img', null=True, verbose_name=u"动物图片")

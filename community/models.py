@@ -36,7 +36,7 @@ class Posts(models.Model):
 		db_table = "posts"
 		ordering = ['-mod_time']
 
-
+ 
 class Comments(models.Model):
 	comment_id = models.AutoField(max_length=10, primary_key=True, verbose_name=u"评论id")
 	content = models.CharField(max_length=256, verbose_name=u"内容")

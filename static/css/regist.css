@@ -1,0 +1,86 @@
+
+*{
+	margin:0;
+	padding:0;
+}
+.wrap{
+	width:100%;
+	height:920px;
+	background:url({static/img/first_page3.png) no-repeat top left;
+	padding-top:50px;
+}
+/*注册容器*/
+.registCon{
+	width:550px;
+	height:850px;
+	margin:0 auto;
+	background:white;
+	opacity:0.95;
+	filter:alpha(opacity=95);
+	box-shadow: 2px 2px 10px #06C;
+	border-radius:7px;
+}
+/*logo部分*/
+.regist_logo{
+	width:100%;
+	height:15%;
+}
+#img_logo{
+	width:193px;
+	height:78px;
+	margin-top:30px;
+	margin-left:170px;
+}
+/*表单部分*/
+.regist_middle{
+	width:100%;
+	height:75%;
+}
+/*底部*/
+.regist_foot{
+	width:100%;
+	height:5%;
+}
+/*表格*/
+.form_table{
+	width:450px;
+	height:300px;
+	margin:15px 100px;
+}
+tr{
+	height:70px;
+}
+.td_left{
+	width:100px;
+	font-weight:700;
+	text-align:center;
+}
+.td_middle{
+	width:200px;
+	text-align:center;
+}
+.td_right{
+	width:150px;
+	text-align:left;
+	font-size:10px;
+}
+#kind,#username,#password,#password2,#email,#phone{
+	width:170px;
+	height:30px;
+	padding-left:10px;
+	outline:none;
+}
+#btn_regist{
+    display: block;
+    margin-left:40px;
+    width: 250px;
+    height: 40px;
+    line-height: 40px;
+    background-color: #25c7ff;
+    color: white;
+    font-weight: 700;
+    outline: none;
+    border:none;
+    cursor: pointer;
+}
+

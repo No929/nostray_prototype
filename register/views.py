@@ -5,5 +5,5 @@ from django.shortcuts import render
 
 # Create your views here.
 
-def create_user(request):
-	return render(request, 'create_user.html')
+def regist(request):
+	return render(request, 'regist.html')
