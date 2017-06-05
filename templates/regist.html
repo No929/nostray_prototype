@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>nostray : Join us</title>
-<link rel="stylesheet" type="text/css" href="static/css/regist.css">
+<link rel="stylesheet" type="text/css" href="/static/css/regist.css">
 <script>
 function CheckData(){
 	var userLength = document.form.username.value.length;
@@ -25,7 +25,7 @@ function CheckData(){
 		return;
 	}
 }
-function ClearnData(){
+function ClearData(){
 	document.form.username.value="";
 }
 </script>
@@ -35,7 +35,7 @@ function ClearnData(){
 <div class="wrap">
 	<div class="registCon">
     	<div class="regist_logo">
-        	<img src="img/logo.png" alt="无法加载图片" id="img_logo"/>
+        	<img src="/static/img/logo.png" alt="无法加载图片" id="img_logo"/>
         </div>
         <div class="regist_middle">
         	<div class="regist_form">
@@ -44,42 +44,31 @@ function ClearnData(){
                         <tr>
                             <td class="td_left">用户名</td>
                             <td class="td_middle">
-                                <input type="text" id="username" name="username" required="required" placeholder="用户名" onblur="CheckData()" onfocus="ClearnData()"/>
+                                <input type="text" id="username" name="username" required="required" placeholder="用户名" onblur="CheckData()" onfocus="ClearData()"/>
                             </td>
                             <td class="td_right" id="username_right"></td>
                         </tr>
                         <tr>
                             <td class="td_left">密码</td>
                             <td class="td_middle">
-                                <input type="password" id="password" name="password" required="required" placeholder="密码" />
+                                <input type="password" id="password" name="password" required="required" placeholder="密码"/>
                             </td>
                             <td class="td_right"></td>
                         </tr>
                         <tr>
-                            <td class="td_left">确定密码</td>
+                            <td class="td_left">确认密码</td>
                             <td class="td_middle">
                                 <input type="password" id="password2" name="password2" required="required" placeholder="确认密码" />
                             </td>
                             <td class="td_right"></td>
                         </tr>
                         <tr>
-                            <td class="td_left">角色类型</td>
+                            <td class="td_left">账户类型</td>
                             <td class="td_middle">
                                 <select name="kind" id="kind">
-                                    <option value="null" selected>--请选择--</option>
-                                    <option value="计算机">计算机</option>
-                                    <option value="经济管理">经济管理</option>
-                                    <option value="旅游">旅游</option>
-                                    <option value="数学">数学</option>
-                                    <option value="外国语">外国语</option>
+                                    <option value="individual" selected>individual</option>
+                                    <option value="station">station</option>
                                 </select>
-                            </td>
-                            <td class="td_right"></td>
-                        </tr>
-                        <tr>
-                            <td class="td_left">邮箱</td>
-                            <td class="td_middle">
-                            	<input type="text" id="email" name="email" placeholder="邮箱"/>
                             </td>
                             <td class="td_right"></td>
                         </tr>
@@ -88,16 +77,6 @@ function ClearnData(){
                             <td class="td_middle">
                             	<input type="text" id="phone" name="phone" placeholder="电话"/>
                             </td>
-                            <td class="td_right"></td>
-                        </tr>
-                        <tr>
-                            <td class="td_left">地址</td>
-                            <td class="td_middle"></td>
-                            <td class="td_right"></td>
-                        </tr>
-                        <tr>
-                            <td class="td_left"></td>
-                            <td class="td_middle"></td>
                             <td class="td_right"></td>
                         </tr>
                         <tr>

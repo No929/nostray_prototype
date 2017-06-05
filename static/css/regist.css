@@ -12,10 +12,9 @@
 /*注册容器*/
 .registCon{
 	width:550px;
-	height:850px;
+	height:550px;
 	margin:0 auto;
 	background:white;
-	opacity:0.95;
 	filter:alpha(opacity=95);
 	box-shadow: 2px 2px 10px #06C;
 	border-radius:7px;
@@ -45,10 +44,10 @@
 .form_table{
 	width:450px;
 	height:300px;
-	margin:15px 100px;
+	margin:40px 120px;
 }
 tr{
-	height:70px;
+	height:55px;
 }
 .td_left{
 	width:100px;
