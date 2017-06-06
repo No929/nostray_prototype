@@ -4,31 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>nostray : Join us</title>
 <link rel="stylesheet" type="text/css" href="/static/css/regist.css">
-<script>
-function CheckData(){
-	var userLength = document.form.username.value.length;
-	var aaa = document.getElementById('username_right');
-	
-	if(userLength == 0){
-		aaa.innerHTML="用户名不能为空";
-		aaa.style.color="red";
-		return false;
-	}
-	if(userLength<6 || userLength>12){
-		aaa.innerHTML="用户名长度为6-12位";
-		aaa.style.color="blue";
-		return false;
-	}
-	else{
-		aaa.innerHTML="可以使用";
-		aaa.style.color="green";
-		return;
-	}
-}
-function ClearData(){
-	document.form.username.value="";
-}
-</script>
+<script type="text/javascript" src="/static/js/regist_check.js"></script>
 </head>
 
 <body>
@@ -44,16 +20,16 @@ function ClearData(){
                         <tr>
                             <td class="td_left">用户名</td>
                             <td class="td_middle">
-                                <input type="text" id="username" name="username" required="required" placeholder="用户名" onblur="CheckData()" onfocus="ClearData()"/>
+                                <input type="text" id="username" name="username" required="required" placeholder="用户名" onchange="CheckUsername(this.value)"/>
                             </td>
-                            <td class="td_right" id="username_right"></td>
+                            <td class="td_right" id="name_feedback"></td>
                         </tr>
                         <tr>
                             <td class="td_left">密码</td>
                             <td class="td_middle">
-                                <input type="password" id="password" name="password" required="required" placeholder="密码"/>
+                                <input type="password" id="password" name="password" required="required" placeholder="密码" onchange="CheckPwd(this.value)"/>
                             </td>
-                            <td class="td_right"></td>
+                            <td class="td_right" id="pwd_feedback"></td>
                         </tr>
                         <tr>
                             <td class="td_left">确认密码</td>
