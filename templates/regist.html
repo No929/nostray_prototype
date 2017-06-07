@@ -20,28 +20,28 @@
                         <tr>
                             <td class="td_left">用户名</td>
                             <td class="td_middle">
-                                <input type="text" id="username" name="username" required="required" placeholder="用户名" onchange="CheckUsername(this.value)"/>
+                                <input type="text" class="border" id="username" name="username" required="required" placeholder="用户名" onchange="CheckUsername(this.value)"/>
                             </td>
                             <td class="td_right" id="name_feedback"></td>
                         </tr>
                         <tr>
                             <td class="td_left">密码</td>
                             <td class="td_middle">
-                                <input type="password" id="password" name="password" required="required" placeholder="密码" onchange="CheckPwd(this.value)"/>
+                                <input type="password" class="border" id="password" name="password" required="required" placeholder="密码" onchange="CheckPwd(this.value)"/>
                             </td>
                             <td class="td_right" id="pwd_feedback"></td>
                         </tr>
                         <tr>
                             <td class="td_left">确认密码</td>
                             <td class="td_middle">
-                                <input type="password" id="password2" name="password2" required="required" placeholder="确认密码" />
+                                <input type="password" class="border" id="password2" name="password2" required="required" placeholder="确认密码" />
                             </td>
                             <td class="td_right"></td>
                         </tr>
                         <tr>
                             <td class="td_left">账户类型</td>
                             <td class="td_middle">
-                                <select name="kind" id="kind">
+                                <select class="border" name="kind" id="kind">
                                     <option value="individual" selected>个人</option>
                                     <option value="station">救助站</option>
                                 </select>
@@ -51,20 +51,18 @@
                         <tr>
                             <td class="td_left">电话</td>
                             <td class="td_middle">
-                            	<input type="text" id="phone" name="phone" placeholder="电话"/>
+                            	<input type="text" class="border" id="phone" name="phone" placeholder="电话"/>
                             </td>
                             <td class="td_right"></td>
                         </tr>
                         <tr>
                             <td class="td_middle" colspan="3">
-                            	<button id="btn_regist">注册</button>
+                            	<input type="submit" name="submit" class="btn" value="注册">
                             </td>
-                        </tr>
-                       
+                        </tr>                      
                     </table>
                 </form>
-                <div class="useExsist"><a href="">用已有账号登录</a>
-            </div>
+                <a class="useExsist" href="">用已有账号登录</a>
         </div>
         <div class="regist_foot"></div>
     </div>

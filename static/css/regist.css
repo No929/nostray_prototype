@@ -6,12 +6,13 @@
 .wrap{
 	width:100%;
 	height:920px;
-	background:url({static/img/first_page3.png) no-repeat top left;
+	background:url(/static/img/regist_bg.jpg) no-repeat top left;
+	background-size: 100%;
 	padding-top:50px;
 }
 /*注册容器*/
 .registCon{
-	width:550px;
+	width:540px;
 	height:550px;
 	margin:0 auto;
 	background:white;
@@ -70,29 +71,28 @@ select{
     background: url("http://ourjs.github.io/static/2015/arrow.png") no-repeat scroll right center transparent;
 }
 .border{
-	
+	border-radius: 3px 3px 3px;
+	width: 200px;height: 31px;
+	border:1px solid rgba(152,152,152,0.5);
+	font-size: 15px;
+	font-weight: 50;
 }
 #kind,#username,#password,#password2,#phone{
-	width:170px;
-	height:30px;
 	padding-left:10px;
 	outline:none;
 }
-#btn_regist{
-	margin-top:20px;
-    display: block;
-    width: 300px;
-    height: 40px;
-    line-height: 40px;
-    background-color: #25c7ff;
-    color: white;
-    font-weight: 700;
-    outline: none;
-    border:none;
-    cursor: pointer;
+.btn{
+	margin-top: 15px;
+	border-radius: 3px 3px 3px;border:none;
+	width: 310px;height: 45px;
+	background-color: rgb(20,133,204);
+	color: white;font-size: 20px;font-family: YaHei;
+	font-weight: 60;
 }
 .useExsist{
-	width:100px;
-	margin-left:440px;
-	margin-top:10px;
+	display: block;
+	text-decoration: none;
+	font-size: 13px;
+	color: rgb(51,138,219);
+	margin-left: 420px;
 }
