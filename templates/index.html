@@ -1,27 +1,30 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>nostray</title>
 
-<link rel="stylesheet" type="text/css" href="/static/css/index.css">
-<link rel="stylesheet" type="text/css" href="/static/css/login.css">
-<link rel="stylesheet" type="text/css" href="/static/css/back_top.css">
-<script type="text/javascript" src="/static/js/login.js"></script>
+<link rel="stylesheet" type="text/css" href="static/css/index.css">
+<link rel="stylesheet" type="text/css" href="static/css/login.css">
+<link rel="stylesheet" type="text/css" href="static/css/back_top.css">
+
+<script type="text/javascript" src="static/js/login.js"></script>
+<script type="text/javascript" src="static/js/index.js"></script>
+
 
 </head>
 <body>
 <div class="wrap">
   <div class="head">
     	<div class="div_logo">
-        	<a class="a_logo" href="index.html">
-            	<img src="./img/first_logo.png" style="max-width: 90%; max-height: 90%" />
+        	<a class="a_logo" href="static/index.html">
+            	<img src="static/img/first_logo.png" style="max-width: 90%; max-height: 90%" />
             </a>
         </div>
    		<div class="div_nav">
         	<ul class="nav_ul">
-            	<li><a href="station_list.html" class="a_li">领养</a></li>
-                <li><a href="giveaway_list.html" class="a_li">社区</a></li>
+            	<li><a href="static/station_list.html" class="a_li">领养</a></li>
+                <li><a href="static/giveaway_list.html" class="a_li">社区</a></li>
                 <li><a href="#" class="a_li" >个人中心</a></li>
             </ul>
         </div>
@@ -32,9 +35,34 @@
         	<input type="button" id="btn_regist" name="btn_regist" class="btn_regist" value="加入我们"/>
         </div>
   </div>
-    <div class="main">
-	    <img alt="无法显示图片" src="">
-    <div class="foot"></div>
+  <div class="main" id="container">
+  
+  	<div id="list" style="left:-800px">
+    
+    	<img alt="" src="static/img/page4.jpg" class="img"/>
+    	<img alt="" src="static/img/page1.jpg" class="img"/>
+        <img alt="" src="static/img/page2.jpg" class="img"/>
+        <img alt="" src="static/img/page3.png" class="img"/>
+        <img alt="" src="static/img/page4.jpg" class="img"/>
+        <img alt="" src="static/img/page1.jpg" class="img"/>
+        
+    </div>
+    <div id="buttons">
+    
+    	<span index="1" class="on"></span>
+        <span index="2"></span>
+        <span index="3"></span>
+        <span index="4"></span>
+    
+    </div>
+    <a href="javascript:;" class="arrow" id="prev">&lt;</a>
+    <a href="javascript:;" class="arrow" id="next">&gt;</a>
+	    
+        
+  </div>
+  
+  
+  <div class="foot"></div>
 </div>
 </body>
 </html>
