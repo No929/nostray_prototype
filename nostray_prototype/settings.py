@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'community',
     'raise',
     'register',
+    'index',
 ]
 
 MIDDLEWARE = [
