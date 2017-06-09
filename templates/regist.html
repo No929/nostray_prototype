@@ -3,15 +3,15 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>nostray : Join us</title>
-<link rel="stylesheet" type="text/css" href="../static/css/regist.css">
-<script type="text/javascript" src="../static/js/regist_check.js"></script>
+<link rel="stylesheet" type="text/css" href="/static/css/regist.css">
+<script type="text/javascript" src="/static/js/regist_check.js"></script>
 </head>
 
 <body>
 <div class="wrap">
 	<div class="registCon">
     	<div class="regist_logo">
-        	<img src="../static/img/logo.png" alt="无法加载图片" id="img_logo"/>
+        	<img src="/static/img/logo.png" alt="无法加载图片" id="img_logo"/>
         </div>
         <div class="regist_middle">
         	<div class="regist_form">
@@ -20,14 +20,14 @@
                         <tr>
                             <td class="td_left">用户名</td>
                             <td class="td_middle">
-                                <input type="text" class="border" id="username" name="username" required="required" placeholder="用户名" onchange="CheckUsername(this.value)"/>
+                                <input type="text" class="border" id="username" name="username" required="required" placeholder="用户名" onchange="CheckUsername(this.value)" value="" />
                             </td>
                             <td class="td_right" id="name_feedback"></td>
                         </tr>
                         <tr>
                             <td class="td_left">密码</td>
                             <td class="td_middle">
-                                <input type="password" class="border" id="password" name="password" required="required" placeholder="密码" onchange="CheckPwd(this.value)"/>
+                                <input type="password" class="border" id="password" name="password" required="required" placeholder="密码" onchange="CheckPwd()" value="" />
                             </td>
                             <td class="td_right" id="pwd_feedback"></td>
                         </tr>
@@ -36,7 +36,7 @@
                             <td class="td_middle">
                                 <input type="password" class="border" id="password2" name="password2" required="required" placeholder="确认密码" />
                             </td>
-                            <td class="td_right"></td>
+                            <td class="td_right" id="pwd_feedback2"></td>
                         </tr>
                         <tr>
                             <td class="td_left">账户类型</td>
@@ -57,7 +57,7 @@
                         </tr>
                         <tr>
                             <td class="td_middle" colspan="3">
-                            	<input type="submit" name="submit" class="btn" value="注册">
+                            	<input type="button" name="submit" class="btn" value="注册" onclick="Submit()">
                             </td>
                         </tr>                      
                     </table>
