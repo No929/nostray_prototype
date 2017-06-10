@@ -23,8 +23,8 @@ window.onload= function(){
 		function animate(offset){/*偏移函数*/
 			animated = true;
 			var newLeft=parseInt(list.style.left)+offset;
-			var time = 500;//位移总时间
-			var interval = 20;//位移间隔时间
+			var time = 300;//位移总时间
+			var interval = 5;//位移间隔时间
 			var speed = offset /(time/interval) ;//每次位移量
 			
 			function go(){
@@ -50,7 +50,7 @@ window.onload= function(){
 		}
 		//自动播放
 		function play(){
-			timer=setInterval(function (){next.onclick();},1200);
+			timer=setInterval(function (){next.onclick();},3000);
 		}
 		//停止播放
 		function stop(){
