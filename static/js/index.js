@@ -8,7 +8,7 @@ window.onload= function(){
 		var index=1;
 		var animated=false;
 		var timer;//定时器
-		
+		play1();
 		play();
 		function showButton(){
 			for(var i=0;i<buttons.length;i++){
@@ -35,11 +35,11 @@ window.onload= function(){
 				else{
 					animated = false;
 					list.style.left= newLeft +'px';
-					if(newLeft>-800){
-						list.style.left= -3200 +'px';
+					if(newLeft>-1366){
+						list.style.left= -5464 +'px';
 					}
-					if(newLeft<-3200){
-						list.style.left= -800 +'px';
+					if(newLeft<-5464){
+						list.style.left= -1366 +'px';
 					}
 				}
 				
@@ -47,6 +47,10 @@ window.onload= function(){
 			
 			go();
 			
+		}
+		function play1(){
+			timer=setInterval(function (){prev.onclick();},1);
+			clearInterval(timer);
 		}
 		//自动播放
 		function play(){
@@ -67,7 +71,7 @@ window.onload= function(){
 				}
 				showButton();
 				//if(!animated){
-					animate(-800);
+					animate(-1366);
 				//}
 			}
 			
@@ -82,7 +86,7 @@ window.onload= function(){
 				}
 				showButton();
 				//if(!animated){
-					animate(800);
+					animate(1366);
 				//}
 			}
 		}
@@ -94,7 +98,7 @@ window.onload= function(){
 					}
 				
 					var myindex=parseInt(this.getAttribute('index'));
-					var offset=-800*(myindex-index);
+					var offset=-1366*(myindex-index);
 					
 					
 					//if(!animated){
