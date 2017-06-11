@@ -64,6 +64,7 @@ tr{
 	width:150px;
 	text-align:left;
 	font-size:10px;
+	padding-left: 5px;
 }
 select{
 	appearance:none;
@@ -78,7 +79,7 @@ select{
 	font-size: 15px;
 	font-weight: 50;
 }
-#kind,#username,#password,#password2,#phone{
+#kind,#username,#password1,#password2,#phone{
 	padding-left:10px;
 	outline:none;
 }

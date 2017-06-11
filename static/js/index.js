@@ -8,7 +8,7 @@ window.onload= function(){
 		var index=1;
 		var animated=false;
 		var timer;//定时器
-		play1();
+		
 		play();
 		function showButton(){
 			for(var i=0;i<buttons.length;i++){
