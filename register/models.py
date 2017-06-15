@@ -4,30 +4,28 @@ from __future__ import unicode_literals
 from django.db import models
 import django.utils.timezone as timezone
 
+from django.contrib.auth.models import AbstractUser
+
 # Create your models here.
 
-class UserInfo(models.Model):
-	
+class UserInfo(AbstractUser):
+	SEX_CHOICES = [
+		('MALE', 'male'),
+		('FEMALE', 'female'),
+		('SECRET', 'secret'),
+	]
+	nickname = models.CharField(max_length=16, verbose_name=u"昵称", default="")
+	gender = models.CharField(null=True, choices=SEX_CHOICES, verbose_name=u"性别", default="SECRET")
+	'''
 	USER_KIND_CHOICES = [
 		('A', u'Individual'),
 		('B', u'Individual_plus'),
 		('C', u'Station'),
 		('D', u'Station_plus'),
 	]
-	SEX_CHOICES = [
-		('MALE', 'male'),
-		('FEMALE', 'female'),
-		('SECRET', 'secret'),
-	]
-	user_id = models.AutoField(max_length=10, primary_key=True, verbose_name=u"用户主键ID")
-	username = models.CharField(max_length=16, null=True, blank=True, verbose_name=u"用户名")
 	phone = models.CharField(max_length=20, verbose_name=u"联系电话")
 	kind = models.CharField(max_length=1, choices=USER_KIND_CHOICES, verbose_name=u"用户类型")
-	password = models.CharField(max_length=16,verbose_name=u"密码")
-	sex = models.CharField(max_length=6, null=True, choices=SEX_CHOICES, verbose_name=u"性别")
 	introduce = models.CharField(max_length=100, null=True, blank=True, verbose_name=u"介绍")
-	mod_time = models.DateTimeField(auto_now_add=True, verbose_name="修订时间")
-	add_time = models.DateTimeField(default=timezone.now, verbose_name=u"注册时间")
 	email = models.EmailField(null=True, blank=True, verbose_name=u"邮箱")
 	adress = models.CharField(max_length=45, null=True, blank=True, verbose_name=u"地址")
 	icon = models.ImageField(upload_to='user_icon', null=True, verbose_name=u"头像")
@@ -36,6 +34,7 @@ class UserInfo(models.Model):
 	likes = models.IntegerField(default=0, verbose_name=u"顶")
 	dislikes = models.IntegerField(default=0, verbose_name=u"踩")
 	#ip = models.IPAdressField(null=True, blank=True, verbose_name=u"IP地址")
+	'''
 
 	class Meta:
 		verbose_name = u"用户信息"
