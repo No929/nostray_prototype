@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'raise',
     'register',
     'index',
+    'center',
 ]
 
 MIDDLEWARE = [
