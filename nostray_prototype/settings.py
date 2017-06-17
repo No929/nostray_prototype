@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'index',
     'center',
 ]
+AUTH_USER_MODEL = "register.UserInfo"
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
