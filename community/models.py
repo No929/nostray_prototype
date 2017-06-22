@@ -50,4 +50,3 @@ class Comments(models.Model):
 		verbose_name = u"评论"
 		verbose_name_plural = verbose_name
 		db_table = "comments"
-		ordering = ['-add_time']
