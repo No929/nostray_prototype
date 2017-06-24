@@ -11,13 +11,7 @@ def regist(request):
 	if request.method == 'POST':
 		username = request.POST.get('username', '')
 		password = request.POST.get('password', '')
-		if request.POST.get('kind', '') == '救助站':
-			kind = 'Station'
-		elif request.POST.get('kind', '') == '个人':
-			kind = 'Individual'
-		else:
-			kind = 'Orgnization'
-
+		kind = request.POST.get('kind', '')
 		phone = request.POST.get('phone', '')
 
 		form = UserInfo()

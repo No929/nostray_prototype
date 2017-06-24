@@ -15,15 +15,7 @@ class UserInfo(AbstractUser):
 		('FEMALE', 'female'),
 		('SECRET', 'secret'),
 	]
-	'''
-	USER_KIND_CHOICES = [
-		('A', u'Individual'),
-		('B', u'Individual_plus'),
-		('C', u'Station'),
-		('D', u'Station_plus'),
-		('E', u'Orgnization'),
-	]
-	'''
+		
 	nickname = models.CharField(max_length=16, verbose_name=u"昵称", default="")
 	gender = models.CharField(max_length=6, null=True, choices=SEX_CHOICES, verbose_name=u"性别", default="SECRET")
 	kind = models.CharField(max_length=20, verbose_name=u"用户类型")
