@@ -5,14 +5,6 @@ from django.db import models
 import django.utils.timezone as timezone
 # Create your models here.
 
-class Raised(models.Model):
-	raise_id = models.AutoField(max_length=10, primary_key=True, verbose_name=u"领养id")
-	animal_id = models.IntegerField(verbose_name=u"动物号")
-	add_time = models.DateTimeField(default=timezone.now, verbose_name=u"领养时间")
-
-	class Meta:
-		pass
-
 
 class Animals(models.Model):
 	SPECIES_CHOICES = [
@@ -20,18 +12,6 @@ class Animals(models.Model):
 		('CAT', 'cat'),
 		('OTHER', 'other'),
 	]
-	'''
-	DOG_CHOICES = [
-		('', ),
-		('', ),
-		('', ),
-	]
-	CAT_CHOICES = [
-		(),
-		(),
-		(),
-	]
-	'''
 	SEX_CHOICES = [
 		('MALE', 'male'),
 		('FEMALE', 'female'),
