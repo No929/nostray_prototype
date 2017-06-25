@@ -26,6 +26,8 @@ class UserInfo(AbstractUser):
 	icon = models.ImageField(upload_to='user_icon/%Y/%M',default=u"user_icon/default.png", max_length=100, verbose_name=u"头像")
 	photo = models.ImageField(upload_to='user_photo/%Y/%M', default=u"user_photo/default.jpg", max_length=100, verbose_name=u"相册")
 	creditrating = models.IntegerField(default=60, verbose_name=u"信誉评分")
+	following = models.IntegerField(default=0, verbose_name=u"关注数")
+	follower = models.IntegerField(default=0, verbose_name=u"被关注数")
 
 	class Meta:
 		verbose_name = u"用户信息"
