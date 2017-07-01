@@ -12,9 +12,9 @@ from django.contrib.auth.models import AbstractUser
 
 class UserInfo(AbstractUser):
 	SEX_CHOICES = [
-		('MALE', 'male'),
-		('FEMALE', 'female'),
-		('SECRET', 'secret'),
+		('male', 'MALE'),
+		('female', 'FEMALE'),
+		('secret', 'SECRET'),
 	]
 		
 	nickname = models.CharField(max_length=16, verbose_name=u"昵称", default="")
