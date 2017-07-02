@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
+from datetime import datetime
 
 from django.db import models
-import django.utils.timezone as timezone
+
 # Create your models here.
 
 
@@ -23,7 +24,7 @@ class Animals(models.Model):
 	age = models.IntegerField(null=True, verbose_name=u"年龄")
 	health = models.CharField(max_length=10, null=True, blank=True, verbose_name=u"健康状况")
 	price = models.CharField(max_length=10, default='free', verbose_name=u"价格")
-	add_time = models.DateTimeField(default=timezone.now, verbose_name=u"入站日期")
+	add_time = models.DateTimeField(default=datetime.now, verbose_name=u"入站日期")
 	species = models.CharField(max_length=4, choices=SPECIES_CHOICES, verbose_name=u"物种")
 	#dog_var = models.CharField(max_length=10, choices=DOG_CHOICES, null=True, verbose_name=u"狗品种")
 	#cat_var = models.CharField(max_length=10, choices=CAT_CHOICES, null=True, verbose_name=u"猫品种")

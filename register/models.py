@@ -3,7 +3,6 @@ from __future__ import unicode_literals
 from datetime import datetime
 
 from django.db import models
-import django.utils.timezone as timezone
 
 from django.contrib.auth.models import AbstractUser
 
@@ -16,7 +15,6 @@ class UserInfo(AbstractUser):
 		('female', 'FEMALE'),
 		('secret', 'SECRET'),
 	]
-		
 	nickname = models.CharField(max_length=16, verbose_name=u"昵称", default="")
 	gender = models.CharField(max_length=6, null=True, choices=SEX_CHOICES, verbose_name=u"性别", default="SECRET")
 	kind = models.CharField(max_length=100, verbose_name=u"用户类型")
