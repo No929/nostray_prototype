@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
+from datetime import datetime
 
 from django.db import models
-import django.utils.timezone as timezone
+
 from register.models import UserInfo
 # Create your models here.
 
@@ -21,7 +22,7 @@ class Posts(models.Model):
 	user_id = models.ForeignKey(UserInfo, verbose_name=u"所属用户")
 	title = models.CharField(max_length=100, verbose_name=u"帖子标题")
 	content = models.TextField(null=True, blank=True, verbose_name=u"帖子内容")
-	add_time = models.DateTimeField(default=timezone.now, verbose_name=u"发帖时间")
+	add_time = models.DateTimeField(default=datetime.now, verbose_name=u"发帖时间")
 	image = models.ImageField(max_length=100, upload_to='post_img', null=True, verbose_name=u"贴图")
 	post_cate = models.CharField(max_length=2, choices=POST_CATE_CHOICES, verbose_name="帖子类型")
 	animal_cate = models.CharField(max_length=10, choices=ANIMAL_CATE_CHOICES, null=True, verbose_name="动物类型")
