@@ -38,10 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'community',
-    'raise',
+    'animal',
     'register',
     'index',
-    'center',
 ]
 AUTH_USER_MODEL = "register.UserInfo"
 
