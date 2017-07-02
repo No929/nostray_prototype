@@ -40,7 +40,7 @@ class Comments(models.Model):
 	user_id = models.ForeignKey(UserInfo, verbose_name=u"所属用户")
 	content = models.TextField(verbose_name=u"内容")
 	image = models.ImageField(max_length=100, upload_to='comment_img', null=True, verbose_name=u"评论图片")
-	add_time = models.DateTimeField(default=timezone.now, verbose_name=u"评论时间")
+	add_time = models.DateTimeField(default=datetime.now, verbose_name=u"评论时间")
 	likes = models.IntegerField(default=0, verbose_name=u"顶")
 	dislikes = models.IntegerField(default=0, verbose_name=u"踩")
 
