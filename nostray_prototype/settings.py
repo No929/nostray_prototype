@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'animal',
     'register',
     'index',
+    'operation',
 ]
 AUTH_USER_MODEL = "register.UserInfo"
 
