@@ -15,9 +15,15 @@ class UserInfo(AbstractUser):
 		('female', 'FEMALE'),
 		('secret', 'SECRET'),
 	]
+	USER_KIND_CHOICES = [
+		('个人', 'individual'),
+		('救助站', 'station'),
+		('团体组织', 'org'),
+		('管理员', 'admin'),
+	]
 	nickname = models.CharField(max_length=16, verbose_name=u"昵称", default="")
 	gender = models.CharField(max_length=6, null=True, choices=SEX_CHOICES, verbose_name=u"性别", default="SECRET")
-	kind = models.CharField(max_length=100, verbose_name=u"用户类型")
+	kind = models.CharField(max_length=50,choices=USER_KIND_CHOICES , verbose_name=u"用户类型")
 	phone = models.CharField(max_length=20, verbose_name=u"联系电话")
 	introduce = models.CharField(max_length=100, null=True, blank=True, verbose_name=u"介绍")
 	adress = models.CharField(max_length=45, null=True, blank=True, verbose_name=u"地址")
@@ -41,9 +47,12 @@ class EmailVerifyRecord(models.Model):
 	]
 	code = models.CharField(max_length=20, verbose_name=u"验证码")
 	email = models.EmailField(max_length=50, verbose_name=u"邮箱")
-	send_type = models.CharField(max_length=10, choices=SEND_TYPE_CHOICES)
-	send_time = models.DateTimeField(default=datetime.now)
+	send_type = models.CharField(max_length=10, choices=SEND_TYPE_CHOICES, verbose_name=u"验证码类型")
+	send_time = models.DateTimeField(default=datetime.now, verbose_name=u"发送时间")
 
 	class Meta:
 		verbose_name = u"邮箱验证码"
 		verbose_name_plural = verbose_name
+
+	def __unicode__(self):
+		return '{0}({1})'.format(self.code, self.email)
