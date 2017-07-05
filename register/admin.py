@@ -10,11 +10,11 @@ from .models import UserInfo, EmailVerifyRecord
 
 
 class UserInfoAdmin(admin.ModelAdmin):
-	pass
+	list_display = ['username', 'gender', 'kind', 'email', 'phone', 'creditrating']
 
 
 class EmailAdmin(admin.ModelAdmin):
-	pass
+	list_display = ['code', 'email', 'send_type', 'send_time']
 
 
 admin.site.register(UserInfo, UserInfoAdmin)
