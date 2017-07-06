@@ -2,9 +2,22 @@
 from __future__ import unicode_literals
 
 from django.shortcuts import render
+from django.contrib.auth import authenticate, login
 
 from .models import UserInfo
 # Create your views here.
+
+
+def login(request):
+	if request.method == 'POST':
+		username = request.POST.get('username', '')
+		password = request.POST.get('password', '')
+		user = authenticate(username, password)
+		if user is not None:
+			login(request, user)
+			return render()
+	elif request.method == 'GET':
+		render(request, "login.html", {})
 
 def regist(request):
 
