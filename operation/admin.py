@@ -10,11 +10,15 @@ from .models import UserFavorite, UserMessage
 
 
 class FavoriteAdmin(admin.ModelAdmin):
-	pass
+	list_display = ['user', 'fav_id', 'fav_type']
+	search_fields = ['user', 'fav_type']
+	list_filter = ['user__username', 'fav_type']
 
 
 class MessageAdmin(admin.ModelAdmin):
-	pass
+	list_display = ['user', 'has_read', 'add_time']
+	search_fields = ['user', 'message']
+	list_filter = ['user', 'has_read', 'add_time']
 
 
 admin.site.register(UserFavorite, FavoriteAdmin)

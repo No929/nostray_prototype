@@ -10,7 +10,9 @@ from .models import Animals
 
 
 class AnimalsAdmin(admin.ModelAdmin):
-	pass
+	list_display = ['animal_id', 'station_id', 'name', 'sex', 'health', 'species']
+	search_fields = ['animal_id', 'station_id', 'name', 'sex', 'health', 'species']
+	list_filter = ['sex', 'health', 'species']
 
 
 admin.site.register(Animals, AnimalsAdmin)

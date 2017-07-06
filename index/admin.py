@@ -10,7 +10,8 @@ from .models import Banner
 
 
 class BannerAdmin(admin.ModelAdmin):
-	pass
+	list_display = ['title', 'image', 'url', 'index', 'add_time']
+	list_filter = ['title', 'add_time']
 
 
 admin.site.register(Banner, BannerAdmin)

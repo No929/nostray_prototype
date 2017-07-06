@@ -19,7 +19,7 @@ class Posts(models.Model):
 		('CAT', 'cat'),
 		('OTHER', 'other'),
 	]
-	user_id = models.ForeignKey(UserInfo, verbose_name=u"所属用户")
+	user = models.ForeignKey(UserInfo, verbose_name=u"所属用户")
 	title = models.CharField(max_length=100, verbose_name=u"帖子标题")
 	content = models.TextField(null=True, blank=True, verbose_name=u"帖子内容")
 	add_time = models.DateTimeField(default=datetime.now, verbose_name=u"发帖时间")
@@ -37,7 +37,7 @@ class Posts(models.Model):
 
 class Comments(models.Model):
 	post = models.ForeignKey(Posts, verbose_name=u"帖子")
-	user_id = models.ForeignKey(UserInfo, verbose_name=u"所属用户")
+	user = models.ForeignKey(UserInfo, verbose_name=u"所属用户")
 	content = models.TextField(verbose_name=u"内容")
 	image = models.ImageField(max_length=100, upload_to='comment_img', null=True, verbose_name=u"评论图片")
 	add_time = models.DateTimeField(default=datetime.now, verbose_name=u"评论时间")

@@ -10,11 +10,15 @@ from .models import Posts, Comments
 
 
 class PostsAdmin(admin.ModelAdmin):
-	pass
+	list_display = ['user', 'title', 'add_time', 'post_cate', 'animal_cate']
+	search_fields = ['user', 'title', 'post_cate', 'animal_cate']
+	list_filter = ['user__username', 'post_cate', 'animal_cate', 'add_time']
 
 
 class CommentsAdmin(admin.ModelAdmin):
-	pass
+	list_display = ['post', 'user', 'add_time']
+	search_fields = ['post', 'user']
+	list_filter = ['post__title', 'user__username', 'add_time']
 
 
 admin.site.register(Posts, PostsAdmin)
