@@ -15,14 +15,14 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
-from register import views
+from register.views import login, regist
 from django.views.generic import TemplateView
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', TemplateView.as_view(template_name='index.html'), name='index'),
-    url(r'^login/$', TemplateView.as_view(template_name='login.html'), name='login'),
-    url(r'^regist/$', views.regist),
+    url(r'^login/$', login, name='login'),
+    url(r'^regist/$', regist, name='regist'),
 
     
     #url(r'^community/', include('community.urls', namespace='community')),
