@@ -15,7 +15,8 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
-from register.views import login, regist
+from register.views import login, regist, station
+from community.views import allPosts
 from django.views.generic import TemplateView
 
 urlpatterns = [
@@ -23,8 +24,6 @@ urlpatterns = [
     url(r'^$', TemplateView.as_view(template_name='index.html'), name='index'),
     url(r'^login/$', login, name='login'),
     url(r'^regist/$', regist, name='regist'),
-
-    
-    #url(r'^community/', include('community.urls', namespace='community')),
-    #url(r'^raise/', include('raise.urls', namespace='raise')),
+    url(r'^community/', allPosts, name='community'),
+    url(r'^adopt/', station, name='adopt'),
 ]

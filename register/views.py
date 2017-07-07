@@ -38,3 +38,6 @@ def regist(request):
 		form.save()
 
 	return render(request, 'regist.html')
+
+def station(request):
+	return render(request, 'station_list.html', {})
