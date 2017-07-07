@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>nostray : Login</title>
+</head>
+<body>
+<div class="wrapper">
+	<div class="logo"></div>
+	<div class="description"></div>
+	<div class="form">
+		<form method="post" action="/login/">{% csrf_token %}
+			<div class="loginError">{{msg}}</div>
+			<div class="username">
+				<label>用户名</label>
+				<input type="text" name="username" onchange="" placeholder="邮箱／手机号">
+			</div>
+			<div>
+				<label>密码</label>
+				<input type="password" name="password" onchange="" placeholder="密码">
+			</div>
+			<button class="submit_btn" onclick="Submit()">登录</button>
+		</form>
+	</div>
+	<div class=foot></div>
+</div>
+</body>
+</html>
