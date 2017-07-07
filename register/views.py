@@ -3,23 +3,36 @@ from __future__ import unicode_literals
 
 from django.shortcuts import render
 from django.contrib.auth import authenticate, login
+from django.contrib.auth.backends import ModelBackend
+from django.db.models import Q
 
 from .models import UserInfo
+
+
+class CustomBackend(ModelBackend):
+	def authenticate(self, username=None, password=None, **kwargs):
+		try:
+			user = UserInfo.objects.get(Q(email=username)|Q(phone=username)|Q(username=username))
+			if user.check_password(password):
+				return user
+		except Exception as e:
+			return None
+
 # Create your views here.
 
 
-def login(request):
+def userLogin(request):
 	if request.method == 'POST':
 		username = request.POST.get('username', '')
 		password = request.POST.get('password', '')
-		user = authenticate(username, password)
+		user = authenticate(username=username, password=password)
 		if user is not None:
 			login(request, user)
 			return render(request, 'index.html')
 		else:
-			return render(request, 'index.html',{})
+			return render(request, 'login.html', {'msg':'用户名或密码错误！'})
 	elif request.method == 'GET':
-		render(request, "login.html", {})
+		return render(request, "login.html", {})
 
 def regist(request):
 
