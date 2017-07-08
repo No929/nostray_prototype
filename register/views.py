@@ -5,6 +5,7 @@ from django.shortcuts import render
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.backends import ModelBackend
 from django.db.models import Q
+from django.views.generic.base import View
 
 from .models import UserInfo
 
@@ -21,8 +22,10 @@ class CustomBackend(ModelBackend):
 # Create your views here.
 
 
-def userLogin(request):
-	if request.method == 'POST':
+class LoginView(View):
+	def get(self, request):
+		return render(request, "login.html", {})
+	def post(self, request):
 		username = request.POST.get('username', '')
 		password = request.POST.get('password', '')
 		user = authenticate(username=username, password=password)
@@ -31,8 +34,7 @@ def userLogin(request):
 			return render(request, 'index.html')
 		else:
 			return render(request, 'login.html', {'msg':'用户名或密码错误！'})
-	elif request.method == 'GET':
-		return render(request, "login.html", {})
+
 
 def regist(request):
 
