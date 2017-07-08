@@ -11,11 +11,11 @@
 	<div class="form">
 		<form method="post" action="/login/">{% csrf_token %}
 			<div class="loginError">{{msg}}</div>
-			<div class="username">
+			<div class="username {% if login_form.errors.username %} errorput {% endif %}">
 				<label>用户名</label>
-				<input type="text" name="username" onchange="" placeholder="邮箱／手机号">
+				<input type="text" name="username" onchange="" placeholder="用户名／手机号">
 			</div>
-			<div>
+			<div class="password {% if login_form.errors.password %} errorput {% endif %}">
 				<label>密码</label>
 				<input type="password" name="password" onchange="" placeholder="密码">
 			</div>
