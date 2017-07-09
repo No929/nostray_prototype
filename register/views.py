@@ -23,9 +23,18 @@ class CustomBackend(ModelBackend):
 # Create your views here.
 
 
+class RegistView(View):
+	def get(self, request):
+		return render(request, 'regist.html', {})
+
+	def post(self, request):
+		pass
+
+
 class LoginView(View):
 	def get(self, request):
 		return render(request, "login.html", {})
+
 	def post(self, request):
 		login_form = LoginForm(request.POST)
 		if login_form.is_valid():
@@ -38,7 +47,7 @@ class LoginView(View):
 		else:
 			return render(request, 'login.html', {'msg':'用户名或密码错误！'}, {'login_form':login_form})
 
-
+'''
 def regist(request):
 
 	if request.method == 'POST':
@@ -56,6 +65,7 @@ def regist(request):
 		form.save()
 
 	return render(request, 'regist.html')
+	'''
 
 def station(request):
 	return render(request, 'station_list.html', {})
