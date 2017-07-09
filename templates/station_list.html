@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html>
+{% load staticfiles %}
 <head>
 <meta charset="UTF-8">
 <title>救助站</title>
-<link rel="stylesheet" type="text/css" href="/static/css/station_list.css">
-<!--<link rel="stylesheet" type="text/css" href="/static/css/back_top.css">
-<script type="text/javascript" src="/static/js/back_top.js"></script>-->
+<link rel="stylesheet" type="text/css" href="{% static 'css/station_list.css' %}">
 <style type="text/css">
 img{
 	max-width:180px;
@@ -19,13 +18,13 @@ img{
   <div class="head">
     	<div class="div_logo">
         	<a class="a_logo" href="/">
-            	<img src="/static/img/logo.png" style="max-width:120px; max-height:50px;" />
+            	<img src="{% static 'img/logo.png' %}" style="max-width:120px; max-height:50px;" />
             </a>
         </div>
    	<div class="div_nav">
         	<ul class="nav_ul">
-            	<li><a href="station_list.html" class="a_li">领养</a></li>
-                <li><a href="giveaway_list.html" class="a_li">社区</a></li>
+            	<li><a href="{% url 'adopt' %}" class="a_li">领养</a></li>
+                <li><a href="{% url 'community' %}" class="a_li">社区</a></li>
                 <li><a href="#" class="a_li">个人中心</a></li>
             </ul>
         </div>
