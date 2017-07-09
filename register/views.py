@@ -23,9 +23,9 @@ class CustomBackend(ModelBackend):
 # Create your views here.
 
 
-class RegistView(View):
+class RegisteView(View):
 	def get(self, request):
-		return render(request, 'regist.html', {})
+		return render(request, 'registe.html', {})
 
 	def post(self, request):
 		pass

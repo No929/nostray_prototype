@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
-from register.views import LoginView, RegistView, station
+from register.views import LoginView, RegisteView, station
 from community.views import allPosts
 from django.views.generic import TemplateView
 
@@ -24,7 +24,7 @@ urlpatterns = [
     url(r'^captcha/',  include('captcha.urls')),
     url(r'^$', TemplateView.as_view(template_name='index.html'), name='index'),
     url(r'^login/$', LoginView.as_view(), name='login'),
-    url(r'^regist/$', RegistView.as_view(), name='regist'),
+    url(r'^registe/$', RegisteView.as_view(), name='registe'),
     url(r'^community/', allPosts, name='community'),
     url(r'^adopt/', station, name='adopt'),
 ]
