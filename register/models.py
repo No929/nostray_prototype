@@ -26,6 +26,8 @@ class UserInfo(AbstractUser):
 	phone = models.CharField(max_length=20, verbose_name=u"联系电话")
 	introduce = models.CharField(max_length=100, null=True, blank=True, verbose_name=u"介绍")
 	adress = models.CharField(max_length=45, null=True, blank=True, verbose_name=u"地址")
+	real_name = models.CharField(max_length=10, null=True, verbose_name=u"真实姓名")
+	passport = models.CharField(max_length=50, null=True, verbose_name=u"身份证")
 	icon = models.ImageField(upload_to='user_icon/%Y/%M',default=u"user_icon/default.png", max_length=100, verbose_name=u"头像")
 	photo = models.ImageField(upload_to='user_photo/%Y/%M', default=u"user_photo/default.jpg", max_length=100, verbose_name=u"相册")
 	creditrating = models.IntegerField(default=60, verbose_name=u"信誉评分")
