@@ -43,7 +43,7 @@ class UserInfo(AbstractUser):
 
 class EmailVerifyRecord(models.Model):
 	SEND_TYPE_CHOICES = [
-		("regist", u"注册"),
+		("registe", u"注册"),
 		("forget", u"找回密码"),
 	]
 	code = models.CharField(max_length=20, verbose_name=u"验证码")
