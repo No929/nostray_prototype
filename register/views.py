@@ -6,9 +6,10 @@ from django.contrib.auth import authenticate, login
 from django.contrib.auth.backends import ModelBackend
 from django.db.models import Q
 from django.views.generic.base import View
+from django.contrib.auth.hashers import make_password
 
 from .models import UserInfo
-from .forms import LoginForm
+from .forms import LoginForm, RegisteForm
 
 
 class CustomBackend(ModelBackend):
@@ -25,10 +26,26 @@ class CustomBackend(ModelBackend):
 
 class RegisteView(View):
 	def get(self, request):
-		return render(request, 'registe.html', {})
+		registe_form = RegisteForm()
+		return render(request, 'registe.html', {'registe_form':registe_form})
 
 	def post(self, request):
-		pass
+		registe_form = RegisteForm(request.POST)
+		if registe_form.is_valid():
+			username = request.POST.get('username', '')
+			password = request.POST.get('password', '')
+			kind = request.POST.get('kind', '')
+			phone = request.POST.get('phone', '')
+
+			form = UserInfo()
+			form.username = username
+			form.password = make_password(password)
+			form.kind = kind
+			form.phone = phone
+
+			form.save()
+			return render(request, 'regist.html')
+
 
 
 class LoginView(View):
@@ -47,25 +64,6 @@ class LoginView(View):
 		else:
 			return render(request, 'login.html', {'msg':'用户名或密码错误！'}, {'login_form':login_form})
 
-'''
-def regist(request):
-
-	if request.method == 'POST':
-		username = request.POST.get('username', '')
-		password = request.POST.get('password', '')
-		kind = request.POST.get('kind', '')
-		phone = request.POST.get('phone', '')
-
-		form = UserInfo()
-		form.username = username
-		form.password = password
-		form.kind = kind
-		form.phone = phone
-
-		form.save()
-
-	return render(request, 'regist.html')
-	'''
 
 def station(request):
 	return render(request, 'station_list.html', {})
