@@ -134,3 +134,10 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
+
+EMAIL_HOST = ''#SMPT
+EMAIL_PORT = 25
+EMAIL_HOST_USER = ''#xxx@xxx.com
+EMAIL_HOST_PASSWORD = ''
+EMAIL_USE_TLS = False
+EMAIL_FROM = ''#xxx@xxx.com
