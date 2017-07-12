@@ -29,8 +29,13 @@ function CheckPwd2(obj){
 		document.getElementById("pwd_feedback2").innerHTML = "<font color='red'>两次输入密码不同</font>";
 		flag3 = false;
 	}
-	else
-		flag3 = true;
+	else if(flag2==false){
+		document.getElementById("pwd_feedback2").innerHTML = "<font color='red'>请重新输入密码</font>";
+		flag3 = false;
+	}
+	else{
+		document.getElementById("pwd_feedback2").innerHTML = "<font color='green'>可以使用</font>"
+	}
 }
 
 function Submit(){
