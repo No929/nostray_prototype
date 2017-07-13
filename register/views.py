@@ -62,6 +62,12 @@ class RegisteView(View):
 			pass
 
 
+class VerifyUserView(View):
+	def get(self, request):
+		
+		
+
+
 class LoginView(View):
 	def get(self, request):
 		return render(request, "login.html", {})
