@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
-from register.views import LoginView, RegisteView, station
+from register.views import LoginView, RegisteView, ActiveUserView, station
 from community.views import allPosts
 from django.views.generic import TemplateView
 
@@ -27,4 +27,5 @@ urlpatterns = [
     url(r'^registe/$', RegisteView.as_view(), name='registe'),
     url(r'^community/', allPosts, name='community'),
     url(r'^adopt/', station, name='adopt'),
+    url(r'^active/(?P<active_code>.*)/$', ActiveUserView.as_view(), name='user_active')
 ]
