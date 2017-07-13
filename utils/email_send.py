@@ -6,7 +6,7 @@ from django.core.mail import send_mail
 from nostray_prototype.settings import EMAIL_FROM
 
 
-def random_str(randomlength=8):
+def random_str(randomlength=16):
 	str = ''
 	chars = 'AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz0123456789'
 	length = len(chars) - 1
