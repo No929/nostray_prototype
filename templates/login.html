@@ -14,7 +14,7 @@
 			<div class="loginError">{{msg}}</div>
 			<div class="username {% if login_form.errors.username %} errorput {% endif %}">
 				<label>用户名</label>
-				<input type="text" name="username" onchange="" placeholder="用户名／手机号">
+				<input type="text" name="username" onchange="" placeholder="用户名／手机号" value="{{ login_form.username.value }}">
 			</div>
 			<div class="password {% if login_form.errors.password %} errorput {% endif %}">
 				<label>密码</label>
