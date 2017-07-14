@@ -10,6 +10,7 @@ from django.contrib.auth.hashers import make_password
 
 from .models import UserInfo, EmailVerifyRecord
 from .forms import LoginForm, RegisteForm
+from utils.email_send import emailVerify
 
 
 class CustomBackend(ModelBackend):
@@ -42,30 +43,33 @@ class RegisteView(View):
 		return render(request, 'registe.html', {'registe_form':registe_form})
 
 	def post(self, request):
-		registe_form = RegisteForm(request.POST)
-		if registe_form.is_valid():
+		#registe_form = RegisteForm(request.POST)
+		#if registe_form.is_valid():
+		if 1 == 1:
 			username = request.POST.get('username', '')
 			password = request.POST.get('password', '')
 			kind = request.POST.get('kind', '')
 			phone = request.POST.get('phone', '')
+			email = request.POST.get('email', '')
 
 			form = UserInfo()
 			form.username = username
 			form.password = make_password(password)
 			form.kind = kind
 			form.phone = phone
+			form.email = email
 			form.is_active = False
 
 			form.save()
-			return render(request, 'regist.html')
+
+			emailVerify(email, 'registe')
+			return render(request, 'verify.html')
 		else:
-			pass
+			return render(request, 'registe.html')#, {'registe_form':registe_form})
 
 
-class VerifyUserView(View):
-	def get(self, request):
-		
-		
+def verifyView(request):
+	return render(request, 'verify.html')
 
 
 class LoginView(View):
