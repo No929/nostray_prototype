@@ -7,6 +7,3 @@ from register.models import UserInfo
 
 # Create your views here.
 
-
-def emailVerify(request):
-	emailVerify(UserInfo.email, 'registe')
