@@ -25,27 +25,14 @@ class CustomBackend(ModelBackend):
 # Create your views here.
 
 
-class ActiveUserView(View):
-	def get(self, request, active_code):
-		all_records = EmailVerifyRecord.objects.filter(code=active_code)
-		if all_records:
-			for record in all_records:
-				email = record.email
-				user = UserInfo.objects.get(email=email)
-				user.is_active = True
-				user.save()
-		return render(request, 'login.html')
-
-
 class RegisteView(View):
 	def get(self, request):
 		registe_form = RegisteForm()
 		return render(request, 'registe.html', {'registe_form':registe_form})
 
 	def post(self, request):
-		#registe_form = RegisteForm(request.POST)
-		#if registe_form.is_valid():
-		if 1 == 1:
+		registe_form = RegisteForm(request.POST)
+		if registe_form.is_valid():
 			username = request.POST.get('username', '')
 			password = request.POST.get('password', '')
 			kind = request.POST.get('kind', '')
@@ -65,16 +52,24 @@ class RegisteView(View):
 			emailVerify(email, 'registe')
 			return render(request, 'verify.html')
 		else:
-			return render(request, 'registe.html')#, {'registe_form':registe_form})
+			return render(request, 'registe.html', {'registe_form':registe_form})
 
 
-def verifyView(request):
-	return render(request, 'verify.html')
+class ActiveUserView(View):
+	def get(self, request, active_code):
+		all_records = EmailVerifyRecord.objects.filter(code=active_code)
+		if all_records:
+			for record in all_records:
+				email = record.email
+				user = UserInfo.objects.get(email=email)
+				user.is_active = True
+				user.save()
+		return render(request, 'actived.html')
 
 
 class LoginView(View):
 	def get(self, request):
-		return render(request, "login.html", {})
+		return render(request, "login.html")
 
 	def post(self, request):
 		login_form = LoginForm(request.POST)
@@ -87,7 +82,9 @@ class LoginView(View):
 					login(request, user)
 					return render(request, 'index.html')
 				else:
-					return render(request, 'login.html', {'msg':'用户名或密码错误！'}, {'login_form':login_form})
+					return render(request, 'login.html', {'msg':'账号未激活！'}, {'login_form':login_form})
+			else:
+				return render(request, 'login.html', {'msg':'用户名或密码错误！'}, {'login_form':login_form})
 		else:
 			return render(request, 'login.html', {'msg':'用户名或密码错误！'}, {'login_form':login_form})
 
