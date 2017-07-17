@@ -135,9 +135,9 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
 
-EMAIL_HOST = ''#SMPT
+EMAIL_HOST = 'smtp.qq.com'#SMPT
 EMAIL_PORT = 25
-EMAIL_HOST_USER = ''#xxx@xxx.com
-EMAIL_HOST_PASSWORD = ''
+EMAIL_HOST_USER = 'klawens@qq.com'
+EMAIL_HOST_PASSWORD = 'klawens0424'#'ijkkhncdfybteajg'
 EMAIL_USE_TLS = False
-EMAIL_FROM = ''#xxx@xxx.com
+EMAIL_FROM = 'klawens@qq.com'#xxx@xxx.com
