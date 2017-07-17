@@ -9,7 +9,7 @@ from django.views.generic.base import View
 from django.contrib.auth.hashers import make_password
 
 from .models import UserInfo, EmailVerifyRecord
-from .forms import LoginForm, RegisteForm
+from .forms import LoginForm, RegisteForm, ForgetForm
 from utils.email_send import emailVerify
 
 
@@ -34,6 +34,8 @@ class RegisteView(View):
 		registe_form = RegisteForm(request.POST)
 		if registe_form.is_valid():
 			username = request.POST.get('username', '')
+			if UserInfo.objects.filter(username==username or email==email):
+				return render(request, 'registe.html', {'msg':'用户已存在', 'registe_form':registe_form})
 			password = request.POST.get('password', '')
 			kind = request.POST.get('kind', '')
 			phone = request.POST.get('phone', '')
@@ -64,6 +66,8 @@ class ActiveUserView(View):
 				user = UserInfo.objects.get(email=email)
 				user.is_active = True
 				user.save()
+		else:
+			return render(request, 'active_fail.html')
 		return render(request, 'actived.html')
 
 
@@ -83,10 +87,23 @@ class LoginView(View):
 					return render(request, 'index.html')
 				else:
 					return render(request, 'login.html', {'msg':'账号未激活！'}, {'login_form':login_form})
-			else:
-				return render(request, 'login.html', {'msg':'用户名或密码错误！'}, {'login_form':login_form})
 		else:
 			return render(request, 'login.html', {'msg':'用户名或密码错误！'}, {'login_form':login_form})
+
+
+class ForgetPwdView(View):
+	def get(self, request):
+		forget_form = ForgetForm()
+		return render(request, 'forgetPass.html', {"forget_form":forget_form})
+
+	def post(self, request):
+		forget_form = ForgetForm(request.POST)
+		if forget_form.is_valid():
+			email = request.POST.get('email', '')
+			emailVerify(email, 'forget')
+			return render(request, 'send_success.html')
+		else:
+			return render(request, 'forgetPass.html', {"forget_form":forget_form})
 
 
 def station(request):

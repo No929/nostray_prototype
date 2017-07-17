@@ -34,3 +34,10 @@ def emailVerify(email, send_type='registe'):
 		send_status = send_mail(email_title, email_body, EMAIL_FROM, [email])
 		if send_status:
 			pass
+	elif send_type == 'forget':
+		email_title = '找回密码链接'
+		email_body = '请点击下面的链接重制你的密码：http://127.0.0.1:8000/reset/{0}'.format(code)
+
+		send_status = send_mail(email_title, email_body, EMAIL_FROM, [email])
+		if send_status:
+			pass
