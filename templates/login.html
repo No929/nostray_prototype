@@ -3,27 +3,26 @@
 {% load staticfiles %}
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
 	<title>nostray : Login</title>
 </head>
-<body>
-<div class="wrapper">
-	<div class="logo"></div>
+<body background="{% static 'img/backg.jpg' %}">
+
+	<div class="main">
+	<img class="logo" src="{% static 'img/logo.png' %}">
 	<div class="description"></div>
-	<div class="form">
-		<form method="post" action="#">{% csrf_token %}
-			<div class="loginError">{{msg}}</div>
-			<div class="username {% if login_form.errors.username %} errorput {% endif %}">
-				<label>用户名</label>
-				<input type="text" name="username" onchange="" placeholder="用户名／手机号" value="{{ login_form.username.value }}">
-			</div>
-			<div class="password {% if login_form.errors.password %} errorput {% endif %}">
-				<label>密码</label>
-				<input type="password" name="password" onchange="" placeholder="密码">
-			</div>
-			<button class="submit_btn" onclick="Submit()">登录</button>
-		</form>
+	<form method="post" action="#">{% csrf_token %}
+		<span class="loginError">{{msg}}</span>
+		<div class="username {% if login_form.errors.username %} errorput {% endif %}">
+			<input type="text" name="username" onchange="" placeholder="用户名／邮箱" value="{{ login_form.username.value }}">
+		</div>
+		<div class="password {% if login_form.errors.password %} errorput {% endif %}">
+			<input type="password" name="password" onchange="" placeholder="密码">
+		</div>
+		<button class="submit_btn" onclick="Submit()">登录</button>
+	</form>
 	</div>
 	<div class=foot></div>
-</div>
+
 </body>
 </html>
