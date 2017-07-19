@@ -16,7 +16,7 @@ from utils.email_send import emailVerify
 class CustomBackend(ModelBackend):
 	def authenticate(self, username=None, password=None, **kwargs):
 		try:
-			user = UserInfo.objects.get(Q(phone=username)|Q(username=username))
+			user = UserInfo.objects.get(Q(email=username)|Q(username=username))
 			if user.check_password(password):
 				return user
 		except Exception as e:
@@ -116,6 +116,7 @@ class ResetPwdView(View):
 		else:
 			return render(request, 'active_fail.html')
 		return render(request, 'actived.html')
+
 	def post(self, request):
 		modify_form = ModifyPwdForm(request.POST)
 		if modify_form.is_valid():
@@ -130,6 +131,7 @@ class ResetPwdView(View):
 			return render(request, 'login.html')
 		else:
 			return render(request, 'pwdreset.html', {'email':email, 'modify_form':modify_form})
+
 
 class ModifyPwdView(View):
 	def get(self, request, active_code):
@@ -141,6 +143,7 @@ class ModifyPwdView(View):
 		else:
 			return render(request, 'active_fail.html')
 		return render(request, 'actived.html')
+
 	def post(self, request):
 		modify_form = ModifyPwdForm(request.POST)
 		if modify_form.is_valid():
@@ -155,6 +158,3 @@ class ModifyPwdView(View):
 			return render(request, 'login.html')
 		else:
 			return render(request, 'pwdreset.html', {'email':email, 'modify_form':modify_form})
-
-def station(request):
-	return render(request, 'station_list.html', {})
