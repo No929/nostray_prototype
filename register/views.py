@@ -9,7 +9,7 @@ from django.views.generic.base import View
 from django.contrib.auth.hashers import make_password
 
 from .models import UserInfo, EmailVerifyRecord
-from .forms import LoginForm, RegisteForm, ForgetForm
+from .forms import LoginForm, RegisteForm, ForgetForm, ModifyPwdForm
 from utils.email_send import emailVerify
 
 
@@ -105,6 +105,56 @@ class ForgetPwdView(View):
 		else:
 			return render(request, 'forgetPass.html', {"forget_form":forget_form})
 
+
+class ResetPwdView(View):
+	def get(self, request, active_code):
+		all_records = EmailVerifyRecord.objects.filter(code=active_code)
+		if all_records:
+			for record in all_records:
+				email = record.email
+				return render(request, 'pwdreset.html', {'email':email})
+		else:
+			return render(request, 'active_fail.html')
+		return render(request, 'actived.html')
+	def post(self, request):
+		modify_form = ModifyPwdForm(request.POST)
+		if modify_form.is_valid():
+			pwd1 = request.POST.get('password1', '')
+			pwd2 = request.POST.get('password2', '')
+			if pwd1 != pwd2:
+				return render(request, 'pwdreset.html', {'email':email, 'msg':'密码不一致'})
+			user = UserInfo.objects.get(email=email)
+			user.password = make_password(password1)
+			user.save()
+
+			return render(request, 'login.html')
+		else:
+			return render(request, 'pwdreset.html', {'email':email, 'modify_form':modify_form})
+
+class ModifyPwdView(View):
+	def get(self, request, active_code):
+		all_records = EmailVerifyRecord.objects.filter(code=active_code)
+		if all_records:
+			for record in all_records:
+				email = record.email
+				return render(request, 'pwdreset.html', {'email':email})
+		else:
+			return render(request, 'active_fail.html')
+		return render(request, 'actived.html')
+	def post(self, request):
+		modify_form = ModifyPwdForm(request.POST)
+		if modify_form.is_valid():
+			pwd1 = request.POST.get('password1', '')
+			pwd2 = request.POST.get('password2', '')
+			if pwd1 != pwd2:
+				return render(request, 'pwdreset.html', {'email':email, 'msg':'密码不一致'})
+			user = UserInfo.objects.get(email=email)
+			user.password = make_password(password1)
+			user.save()
+
+			return render(request, 'login.html')
+		else:
+			return render(request, 'pwdreset.html', {'email':email, 'modify_form':modify_form})
 
 def station(request):
 	return render(request, 'station_list.html', {})
