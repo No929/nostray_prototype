@@ -9,7 +9,8 @@
 <body background="{% static 'img/backg.jpg' %}">
 
 	<div class="main">
-	<img class="logo" src="{% static 'img/logo.png' %}">
+	<!--<img class="logo" src="{% static 'img/logo.png' %}"-->
+	<span class="logo">Nostray</span>
 	<div class="description"></div>
 	<form method="post" action="#">{% csrf_token %}
 		<span class="loginError">{{msg}}</span>

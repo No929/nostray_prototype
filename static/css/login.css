@@ -15,7 +15,11 @@ body{
 }
 
 .logo{
-	margin-top: 30px;
+	display: block;
+	margin-top: 40px;
+	font-size: 53px;
+	font-family: 'Arial';
+	color: red;
 }
 
 form{
