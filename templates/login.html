@@ -5,17 +5,23 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
 	<title>nostray : Login</title>
+<style type="text/css">
+@font-face { 
+  font-family: Bauhaus93; 
+  src: url("{% static 'font/Bauhaus93.TTF' %}"); 
+}
+</style>
 </head>
 <body background="{% static 'img/login_bg.jpg' %}">
 
 	<div class="main">
 	<!--<img class="logo" src="{% static 'img/logo.png' %}"-->
-	<img src="{% static 'img/logo.png' %}" class="logo">
+	<span class="logo">nostray</span>
 	<form method="post" action="#">{% csrf_token %}
 		<span class="loginError">{{msg}}</span>
-			<input class="username {% if login_form.errors.username %} errorput {% endif %}" type="text" style="margin-top: 7px" name="username" onchange="" placeholder="用户名／邮箱" value="{{ login_form.username.value }}">
+			<input class="username {% if login_form.errors.username %} errorput {% endif %}" type="text" style="margin-top: 5px" name="username" onchange="" placeholder="用户名／邮箱" value="{{ login_form.username.value }}">
 			<input class="password {% if login_form.errors.password %} errorput {% endif %}" type="password" name="password" onchange="" placeholder="密码">
-			<a href="{% url 'forget_pwd' %}" class="forget">Forget Password?</a>
+			<a href="{% url 'forget_pwd' %}" class="forget">忘记密码?</a>
 		<button class="submit_btn" onclick="Submit()">登录</button>
 	</form>
 	</div>

@@ -19,20 +19,32 @@ body{
 
 .logo{
 	display: block;
+	margin: 0 auto;
+	margin-top: 40px;
 	padding: 0;
 	width: 100px;
+	font-size: 60px;
+	font-family: Bauhaus93;
+	color: rgb(184,0,0);
 }
 
 .loginError{
 	display: block;
-	height: 30px;}
+	margin: 0 auto;
+	padding-top: 15px;
+	width: 200px;
+	height: 20px;
+	font-family: Arial;
+	font-size: 15px;
+	color: #C67171;
+}
 
 form{
 	margin: 0 auto;
 	margin-right: 0;
-	margin-top: 80px;
+	margin-top: 40px;
 	padding: 0;
-	height: 200px;
+	height: 210px;
 	border-left: 1px solid rgb(220,220,220);
 	width: 350px;
 }
@@ -53,7 +65,7 @@ input{
 	width: 150px;
 	margin: 0 auto;
 	margin-top: 10px;
-	margin-left: 22px;
+	margin-left: -2px;
 	padding: 0;
 	display: block;
 	color: rgb(180,180,180);
