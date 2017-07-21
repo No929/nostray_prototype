@@ -12,11 +12,19 @@
 }
 </style>
 </head>
-<body background="{% static 'img/login_bg.jpg' %}">
+<body background="{% static 'img/login_bg.png' %}">
 
 	<div class="main">
 	<!--<img class="logo" src="{% static 'img/logo.png' %}"-->
 	<span class="logo">nostray</span>
+	<button class="wechat_btn">
+		<img src="{% static 'img/wechat.png' %}" style="width: 30px;">
+		<span class="btn_span">&nbsp&nbsp微信登录</span>
+	</button>
+	<button class="qq_btn">
+		<img src="{% static 'img/qq.png' %}" style="width: 30px;">
+		<span class="btn_span">QQ登录</span>
+	</button>
 	<form method="post" action="#">{% csrf_token %}
 		<span class="loginError">{{msg}}</span>
 			<input class="username {% if login_form.errors.username %} errorput {% endif %}" type="text" style="margin-top: 5px" name="username" onchange="" placeholder="用户名／邮箱" value="{{ login_form.username.value }}">
