@@ -6,20 +6,16 @@
 <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
 	<title>nostray : Login</title>
 </head>
-<body background="{% static 'img/backg.jpg' %}">
+<body background="{% static 'img/login_bg.jpg' %}">
 
 	<div class="main">
 	<!--<img class="logo" src="{% static 'img/logo.png' %}"-->
-	<span class="logo">Nostray</span>
-	<div class="description"></div>
+	<img src="{% static 'img/logo.png' %}" class="logo">
 	<form method="post" action="#">{% csrf_token %}
 		<span class="loginError">{{msg}}</span>
-		<div class="username {% if login_form.errors.username %} errorput {% endif %}">
-			<input type="text" name="username" onchange="" placeholder="用户名／邮箱" value="{{ login_form.username.value }}">
-		</div>
-		<div class="password {% if login_form.errors.password %} errorput {% endif %}">
-			<input type="password" name="password" onchange="" placeholder="密码">
-		</div>
+			<input class="username {% if login_form.errors.username %} errorput {% endif %}" type="text" style="margin-top: 7px" name="username" onchange="" placeholder="用户名／邮箱" value="{{ login_form.username.value }}">
+			<input class="password {% if login_form.errors.password %} errorput {% endif %}" type="password" name="password" onchange="" placeholder="密码">
+			<a href="{% url 'forget_pwd' %}" class="forget">Forget Password?</a>
 		<button class="submit_btn" onclick="Submit()">登录</button>
 	</form>
 	</div>
