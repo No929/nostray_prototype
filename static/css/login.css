@@ -1,11 +1,12 @@
 body{
 	text-align: center;
+	font-family: icons;
 }
 
 .main{
 	margin: 0 auto;
 	margin-top: 120px;
-	width: 550px;
+	width: 600px;
 	height: 430px;
 	text-align: center;
 	border: 1px solid rgb(219,219,219);
@@ -20,13 +21,34 @@ body{
 
 .logo{
 	display: block;
-	margin-top: 40px;
-	margin-left: 35%;
+	margin-top: 10px;
+	margin-left: 15%;
 	padding: 0;
 	width: 100px;
-	font-size: 60px;
-	font-family: Bauhaus93;
+	font-size: 50px;
+	font-family: lemon;
+	font-weight: 900;
 	color: rgb(184,0,0);
+}
+
+.descp{
+	margin: 0 auto;
+	margin-right: 30px;
+	font-family: lemon;
+	font-size:15px;
+	color: rgb(150,150,150);
+}
+
+.registe{
+	display: block;
+	clear: both;
+	margin: 0 auto;
+	margin-top: 12px;
+	margin-right: 5px;
+	width: 100px;
+	color: rgb(150,150,150);
+	font-size: 15px;
+	font-family: icons;
 }
 
 .loginError{
@@ -35,7 +57,6 @@ body{
 	padding-top: 15px;
 	width: 200px;
 	height: 20px;
-	font-family: Arial;
 	font-size: 15px;
 	color: #C67171;
 }
@@ -71,7 +92,6 @@ input{
 	display: block;
 	color: rgb(180,180,180);
 	font-size: 13px;
-	font-family: Arial;
 }
 
 a:link{text-decoration: none;}
@@ -83,35 +103,37 @@ button{
 	color: white;
 }
 
-.btn_span{
+button:hover{
+	opacity: 0.8;
+}
 
+.btn_span{
 	font-size: 17px;
 	float:left;
 	margin-left:3px;
-	margin-top: 3px;
-	
+	margin-top: 5px;
 }
 
 .wechat_btn{
 	clear:both;
-	border:0px solid #000;
 	background-color: #62b900;
-	width: 170px;
-	height:40px;
+	width: 220px;
+	height:45px;
 	float: left;
 	margin-left: 15px;
-	margin-top: 80px;
+	margin-top: 60px;
+	box-shadow: 0 0 2px #62b900;
 }
 
 .qq_btn{
 	clear:both;
-	border:0px solid #000;
 	background-color: rgb(14,130,220);
-	width: 170px;
-	height:40px;
+	width: 220px;
+	height:45px;
 	float: left;
 	margin-left: 15px;
 	margin-top:20px;
+	box-shadow: 0 0 2px rgb(14,130,220);
 }
 
 .submit_btn{
@@ -120,6 +142,27 @@ button{
 	float: right;
 	width: 80px;
 	height: 35px;
-	color: white;
 	background-color: rgb(49,99,157);
+}
+
+.foot{
+	width: 370px;
+	margin: 0 auto;
+	clear: both;
+	margin-top: 22px;
+	margin-left: 20px;
+	font-size: 13px;
+	font-family: icons;
+}
+
+.foot_a{
+	color: rgb(170,170,170);
+	margin-left: 30px;
+}
+
+.foot_a:link{
+	text-decoration: none;
+}
+.foot_a:hover{
+	text-decoration: underline;
 }

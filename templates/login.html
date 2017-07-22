@@ -4,26 +4,32 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
-	<title>nostray : Login</title>
+	<title>nostray - Login</title>
 <style type="text/css">
-@font-face { 
-  font-family: Bauhaus93; 
-  src: url("{% static 'font/Bauhaus93.TTF' %}");
-}
+	@font-face { 
+	  font-family: icons; 
+	  src: url("{% static 'font/icons.woff2' %}");
+	}
+	@font-face {
+	  font-family: lemon; 
+	  src: url("{% static 'font/AaMissLemon.ttf' %}");
+	}
 </style>
 </head>
 <body background="{% static 'img/login_bg.png' %}">
 
 	<div class="main">
-	<!--<img class="logo" src="{% static 'img/logo.png' %}"-->
-	<span class="logo">nostray</span>
+	<!--img class="logo" src="{% static 'img/logo.png' %}"-->
+	<a class="registe" href="{% url 'registe' %}">立即注册-></a>
+	<span class="logo">Nostray</span>
+	<span class="descp">一个为了全体流浪动物和流浪动物救助站的公益平台</span>
 	<button class="wechat_btn">
 		<img src="{% static 'img/wechat.png' %}" style="width: 30px;float:left;clear:both;">
-		<span class="btn_span">&nbsp&nbsp微信登录</span>
+		<span class="btn_span">&nbsp&nbsp&nbsp&nbsp&nbsp微信登录</span>
 	</button>
 	<button class="qq_btn">
 		<img src="{% static 'img/qq.png' %}" style="width: 30px;float:left;clear:both;">
-		<span class="btn_span">&nbsp&nbspQQ&nbsp登录</span>
+		<span class="btn_span">&nbsp&nbsp&nbsp&nbsp&nbsp&nbspQQ&nbsp登录</span>
 	</button>
 	<form method="post" action="#">{% csrf_token %}
 		<span class="loginError">{{msg}}</span>
@@ -32,8 +38,13 @@
 			<a href="{% url 'forget_pwd' %}" class="forget">忘记密码?</a>
 		<button class="submit_btn" onclick="Submit()">登录</button>
 	</form>
+	<div class=foot>
+		<a class="foot_a" style="margin-left: 0;" href="">关于</a>
+		<a class="foot_a" href="">联系我们</a>
+		<a class="foot_a" href="">商业合作</a>
+		<a class="foot_a" href="">法律法规</a>
+		<a class="foot_a" href="">举报</a>
 	</div>
-	<div class=foot></div>
-
+	</div>
 </body>
 </html>
