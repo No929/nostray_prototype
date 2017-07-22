@@ -84,26 +84,34 @@ button{
 }
 
 .btn_span{
-	display: inline;
-	margin-bottom: 10px; 
+
 	font-size: 17px;
-	margin-top: 1px;
+	float:left;
+	margin-left:3px;
+	margin-top: 3px;
+	
 }
 
 .wechat_btn{
-	padding: 0;
+	clear:both;
+	border:0px solid #000;
 	background-color: #62b900;
 	width: 170px;
+	height:40px;
 	float: left;
 	margin-left: 15px;
 	margin-top: 80px;
 }
 
 .qq_btn{
+	clear:both;
+	border:0px solid #000;
 	background-color: rgb(14,130,220);
 	width: 170px;
+	height:40px;
 	float: left;
 	margin-left: 15px;
+	margin-top:20px;
 }
 
 .submit_btn{

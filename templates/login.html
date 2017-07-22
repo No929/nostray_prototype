@@ -8,7 +8,7 @@
 <style type="text/css">
 @font-face { 
   font-family: Bauhaus93; 
-  src: url("{% static 'font/Bauhaus93.TTF' %}"); 
+  src: url("{% static 'font/Bauhaus93.TTF' %}");
 }
 </style>
 </head>
@@ -18,12 +18,12 @@
 	<!--<img class="logo" src="{% static 'img/logo.png' %}"-->
 	<span class="logo">nostray</span>
 	<button class="wechat_btn">
-		<img src="{% static 'img/wechat.png' %}" style="width: 30px;">
+		<img src="{% static 'img/wechat.png' %}" style="width: 30px;float:left;clear:both;">
 		<span class="btn_span">&nbsp&nbsp微信登录</span>
 	</button>
 	<button class="qq_btn">
-		<img src="{% static 'img/qq.png' %}" style="width: 30px;">
-		<span class="btn_span">QQ登录</span>
+		<img src="{% static 'img/qq.png' %}" style="width: 30px;float:left;clear:both;">
+		<span class="btn_span">&nbsp&nbspQQ&nbsp登录</span>
 	</button>
 	<form method="post" action="#">{% csrf_token %}
 		<span class="loginError">{{msg}}</span>
