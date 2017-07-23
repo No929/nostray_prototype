@@ -4,24 +4,31 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="{% static 'css/community.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/head.css' %}">
 <title>nostray - Community</title>
+<style type="text/css">
+    @font-face { 
+      font-family: icons; 
+      src: url("{% static 'font/icons.woff2' %}");
+    }
+    @font-face {
+      font-family: lemon; 
+      src: url("{% static 'font/AaMissLemon.ttf' %}");
+    }
+</style>
 </head>
 <body>
 <div class="wrap">
-	<div class="head">
-    	<div class="div_logo">
-        	<a class="a_logo" href="index.html">
-            	<img src="./img/logo.png" style="max-width:120px; max-height:50px;" />
-            </a>
-        </div>
-   		<div class="div_nav">
-        	<ul class="nav_ul">
-            	<li class="nav_li"><a href="" class="a_li">领养</a></li>
-                <li class="nav_li"><a href="" class="a_li">社区</a></li>
-                <li class="nav_li"><a href="#" class="a_li">个人中心</a></li>
-            </ul>
-		</div>
+<div class="head_bar" >
+    <a class="logo" href="{% url 'index' %}">Nostray</a>
+    <div class="nav_bar">
+        <a class="nav" href="{% url 'adopt' %}">领养</a>
+        <a class="nav" href="{% url 'community' %}">社区</a>
+        <a class="nav" href="">公益</a>
     </div>
+    <button class="bar_btn1" onclick="location.href={% url 'login' %}">登录</button>
+    <button class="bar_btn2" onclick="location.href={% url 'registe' %}">注册</button>
+</div>
     <div class="main">
         <div class="div_main_left">
         	<!-- 种类 -->

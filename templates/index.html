@@ -4,67 +4,53 @@
 <head>
 <meta charset="UTF-8">
 <title>nostray</title>
-
 <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
-<link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
-
+<link rel="stylesheet" type="text/css" href="{% static 'css/head.css' %}">
 <script type="text/javascript" src="{% static 'js/index.js' %}"></script>
-
-
+<style type="text/css">
+    @font-face { 
+      font-family: icons; 
+      src: url("{% static 'font/icons.woff2' %}");
+    }
+    @font-face {
+      font-family: lemon; 
+      src: url("{% static 'font/AaMissLemon.ttf' %}");
+    }
+</style>
 </head>
 <body>
-<div class="wrap">
-  <div class="head">
-    	<div class="div_logo">
-        	
-        	<a href="/">
-            	<img src="{% static 'img/first_logo.png' %}" style="max-width: 90%; max-height: 90%" />
-            </a>
-        </div>
-   		<div class="div_nav">
-        	<ul class="nav_ul">
-            	<li><a href="{% url 'adopt' %}" class="a_li">领养</a></li>
-                <li><a href="{% url 'community' %}" class="a_li">社区</a></li>
-                <li><a href="" class="a_li" >个人中心</a></li>
-            </ul>
-        </div>
-
+<div class="head_bar" style="z-index: 1;">
+    <a class="logo" href="{% url 'index' %}">Nostray</a>
+    <div class="nav_bar">
+        <a class="nav" href="{% url 'adopt' %}">领养</a>
+        <a class="nav" href="{% url 'community' %}">社区</a>
+        <a class="nav" href="">公益</a>
+    </div>
+</div>
         {% if request.user.is_authenticated %}
             <div><!-- 登录后显示 --></div>
         {% else %}
-            <div class="div_login"><a href="{% url 'login' %}">
-            <input type="button" id="btn_login" name="btn_login" class="btn_login" value="登录"/>
-            </a></div>
-            <div class="div_register"><a href="{% url 'registe' %}">
-            <input type="button" id="btn_regist" name="btn_regist" class="btn_regist" value="加入我们"/>
-            </a></div>
-            </div>
+            <button class="bar_btn1" onclick="location.href={% url 'login' %}">登录</button>
+            <button class="bar_btn2" onclick="location.href={% url 'registe' %}">注册</button>
         {% endif %}
         
-  <div class="main" id="container">
-  
+<div class="main" id="container" style="z-index: 0;">
   	<div id="list" style="left:-1366px">
-    
-    	<img alt="" src="" class="img" />
-    	<img alt="" src="" class="img"/>
-        <img alt="" src="" class="img"/>
-        <img alt="" src="" class="img"/>
-        <img alt="" src="" class="img"/>
-        <img alt="" src="" class="img"/>
-        
+    	<img alt="" src="{% static 'img/login_bg.png' %}" class="img">
+    	<img alt="" src="" class="img">
+        <img alt="" src="" class="img">
+        <img alt="" src="" class="img">
+        <img alt="" src="" class="img">
+        <img alt="" src="" class="img">
     </div>
     <div id="buttons">
-    
     	<span index="1" class="on"></span>
         <span index="2"></span>
         <span index="3"></span>
         <span index="4"></span>
-    
     </div>
     <a href="javascript:;" class="arrow" id="prev">&lt;</a>
     <a href="javascript:;" class="arrow" id="next">&gt;</a>  
   </div>
-  <div class="foot"></div>
-</div>
 </body>
 </html>

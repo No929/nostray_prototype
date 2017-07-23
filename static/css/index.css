@@ -1,128 +1,22 @@
-@CHARSET "UTF-8";
 *{
 	margin:0;
 	padding:0;
 	text-decoration:none;
 }
-.wrap{
-	width:100%;
-	margin:0 auto;
-	background:#FFC;
-}
-.head{
-	width: 100%;
-	height: 60px;
-	background: rgb(20,30,40); 
-	box-shadow: 0px 2px 3px rgb(83,83,83);
-	/*border-radius:5px;*/
-}
-
 .main{
-	width:100%; 
-	margin-top:10px;
-}
-
-img{
+	margin-top: 0;
 	width:100%;
 }
-.foot{
+.img{
 	width:100%;
-	height:80px;
-	background-color: rgb(20,30,40);
-}
-.div_logo{
-	width: 110px;
-	height: 60px;
-	margin-left: 65px;
-	margin-top: 1.5px;
-	float: left;
-}
-.div_nav{
-	width:350px;
-	height:60px;
-	margin-left:100px;
-	float:left;
-	font-size:12px;
-	
-}
-.nav_ul{
-	padding-left:20px;
-	list-style:none;	/*取出前面的点*/
-}
-li{
-	height:42px;
-	padding-left:22px;
-	padding-top:17px;
-	float:left;			/*横向显示*/
-}
-li:hover{
-	background: #07F;
-}
-.a_li{
-	color:white;
-	font-size:15px;
-	font-weight:bold;
-	text-align:center;
-	text-decoration: none;
-	margin-right:19px;
-}
-.a_li:hover{
-	color:rgb(200,200,169);
-}
-.div_login{
-	width:60px;
-	height:40px;
-	margin-left:450px;
-	padding-top:9px;
-	float:left;
-	font-size:11px;
-}
-.div_register{
-	width:60px;
-	height:40px;
-	margin-right:75px;
-	padding-top:9px;
-	float:right;
-	font-size:11px;
-}
-/* 登录、注册按钮*/
-.btn_login{
-	width:60px;
-	height:30px;
-	color:white;
-	border:none;
-	background:rgb(59,68,57);
-	border-radius:4px;
-	font-weight:bolder;
-	line-height:normal;
-	cursor:pointer;
-	margin-top:2px;
-	font-size:15px;
-}
-.btn_regist{
-	width:65px;
-	height:30px;
-	color: white;
-	border:none;
-	background: #06E;
-	border-radius:4px;
-	font-weight:bolder;
-	line-height:normal;
-	cursor:pointer;
-	margin-top:2px;
-	font-size:15px;
 }
 #container{
 	width: 100%;
 	height: 500px;
-	border:0px solid #06E;
 	overflow:hidden;
-	position:relative;
+	position: fixed;
 	margin:0 auto;
-	margin-top: 3px;
-	/*border:#CCF;*/
-	/*box-shadow:1px 2px 3px #06E;*/
-
+	margin-top: 65px;
 }
 #list{
 	width:8196px;
