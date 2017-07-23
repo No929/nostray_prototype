@@ -3,16 +3,8 @@
 {% load staticfiles %}
 <head>
 <meta charset="UTF-8">
-<<<<<<< Updated upstream
-<title>GiveAway</title>
-<link rel="stylesheet" type="text/css" href="./css/community.css">
-<link rel="stylesheet" type="text/css" href="./css/back_top.css">
-<script type="text/javascript" src="js/back_top.js"></script>
-=======
-<title>nostray : Community</title>
-<link rel="stylesheet" type="text/css" href="{ static 'css/giveaway_list.css' }">
-<script type="text/javascript" src="{ static 'js/back_top.js' }"></script>
->>>>>>> Stashed changes
+<link rel="stylesheet" type="text/css" href="{% static 'css/community.css' %}">
+<title>nostray - Community</title>
 </head>
 <body>
 <div class="wrap">
@@ -24,8 +16,8 @@
         </div>
    		<div class="div_nav">
         	<ul class="nav_ul">
-            	<li class="nav_li"><a href="station_list.html" class="a_li">领养</a></li>
-                <li class="nav_li"><a href="giveaway_list.html" class="a_li">社区</a></li>
+            	<li class="nav_li"><a href="" class="a_li">领养</a></li>
+                <li class="nav_li"><a href="" class="a_li">社区</a></li>
                 <li class="nav_li"><a href="#" class="a_li">个人中心</a></li>
             </ul>
 		</div>
@@ -120,7 +112,6 @@
         </div>       
         <div class="div_main_right">	
             <div class="main_right_post">
-            	<!--input type="button" id="post" value="发&nbsp;&nbsp;&nbsp;&nbsp;帖" /-->
                 <div class="main_right_top">
                     <div class="top_image">
                     <img src="img/top_image.png" class="image"/>
@@ -151,12 +142,9 @@
                     </div>
     			</div>
             </div>
-            <!--div class="main_right_law"></div-->
         </div>
     </div>
     <div class="foot"></div>
 </div>
-<!-- 点击回到顶部 -->
-<a href="javascipt:;" id="back_top" title="回到顶部"></a>
 </body>
 </html>
