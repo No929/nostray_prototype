@@ -13,9 +13,10 @@
 	  src: url("{% static 'font/AaMissLemon.ttf' %}");
 	}
 </style>
-	<title>nostray</title>
+	<title>nostray</title> 
 </head>
 <body>
+
 <div class="head_bar" >
 	<a class="logo" href="{% url 'index' %}">Nostray</a>
 	<div class="nav_bar">
@@ -23,10 +24,8 @@
 		<a class="nav" href="{% url 'community' %}">社区</a>
 		<a class="nav" href="">公益</a>
 	</div>
-	<div class="buttons">
-		<button></button>
-		<button></button>
-	</div>
+	<button class="bar_btn1" onclick="location.href={% url 'login' %}">登录</button>
+	<button class="bar_btn2" onclick="location.href={% url 'registe' %}">注册</button>
 </div>
 </body>
 </html>
