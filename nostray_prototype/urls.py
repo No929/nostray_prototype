@@ -17,16 +17,17 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from register.views import LoginView, RegisteView, ActiveUserView, ForgetPwdView, ResetPwdView, ModifyPwdView
 from adopt.views import ShowNearBy
-from community.views import allPosts
+from community.views import AllPosts
 from django.views.generic import TemplateView
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^captcha/',  include('captcha.urls')),
     url(r'^$', TemplateView.as_view(template_name='index.html'), name='index'),
+    url(r'^head/$', TemplateView.as_view(template_name='head.html'), name='head'),
     url(r'^login/$', LoginView.as_view(), name='login'),
     url(r'^registe/$', RegisteView.as_view(), name='registe'),
-    url(r'^community/', allPosts, name='community'),
+    url(r'^community/', AllPosts.as_view(), name='community'),
     url(r'^adopt/', ShowNearBy.as_view(), name='adopt'),
     url(r'^active/(?P<active_code>.*)/$', ActiveUserView.as_view(), name='user_active'),
     url(r'^forget/$', ForgetPwdView.as_view(), name='forget_pwd'),
