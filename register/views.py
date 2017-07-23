@@ -86,11 +86,11 @@ class LoginView(View):
 					login(request, user)
 					return render(request, 'index.html')
 				else:
-					return render(request, 'login.html', {'msg':'账号未激活！'}, {'login_form':login_form})
+					return render(request, 'login.html', {'msg':'账号未激活！', 'login_form':login_form})
 			else:
-				return render(request, 'login.html', {'msg':'用户名不存在！'}, {'login_form':login_form})
+				return render(request, 'login.html', {'msg':'用户名或密码错误！', 'login_form':login_form})
 		else:
-			return render(request, 'login.html', {'msg':'用户名或密码错误！'}, {'login_form':login_form})
+			return render(request, 'login.html', {'msg':'用户名或密码长度错误！', 'login_form':login_form})
 
 
 class ForgetPwdView(View):
