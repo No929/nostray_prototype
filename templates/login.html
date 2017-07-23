@@ -3,7 +3,7 @@
 {% load staticfiles %}
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}" media="only screen and (max-width:1500px)">
 	<title>nostray - Login</title>
 <style type="text/css">
 	@font-face { 
@@ -28,10 +28,11 @@
 		<span class="btn_span">&nbsp&nbsp&nbsp&nbsp&nbsp微信登录</span>
 	</button>
 	<button class="qq_btn">
-		<img src="{% static 'img/qq.png' %}" style="width: 30px;float:left;clear:both;">
+		<img src="{% static 'img/qq.png' %}" style="width: 32px;float:left;clear:both;">
 		<span class="btn_span">&nbsp&nbsp&nbsp&nbsp&nbsp&nbspQQ&nbsp登录</span>
 	</button>
-	<form method="post" action="#">{% csrf_token %}
+	<form method="post" action="#">
+	{% csrf_token %}
 		<span class="loginError">{{msg}}</span>
 			<input class="username {% if login_form.errors.username %} errorput {% endif %}" type="text" style="margin-top: 5px" name="username" onchange="" placeholder="用户名／邮箱" value="{{ login_form.username.value }}">
 			<input class="password {% if login_form.errors.password %} errorput {% endif %}" type="password" name="password" onchange="" placeholder="密码">
