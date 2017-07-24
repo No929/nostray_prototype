@@ -18,7 +18,6 @@
 </style>
 </head>
 <body>
-<div class="wrap">
 <div class="head_bar" >
     <a class="logo" href="{% url 'index' %}">Nostray</a>
     <div class="nav_bar">
@@ -29,129 +28,37 @@
     <button class="bar_btn1" onclick="location.href={% url 'login' %}">登录</button>
     <button class="bar_btn2" onclick="location.href={% url 'registe' %}">注册</button>
 </div>
-    <div class="main">
-        <div class="div_main_left">
-        	<!-- 种类 -->
-            <div class="main_left_top">
-                <div class="main_species">
-                    <ul class="species_ul">
-                        <li class="species_li"><a class="a_species" href="#">猫</a></li>
-                        <li class="species_li"><a class="a_species" href="#">狗</a></li>
-                        <li class="species_li"><a class="a_species" href="#">羊</a></li>
-                        <li class="species_li"><a class="a_species" href="#">其他</a></li>
-                    </ul>
-                </div>
-                <div class="main_search">
-                    <input type="search" name="search" id="search" placeholder="Search" />
-                </div>
-            </div>
-            <!-- 头部 -->
-            <div class="main_left_head">
-            	<!-- 菜单 -->
-            	<div class="head_menu"></div>
-                <!-- 查看回复人数 -->
-                <div class="head_reply">回复/查看</div>
-                <!-- 发帖时间 -->
-                <div class="head_date">发布时间</div>
-            </div>
-            <!-- 每一个帖子 -->
-            <div class="main_left_list" id="main_left_list1">
-            	<div class="list_title" id="list_title1"> 
-            		<a href="#" class="a_title1">我在潍坊学院北门，发现一只流浪狗 </a>
-            	</div>
-                <div class="list_reply" id="list_reply1"> <span class="span_reply">6/2056</span> </div>
-                <div class="list_date" id="list_date1"> <span class="span_date">2016/05/14 20:04:59</span> </div>
-            </div>
-            <div class="main_left_list" id="main_left_list1">
-            	<div class="list_title" id="list_title1"> 
-            		<a href="#" class="a_title1">高品质纯种金毛幼犬 幼犬待售中 专业繁殖品质保障 </a>
-            	</div>
-                <div class="list_reply" id="list_reply1"> <span class="span_reply">6/2056</span> </div>
-                <div class="list_date" id="list_date1"> <span class="span_date">2016/05/14 20:04:59</span> </div>
-            </div>
-            <div class="main_left_list" id="main_left_list1">
-            	<div class="list_title" id="list_title1"> 
-            		<a href="#" class="a_title">纯种金毛犬多少钱一只? 选金毛萌宠就来找我  </a>
-            	</div>
-                <div class="list_reply" id="list_reply1"> <span class="span_reply">6/2056</span> </div>
-                <div class="list_date" id="list_date1"> <span class="span_date">2016/05/14 20:04:59</span> </div>
-            </div>
-            <div class="main_left_list" id="main_left_list1">
-            	<div class="list_title" id="list_title1"> 
-            		<a href="#" class="a_title">自家金毛产的六只小狗，求好心人收养 </a>
-            	</div>
-                <div class="list_reply" id="list_reply1"> <span class="span_reply">6/2056</span> </div>
-                <div class="list_date" id="list_date1"> <span class="span_date">2016/05/14 20:04:59</span> </div>
-            </div>
-            <div class="main_left_list" id="main_left_list1">
-            	<div class="list_title" id="list_title1"> 
-            		<a href="#" class="a_title">专业繁殖高品质纯种金毛 双血统 基因优良 欢迎选购</a>
-            	</div>
-                <div class="list_reply" id="list_reply1"> <span class="span_reply">6/2056</span> </div>
-                <div class="list_date" id="list_date1"> <span class="span_date">2016/05/14 20:04:59</span> </div>
-            </div>
-            <div class="main_left_list" id="main_left_list1">
-            	<div class="list_title" id="list_title1"> 
-            		<a href="#" class="a_title">日本柴犬哪里卖?丨快来这里错不了 </a>
-            	</div>
-                <div class="list_reply" id="list_reply1"> <span class="span_reply">6/2056</span> </div>
-                <div class="list_date" id="list_date1"> <span class="span_date">2016/05/14 20:04:59</span> </div>
-            </div>
-            <div class="main_left_list" id="main_left_list1">
-            	<div class="list_title" id="list_title1"> 
-            		<a href="#" class="a_title">金毛幼犬疫苗齐全、保纯种健康签协议、免费送货 </a>
-            	</div>
-                <div class="list_reply" id="list_reply1"> <span class="span_reply">6/2056</span> </div>
-                <div class="list_date" id="list_date1"> <span class="span_date">2016/05/14 20:04:59</span> </div>
-            </div>
-            <div class="main_left_list" id="main_left_list1">
-            	<div class="list_title" id="list_title1"> 
-            		<a href="#" class="a_title">拉布拉多疫苗齐全、保纯种健康签协议、免费送货 </a>
-            	</div>
-                <div class="list_reply" id="list_reply1"> <span class="span_reply">6/2056</span> </div>
-                <div class="list_date" id="list_date1"> <span class="span_date">2016/05/14 20:04:59</span> </div>
-            </div>
-            
-         
-            <div class="main_left_next">
-            	<input type="button" value="下一页" name="next" onClick="" class="button_next">
-            </div>
-        </div>       
-        <div class="div_main_right">	
-            <div class="main_right_post">
-                <div class="main_right_top">
-                    <div class="top_image">
-                    <img src="img/top_image.png" class="image"/>
-                    </div>
-                    <div class="top_file">
-                    <input type="file" name="top_file" id="top_file" class="file">
-                    </div>
-    			</div>
-    			<div class="main_right_middle">
-                    <div class="middle_left">
-                        <span class="span_title">标题</span>
-                    </div>
-                    <div class="middle_right">
-                        <input type="text" class="middle_title" id="title" name="title"  placeholder="不超过20个字"/>
-                    </div>
-    			</div>
-                <div class="main_right_bottom">
-                    <div class="right_bottom">
-                        <textarea class="bottom_text" name="text" id="text"  rows="" cols=""></textarea>
-                    </div>
-                </div>
-                <div class="main_right_foot">
-                    <div class="foot_left">
-                        <input type="button" id="btn_send" name="btn_send" class="btn_send" value="发帖"/>
-                    </div>
-                    <div class="foot_right">
-                        <input type="button" id="btn_save" name="btn_save" class="btn_save" value="保存"/>
-                    </div>
-    			</div>
-            </div>
-        </div>
+<div class="main_left">
+    <div class="left_bar">
+        <a class="a_post" href="#title">
+        <img class="inner_img" src="{% static 'img/post.png' %}">
+        <span class="inner_span">发布消息</span>
+        </a>
+        <a class="a_lost" href="">
+        <img class="lost_img" src="{% static 'img/lost.png' %}">
+        <span class="inner_span">宠物丢失</span>
+        </a>
+        <form action="" class="search_form">
+        <input type="search" name="search" class="search_bar" placeholder="搜索">
+        </form>
     </div>
-    <div class="foot"></div>
+    <div class="post"></div>
+    <div class="post"></div>
+    <div class="post"></div>
+    <div class="post"></div>
+    <div class="post"></div>
+<form action="" class="poster">
+    <input type="file" name="image" class="post_area">
+    <input type="text" name="title" id="title" class="post_area">
+    <input type="text" name="content" class="post_area">
+</form>
+</div>
+<div class="main_right">
+    <div class="msg">
+        <a href="" class="msg_a"><span class="msg_span">我的收藏</span></a>
+        <a href="" class="msg_a"><span class="msg_span">我的收藏</span></a>
+        <a href="" class="msg_a"><span class="msg_span">我的消息</span></a>
+    </div>
 </div>
 </body>
 </html>
