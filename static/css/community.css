@@ -117,3 +117,23 @@
 	margin-top: 14px;
 	margin-left: 10px;
 }
+.small_img{
+	float: left;
+	margin-top: 14px;
+	margin-left: 10px;
+	width: 20px;
+}
+.num{
+	padding-left: 3px;
+	padding-right: 3px;
+	text-align: center;
+	float: right;
+	margin-right: 20px; 
+	margin-top: 14px;
+	color: white;
+	border-radius: 2px;
+	min-width: 15px;
+}
+.num1{background-color: #7D9EC0}
+.num2{background-color: #7D9EC0}
+.num3{background-color: #FF5A5A}
