@@ -59,13 +59,13 @@
     {% for post in all_posts %}
     <div class="post">
         <a href="" class="user_a">
-        <img class="icon" src="{{ MEDIA_URL }}user_icon/default.png">
+        <img class="icon" src="{{ MEDIA_URL }}{{ post.icon }}">
         <span class="name_span">{{ post.user }}</span>
         </a>
         <span class="time">发表时间：{{ post.add_time }}</span>
         <span class="clicked">回复：{{ post.comment_num }}</span>
         <a href="">
-        <img class="post_img" src="{{ MEDIA_URL }}{{ post.image }}" onerror="this.src='{% static 'img/' %}'">
+        <img class="post_img" src="{{ MEDIA_URL }}{{ post.image }}">
         <div class="article">
         <h3 class="title">{{ post.title }}</h3>
         <span class="content">&nbsp&nbsp&nbsp&nbsp{{ post.content }}</span>

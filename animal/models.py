@@ -28,7 +28,7 @@ class Animals(models.Model):
 	species = models.CharField(max_length=4, choices=SPECIES_CHOICES, verbose_name=u"物种")
 	#dog_var = models.CharField(max_length=10, choices=DOG_CHOICES, null=True, verbose_name=u"狗品种")
 	#cat_var = models.CharField(max_length=10, choices=CAT_CHOICES, null=True, verbose_name=u"猫品种")
-	photo = models.ImageField(upload_to='animal_img', null=True, verbose_name=u"动物图片")
+	photo = models.ImageField(upload_to='animal_img/%Y/%m', null=True, verbose_name=u"动物图片")
 
 	class Meta:
 		verbose_name = u"动物信息"
