@@ -15,10 +15,13 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
+from django.views.generic import TemplateView
+from django.views.static import serve
+
 from register.views import LoginView, RegisteView, ActiveUserView, ForgetPwdView, ResetPwdView, ModifyPwdView
 from adopt.views import ShowNearBy
 from community.views import AllPosts
-from django.views.generic import TemplateView
+from nostray_prototype.settings import MEDIA_ROOT
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -33,4 +36,5 @@ urlpatterns = [
     url(r'^forget/$', ForgetPwdView.as_view(), name='forget_pwd'),
     url(r'^reset/(?P<active_code>.*)/$', ResetPwdView.as_view(), name='reset_pwd'),
     url(r'^modify_pwd/$', ModifyPwdView.as_view(), name='modify_pwd'),
+    url(r'^media/(?P<path>.*)$', serve, {"document_root":MEDIA_ROOT}),
 ]
