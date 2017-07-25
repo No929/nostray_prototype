@@ -1,0 +1,135 @@
+@charset "utf-8";
+input:focus { 
+	outline: none; 
+}
+button:focus { 
+	outline: none; 
+}
+ 
+body{
+	background:rgb(182,201,243);
+}
+.top{
+	border:0px solid rgb(0,51,153);
+	width:500px;
+	height:200px;
+	float:left;
+	margin-top:7%;
+	margin-left:30%;
+}
+.logo{
+	display: block;
+	margin-top: 40px;
+	margin-left: 20%;
+	padding: 0;
+	width: 100px;
+	font-size: 90px;
+	font-family:Bauhaus93;
+	color: rgb(255,255,255);
+}
+.mid{
+	clear:both;
+	border:0px solid rgb(0,51,153);
+	width:500px;
+	height:200px;
+	margin-left:30%;
+}
+.pw1{
+	float:left;
+	margin-left:100px;
+	width:200px;
+	height:25px;
+	margin-top:20px;
+	border:none;
+	background: rgb(255,255,255);
+	box-shadow:2px 2px 2px #333333;
+	border-radius: 2px;
+	padding-left:5px;
+}
+.pw1:hover{
+	background: rgb(255,255,255);
+	box-shadow:2px 2px 2px #333333;
+}
+.pw1:active{
+	background: rgb(255,255,255);
+	box-shadow:2px 2px 2px #333333;
+}
+.txt1{
+	margin-left:5px;
+	width:150px;
+	height:25px;
+	margin-top:20px;
+	border:none;
+	background:rgb(182,201,243);
+	border-radius: 2px;
+	padding-left:10px;
+	float:left;
+	font-size:12px;
+	font-family:youyuan;
+	font-weight: 800;
+	
+}
+/**/
+
+.pw2{
+	clear:both;
+	width:200px;
+	height:25px;
+	float:left;
+	margin-left:100px;
+	margin-top:30px;
+	border:none;
+	background: rgb(255,255,255);
+	box-shadow:2px 2px 2px #333333;
+	border-radius: 2px;
+	padding-left:5px;
+}
+.pw2:hover{
+	background: rgb(255,255,255);
+	box-shadow:2px 2px 2px #333333;
+}
+.pw2:active{
+	background: rgb(255,255,255);
+	box-shadow:2px 2px 2px #333333;
+}
+.txt2{
+	border: 2px solid rgb(0,0,0);
+	margin-left:5px;
+	width:150px;
+	height:25px;
+	margin-top:30px;
+	border:none;
+	background:rgb(182,201,243);
+	border-radius: 2px;
+	padding-left:10px;
+	float:left;
+	font-size:12px;
+	font-family:youyuan;
+	font-weight:800;
+}
+/**/
+
+.button{
+	float:left;
+	margin-top:30px;
+	margin-left:210px;
+	width:90px;
+	height:30px;
+	border: 1px solid rgb(102,255,255);
+	border-radius: 50px;
+	background: rgb(153,102,255);
+	color:rgb(255,255,255);
+	font-size:16px;
+	font-weight: 800;
+	font-family:MV Boli;
+	box-shadow:2px 2px 2px  #333333;
+}
+.button:hover{
+	color:rgb(51,51,51);
+}
+.button:active{
+	box-shadow:1px 1px 1px  #333333;
+	background: rgb(0,102,255);
+	
+}
+

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>重置密码</title>
+    <link rel="stylesheet" type="text/css" href="css/pwdreset.css">
+    <style type="text/css">
+		@font-face { 
+		  font-family: Bauhaus93; 
+		  src: url("font/Bauhaus93.TTF");
+		}
+	</style>
+    <script type="text/javascript" src="js/pwdreset.js"></script>
+</head>
+<body>
+<form  name="pwdreset" method="post" action="#">
+<div class="top">
+	<span class="logo">nostray</span>
+</div>
+<div class="mid">
+	<div class="div_email">
+		<input type="hidden" id="email" name="email" value="">
+	</div>
+
+	<tr>
+	<div class="div_pw1">
+		<input type="password" class="pw1" id="pw1" name="password1" value="" onChange="chang1(this)">
+        <input type="text" class="txt1" id="txt1" value="" disabled/>
+  	</div>
+    </tr>
+    
+    <tr>
+    <div class="div_pw2">
+		<input type="password" class="pw2" id="pw2" name="password2" value="" onChange="chang2(this)">
+        <input type="text" class="txt2" id="txt2" value="" disabled/>
+    </div>
+    </tr>
+    
+    
+    <div class="div_btn">
+    	<button class="button" id="btn" name="btn" onClick="sub()">提&nbsp;交</button>
+    </div>
+</div>
+</form>
+</body>
+</html>
+<!-- 重置密码，两个input是新密码和确认密码，再加一个按钮提交，用js -->
