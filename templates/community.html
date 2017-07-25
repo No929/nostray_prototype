@@ -42,11 +42,37 @@
         <input type="search" name="search" class="search_bar" placeholder="搜索">
         </form>
     </div>
-    <div class="post"></div>
-    <div class="post"></div>
-    <div class="post"></div>
-    <div class="post"></div>
-    <div class="post"></div>
+    <div class="cate">
+    <span class="cate_span">按动物类别：</span>
+    <a href=""><span class="cate_span">全部</span></a>
+    <a href=""><span class="cate_span">狗</span></a>
+    <a href=""><span class="cate_span">猫</span></a>
+    <a href=""><span class="cate_span">其他</span></a>
+<br/>
+    <span class="cate_span">按帖子种类：</span>
+    <a href=""><span class="cate_span">全部</span></a>
+    <a href=""><span class="cate_span">流浪动物</span></a>
+    <a href=""><span class="cate_span">文章</span></a>
+    <a href=""><span class="cate_span">发布</span></a>
+    <a href=""><span class="cate_span">寻求</span></a>
+    </div>
+    {% for post in all_posts %}
+    <div class="post">
+        <a href="" class="user_a">
+        <img class="icon" src="{{ MEDIA_URL }}user_icon/default.png">
+        <span class="name_span">{{ post.user }}</span>
+        </a>
+        <span class="time">发表时间：{{ post.add_time }}</span>
+        <span class="clicked">回复：{{ post.comment_num }}</span>
+        <a href="">
+        <img class="post_img" src="{{ MEDIA_URL }}{{ post.image }}" onerror="this.src='{% static 'img/' %}'">
+        <div class="article">
+        <h3 class="title">{{ post.title }}</h3>
+        <span class="content">&nbsp&nbsp&nbsp&nbsp{{ post.content }}</span>
+        </div>
+        </a>
+    </div>
+    {% endfor %}
 <form action="" class="poster">
     <input type="file" multiple="multiple" accept="image/png,image/gif,image/jpeg" id="xxx" name="image" class="post_area">
     <input type="text" name="title" id="title" class="post_area">

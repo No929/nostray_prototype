@@ -9,7 +9,6 @@
 	margin-top: 66px;
 	float: left;
 	width: 65%;
-	height: 1000px;
 }
 .left_bar{
 	margin: 0 auto;
@@ -26,7 +25,7 @@
 	margin-right: 20px;
 	margin-top: 15px;
 	width: 700px;
-	height: 150px;
+	height: 220px;
 	border: 1px solid rgb(233,233,233);
 	border-radius: 2px;
 	box-shadow: 0 0 4px rgb(222,222,222);
@@ -76,6 +75,92 @@
 	height: 40px;
 	width: 240px;
 }
+.cate{
+	margin-left: 245px;
+	margin-top: 10px;
+	height: 35px;
+	width: 380px;
+}
+.cate_span{
+	color: rgb(100,100,100);
+	float: left;
+	font-family: icons;
+	font-size: 13px;
+	margin-left: 20px;
+}
+.user_a{
+	color: rgb(100,100,200);
+	text-align: left;
+	display: block;
+	margin-top: 15px;
+	margin-left: 35px;
+	text-decoration: none;
+}
+.icon{
+	display: block;
+	width: 40px;position: absolute;
+	box-shadow: 0 0 2px rgb(100,100,100);
+}
+.name_span{
+	display: block;
+	position: absolute;
+	margin-left: 45px;
+	margin-top: 7px;
+	font-size: 17px;
+	font-family: icons;
+}
+.time{
+	display: block;
+	position: absolute;
+	margin-left: 490px;
+	margin-top: 5px;
+	font-size: 12px;
+	font-family: icons;
+	color: rgb(150,150,150);
+}
+.clicked{
+	margin-left: 625px;
+	margin-top: 25px;
+	font-size: 12px;
+	font-family: icons;
+	color: rgb(150,150,150);
+	display: block;
+	position: absolute;
+}
+.post_img{
+	display: block;
+	position: absolute;
+	margin-left: 55px;
+	margin-top: 58px;
+	max-height: 120px;
+	max-width: 200px;
+	border-radius: 2px;
+	box-shadow: 0 0 3px rgb(100,100,100);
+}
+.article{
+	display: block;
+	position: absolute;
+	font-family: icons;
+	margin-left:280px;
+	margin-top: 53px;
+	height: 125px;
+	width: 360px;
+}
+.article:hover{opacity: 0.9}
+.title{
+	overflow: hidden;
+	text-align: left;
+	display: block;
+	height: 30px;
+	color: rgb(100,100,100);	
+}
+.content{
+	overflow: hidden;
+	text-align: left;
+	display: block;
+	height: 91px;
+	color: rgb(60,60,60);
+}
 .poster{
 	margin-top: 20px;
 }
@@ -88,7 +173,6 @@
 	margin-top: 66px;
 	float: right;
 	width: 35%;
-	height: 1000px;
 }
 .msg{
 	position: fixed;
