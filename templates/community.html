@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 {% load staticfiles %}
+{% load i18n %}
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="{% static 'css/community.css' %}">
@@ -43,20 +44,38 @@
         </form>
     </div>
     <div class="cate">
-    <span class="cate_span">按动物类别：</span>
-    <a href=""><span class="cate_span">全部</span></a>
-    <a href=""><span class="cate_span">狗</span></a>
-    <a href=""><span class="cate_span">猫</span></a>
-    <a href=""><span class="cate_span">其他</span></a>
+    <span class="cate_span0">按动物类别：</span>
+    <a href="?kind={{ post_kind }}">
+    <span class="cate_span {% ifequal animal_kind '' %}chosen_animal{% endifequal %}">全部</span>
+    </a>
+    <a href="?animal=dog&kind={{ post_kind }}">
+    <span class="cate_span {% ifequal animal_kind 'dog' %}chosen_animal{% endifequal %}">狗</span>
+    </a>
+    <a href="?animal=cat&kind={{ post_kind }}">
+    <span class="cate_span {% ifequal animal_kind 'cat' %}chosen_animal{% endifequal %}">猫</span>
+    </a>
+    <a href="?animal=other&kind={{ post_kind }}">
+    <span class="cate_span {% ifequal animal_kind 'other' %}chosen_animal{% endifequal %}">其他</span>
+    </a>
 <br/>
-    <span class="cate_span">按帖子种类：</span>
-    <a href=""><span class="cate_span">全部</span></a>
-    <a href=""><span class="cate_span">流浪动物</span></a>
-    <a href=""><span class="cate_span">文章</span></a>
-    <a href=""><span class="cate_span">发布</span></a>
-    <a href=""><span class="cate_span">寻求</span></a>
+    <span class="cate_span0">按帖子种类：</span>
+    <a href="?animal={{ animal_kind }}">
+    <span class="cate_span {% ifequal post_kind '' %}chosen_animal{% endifequal %}">全部</span>
+    </a>
+    <a href="?kind=new_explorer&animal={{ animal_kind }}">
+    <span class="cate_span {% ifequal post_kind 'new_explorer' %}chosen_animal{% endifequal %}">流浪动物</span>
+    </a>
+    <a href="?kind=tell_story&animal={{ animal_kind }}">
+    <span class="cate_span {% ifequal post_kind 'tell_story' %}chosen_animal{% endifequal %}">文章</span>
+    </a>
+    <a href="?kind=giving&animal={{ animal_kind }}">
+    <span class="cate_span {% ifequal post_kind 'giving' %}chosen_animal{% endifequal %}">发布</span>
+    </a>
+    <a href="?kind=want&animal={{ animal_kind }}">
+    <span class="cate_span {% ifequal post_kind 'want' %}chosen_animal{% endifequal %}">寻求</span>
+    </a>
     </div>
-    {% for post in all_posts %}
+    {% for post in all_posts.object_list %}
     <div class="post">
         <a href="" class="user_a">
         <img class="icon" src="{{ post.icon.icon.url }}">
@@ -73,6 +92,31 @@
         </a>
     </div>
     {% endfor %}
+    <div class="page_turn">
+        {% if all_posts.has_previous %}
+        <a href="?{{ all_posts.previous_page_number.querystring }}" class="link_page">{% trans "上一页" %}</a>
+        {% else %}
+        <span class="static_page">{% trans "上一页" %}</span>
+        {% endif %}
+
+        {% for page in all_posts.pages %}
+        {% if page %}
+            {% ifequal page all_posts.number %}
+                <span class="static_page">{{ page }}</span>
+            {% else %}
+                <a href="?{{ page.querystring }}" class="link_page">{{ page }}</a>
+            {% endifequal %}
+        {% else %}
+            ...
+        {% endif %}
+        {% endfor %}
+
+        {% if all_posts.has_next %}
+        <a href="?{{ all_posts.next_page_number.querystring }}" class="link_page">{% trans "下一页" %}</a>
+        {% else %}
+        <span class="static_page">{% trans "下一页" %}</span>
+        {% endif %}
+    </div>
 <form action="" class="poster">
     <input type="file" multiple="multiple" accept="image/png,image/gif,image/jpeg" id="xxx" name="image" class="post_area">
     <input type="text" name="title" id="title" class="post_area">
