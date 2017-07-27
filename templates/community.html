@@ -71,17 +71,17 @@
     <a href="?animal={{ animal_kind }}">
     <span class="cate_span {% ifequal post_kind '' %}chosen_animal{% endifequal %}">全部</span>
     </a>
-    <a href="?kind=new_explorer&animal={{ animal_kind }}">
-    <span class="cate_span {% ifequal post_kind 'new_explorer' %}chosen_animal{% endifequal %}">流浪动物</span>
+    <a href="?kind=NE&animal={{ animal_kind }}">
+    <span class="cate_span {% ifequal post_kind 'NE' %}chosen_animal{% endifequal %}">流浪动物</span>
     </a>
-    <a href="?kind=tell_story&animal={{ animal_kind }}">
-    <span class="cate_span {% ifequal post_kind 'tell_story' %}chosen_animal{% endifequal %}">文章</span>
+    <a href="?kind=TS&animal={{ animal_kind }}">
+    <span class="cate_span {% ifequal post_kind 'TS' %}chosen_animal{% endifequal %}">文章</span>
     </a>
-    <a href="?kind=giving&animal={{ animal_kind }}">
-    <span class="cate_span {% ifequal post_kind 'giving' %}chosen_animal{% endifequal %}">发布</span>
+    <a href="?kind=GV&animal={{ animal_kind }}">
+    <span class="cate_span {% ifequal post_kind 'GV' %}chosen_animal{% endifequal %}">发布</span>
     </a>
-    <a href="?kind=want&animal={{ animal_kind }}">
-    <span class="cate_span {% ifequal post_kind 'want' %}chosen_animal{% endifequal %}">寻求</span>
+    <a href="?kind=WT&animal={{ animal_kind }}">
+    <span class="cate_span {% ifequal post_kind 'WT' %}chosen_animal{% endifequal %}">寻求</span>
     </a>
     </div>
     <span class="post_count">共计：{{ post_num }}条</span>
