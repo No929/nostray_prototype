@@ -26,8 +26,12 @@
         <a class="nav" href="{% url 'community' %}">社区</a>
         <a class="nav" href="">公益</a>
     </div>
+    {% if request.user.is_authenticated %}
+    <div><!-- 登录后显示 --></div>
+    {% else %}
     <button class="bar_btn1" onclick="location.href={% url 'login' %}">登录</button>
     <button class="bar_btn2" onclick="location.href={% url 'registe' %}">注册</button>
+    {% endif %}
 </div>
 <div class="main_left">
     <div class="left_bar">
@@ -114,7 +118,7 @@
         {% endif %}
 
         {% for page in all_posts.pages %}
-        {% if page %}ß
+        {% if page %}
             {% ifequal page all_posts.number %}
                 <span class="static_page">{{ page }}</span>
             {% else %}
