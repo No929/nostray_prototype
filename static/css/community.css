@@ -79,10 +79,10 @@
 	margin-left: 245px;
 	margin-top: 10px;
 	height: 35px;
-	width: 380px;
+	width: 560px;
 }
 .cate_span0{
-	color: rgb(100,100,100);
+	color: rgb(50,50,50);
 	float: left;
 	font-family: icons;
 	font-size: 13px;
@@ -94,8 +94,17 @@
 	font-family: icons;
 	font-size: 13px;
 	margin-left: 20px;
+	text-decoration: none;
 }
 .cate_span:hover{text-decoration: underline;}
+.post_count{
+	color: rgb(100,100,100);
+	font-family: icons;
+	font-size: 12px;
+	float: left;
+	margin-left: 180px;
+	margin-top: -15px;
+}
 .user_a{
 	color: rgb(100,100,200);
 	text-align: left;
@@ -187,6 +196,33 @@
 .chosen_animal{
 	color: rgb(100,100,220);
 	border-radius: 2px;
+}
+.nopost{
+	width: 400px;
+	height: 300px;
+	margin-left: 340px;
+	margin-top: 70px;
+}
+.closed{
+	width: 220px;
+	margin-top: 50px;
+	margin-left: 60px;
+}
+.closed_span{
+	font-size: 20px;
+	font-family: icons;
+	text-align: center;
+	color: rgb(100,100,100);
+}
+.closed_click{
+	font-size: 20px;
+	font-family: icons;
+	text-decoration: none;
+	color: rgb(100,100,100);
+}
+.closed_click:hover{
+	text-decoration: underline;
+	color: rgb(100,140,180);
 }
 .poster{
 	margin-top: 20px;

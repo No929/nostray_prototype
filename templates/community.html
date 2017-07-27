@@ -57,6 +57,11 @@
     <a href="?animal=other&kind={{ post_kind }}">
     <span class="cate_span {% ifequal animal_kind 'other' %}chosen_animal{% endifequal %}">其他</span>
     </a>
+    
+    <span class="cate_span0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;排序：</span>
+    <a href="" class="cate_span">时间</a>
+    <a href="" class="cate_span">回复</a>
+    <a href="" class="cate_span">点赞</a>
 <br/>
     <span class="cate_span0">按帖子种类：</span>
     <a href="?animal={{ animal_kind }}">
@@ -75,6 +80,14 @@
     <span class="cate_span {% ifequal post_kind 'want' %}chosen_animal{% endifequal %}">寻求</span>
     </a>
     </div>
+    <span class="post_count">共计：{{ post_num }}条</span>
+    {% ifequal post_num 0 %}
+    <div class="nopost">
+    <span class="closed_span">暂时没有帖子，</span>
+    <a href="#title" class="closed_click">点击发表</a><br/>
+    <img src="{% static 'img/closed.png' %}" class="closed">
+    </div>
+    {% else %}
     {% for post in all_posts.object_list %}
     <div class="post">
         <a href="" class="user_a">
@@ -87,11 +100,12 @@
         <img class="post_img" src="{{ MEDIA_URL }}{{ post.image }}">
         <div class="article">
         <h3 class="title">{{ post.title }}</h3>
-        <span class="content">&nbsp&nbsp&nbsp&nbsp{{ post.content }}</span>
+        <span class="content">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ post.content }}</span>
         </div>
         </a>
     </div>
     {% endfor %}
+    {% endifequal %}
     <div class="page_turn">
         {% if all_posts.has_previous %}
         <a href="?{{ all_posts.previous_page_number.querystring }}" class="link_page">{% trans "上一页" %}</a>
@@ -100,7 +114,7 @@
         {% endif %}
 
         {% for page in all_posts.pages %}
-        {% if page %}
+        {% if page %}ß
             {% ifequal page all_posts.number %}
                 <span class="static_page">{{ page }}</span>
             {% else %}
