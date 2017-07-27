@@ -16,8 +16,12 @@ class AllPosts(View):
 		
 		animal_kind = request.GET.get('animal', '')
 		post_kind = request.GET.get('kind', '')
-		if animal_kind and post_kind:
-			all_posts = all_posts.filter(animal_cate=animal_kind, post_cate=post_kind)
+		if animal_kind:
+			all_posts = all_posts.filter(animal_cate=animal_kind)
+		if post_kind:
+			all_posts = all_posts.filter(post_cate=post_kind)
+
+		post_num = all_posts.count()
 
 		try:
 			page = request.GET.get('page', 1)
@@ -29,6 +33,7 @@ class AllPosts(View):
 
 		return render(request, 'community.html', {
 			"all_posts" : posts,
+			"post_num" : post_num,
 			"animal_kind" : animal_kind,
 			"post_kind" : post_kind,
 			})
