@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
+{% load staticfiles %}
 <head>
 	<title>Error：Not Found!!</title>
-    <link rel="stylesheet" type="text/css" href="css/active_fail.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/active_fail.css' %}">
 </head>
 <body class="body">
 
@@ -12,11 +13,11 @@
     	<div class="div_span">
     	<span class="span">糟了...链接失效或不存在!!!</span>
       	</div>
-        <div class="btn"><button class="btn1_span"><a href="#" >去登录></a></button>
-        <button class="btn2_span"><a href="#" >看看主页></a></button></div>
+        <div class="btn"><button class="btn1_span"><a href="{% url 'login' %}" >去登录></a></button>
+        <button class="btn2_span"><a href="{% url 'index' %}" >看看主页></a></button></div>
     </div>
     <div class="div_img">
-		<img src="img/404.png"  class="img">
+		<img src="{% static 'img/404.png' %}"  class="img">
     </div>
 </div>
 

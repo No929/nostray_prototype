@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html>
+{% load staticfiles %}
 <head>
 	<title>重置密码</title>
-    <link rel="stylesheet" type="text/css" href="css/pwdreset.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/pwdreset.css' %}">
     <style type="text/css">
 		@font-face { 
 		  font-family: Bauhaus93; 
-		  src: url("font/Bauhaus93.TTF");
+		  src: url("{% static 'font/Bauhaus93.TTF' %}");
 		}
 	</style>
-    <script type="text/javascript" src="js/pwdreset.js"></script>
+    <script type="text/javascript" src="{% static 'js/pwdreset.js' %}"></script>
 </head>
 <body>
 <form  name="pwdreset" method="post" action="#">
