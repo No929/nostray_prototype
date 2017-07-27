@@ -103,10 +103,10 @@
 	font-size: 12px;
 	float: left;
 	margin-left: 180px;
-	margin-top: -15px;
+	margin-top: -7px;
 }
 .user_a{
-	color: rgb(100,100,200);
+	color: rgb(100,150,220);
 	text-align: left;
 	display: block;
 	margin-top: 15px;
@@ -193,8 +193,8 @@
 .link_page:hover{
 	text-decoration: underline;
 }
-.chosen_animal{
-	color: rgb(100,100,220);
+.chosen{
+	color: rgb(100,150,220);
 	border-radius: 2px;
 }
 .nopost{

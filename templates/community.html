@@ -49,39 +49,40 @@
     </div>
     <div class="cate">
     <span class="cate_span0">按动物类别：</span>
-    <a href="?kind={{ post_kind }}">
-    <span class="cate_span {% ifequal animal_kind '' %}chosen_animal{% endifequal %}">全部</span>
+    <a href="?kind={{ post_kind }}&{{ sort }}">
+    <span class="cate_span {% ifequal animal_kind '' %}chosen{% endifequal %}">全部</span>
     </a>
-    <a href="?animal=dog&kind={{ post_kind }}">
-    <span class="cate_span {% ifequal animal_kind 'dog' %}chosen_animal{% endifequal %}">狗</span>
+    <a href="?animal=dog&kind={{ post_kind }}&{{ sort }}">
+    <span class="cate_span {% ifequal animal_kind 'dog' %}chosen{% endifequal %}">狗</span>
     </a>
-    <a href="?animal=cat&kind={{ post_kind }}">
-    <span class="cate_span {% ifequal animal_kind 'cat' %}chosen_animal{% endifequal %}">猫</span>
+    <a href="?animal=cat&kind={{ post_kind }}&{{ sort }}">
+    <span class="cate_span {% ifequal animal_kind 'cat' %}chosen{% endifequal %}">猫</span>
     </a>
-    <a href="?animal=other&kind={{ post_kind }}">
-    <span class="cate_span {% ifequal animal_kind 'other' %}chosen_animal{% endifequal %}">其他</span>
+    <a href="?animal=other&kind={{ post_kind }}&{{ sort }}">
+    <span class="cate_span {% ifequal animal_kind 'other' %}chosen{% endifequal %}">其他</span>
     </a>
     
     <span class="cate_span0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;排序：</span>
-    <a href="" class="cate_span">时间</a>
-    <a href="" class="cate_span">回复</a>
-    <a href="" class="cate_span">点赞</a>
+        <a href="?kind={{ post_kind }}&animal={{ animal_kind }}" class="cate_span {% ifequal sort '' %}chosen{% endifequal %}">不限</a>
+        <a href="?sort=add_time&kind={{ post_kind }}&animal={{ animal_kind }}" class="cate_span {% ifequal sort 'add_time' %}chosen{% endifequal %}">时间</a>
+        <a href="?sort=comment_num&kind={{ post_kind }}&animal={{ animal_kind }}" class="cate_span {% ifequal sort 'comment_num' %}chosen{% endifequal %}">回复</a>
+        <a href="?sort=likes&kind={{ post_kind }}&animal={{ animal_kind }}" class="cate_span {% ifequal sort 'likes' %}chosen{% endifequal %}">点赞</a>
 <br/>
     <span class="cate_span0">按帖子种类：</span>
-    <a href="?animal={{ animal_kind }}">
-    <span class="cate_span {% ifequal post_kind '' %}chosen_animal{% endifequal %}">全部</span>
+    <a href="?animal={{ animal_kind }}&{{ sort }}">
+    <span class="cate_span {% ifequal post_kind '' %}chosen{% endifequal %}">全部</span>
     </a>
-    <a href="?kind=NE&animal={{ animal_kind }}">
-    <span class="cate_span {% ifequal post_kind 'NE' %}chosen_animal{% endifequal %}">流浪动物</span>
+    <a href="?kind=NE&animal={{ animal_kind }}&{{ sort }}">
+    <span class="cate_span {% ifequal post_kind 'NE' %}chosen{% endifequal %}">流浪动物</span>
     </a>
-    <a href="?kind=TS&animal={{ animal_kind }}">
-    <span class="cate_span {% ifequal post_kind 'TS' %}chosen_animal{% endifequal %}">文章</span>
+    <a href="?kind=TS&animal={{ animal_kind }}&{{ sort }}">
+    <span class="cate_span {% ifequal post_kind 'TS' %}chosen{% endifequal %}">文章</span>
     </a>
-    <a href="?kind=GV&animal={{ animal_kind }}">
-    <span class="cate_span {% ifequal post_kind 'GV' %}chosen_animal{% endifequal %}">发布</span>
+    <a href="?kind=GV&animal={{ animal_kind }}&{{ sort }}">
+    <span class="cate_span {% ifequal post_kind 'GV' %}chosen{% endifequal %}">发布</span>
     </a>
-    <a href="?kind=WT&animal={{ animal_kind }}">
-    <span class="cate_span {% ifequal post_kind 'WT' %}chosen_animal{% endifequal %}">寻求</span>
+    <a href="?kind=WT&animal={{ animal_kind }}&{{ sort }}">
+    <span class="cate_span {% ifequal post_kind 'WT' %}chosen{% endifequal %}">寻求</span>
     </a>
     </div>
     <span class="post_count">共计：{{ post_num }}条</span>
@@ -146,17 +147,17 @@
         <a href="" class="msg_a">
             <img src="{% static 'img/star.png' %}" class="small_img">
             <span class="msg_span">我的收藏</span>
-            <span class="num num1">3</span>
+            <span class="num num1">{{ my_fav_num }}</span>
         </a>
         <a href="" class="msg_a">
             <img src="{% static 'img/article.png' %}" class="small_img">
             <span class="msg_span">我的帖子</span>
-            <span class="num num2">3</span>
+            <span class="num num2">{{ my_posts_num }}</span>
         </a>
         <a href="" class="msg_a">
             <img src="{% static 'img/bell.png' %}" class="small_img">
             <span class="msg_span">我的消息</span>
-            <span class="num num3">99</span>
+            <span class="num num3">{{ my_msg_num }}</span>
         </a>
     </div>
 </div>
