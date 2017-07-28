@@ -19,7 +19,6 @@ from django.views.generic import TemplateView
 from django.views.static import serve
 
 from register.views import LoginView, RegisteView, ActiveUserView, ForgetPwdView, ResetPwdView, ModifyPwdView
-from community.views import AllPosts
 from adopt.views import ShowNearBy
 from nostray_prototype.settings import MEDIA_ROOT
 
@@ -30,7 +29,7 @@ urlpatterns = [
     url(r'^head/$', TemplateView.as_view(template_name='head.html'), name='head'),
     url(r'^login/$', LoginView.as_view(), name='login'),
     url(r'^registe/$', RegisteView.as_view(), name='registe'),
-    url(r'^community/', AllPosts.as_view(), name='community'),
+    url(r'^community/', include('community.urls', namespace='community')),
     url(r'^adopt/', ShowNearBy.as_view(), name='adopt'),
     url(r'^active/(?P<active_code>.*)/$', ActiveUserView.as_view(), name='user_active'),
     url(r'^forget/$', ForgetPwdView.as_view(), name='forget_pwd'),
