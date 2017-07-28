@@ -3,10 +3,12 @@ from __future__ import unicode_literals
 
 from django.shortcuts import render
 from django.views.generic.base import View
+from django.http import HttpResponse
 
 from pure_pagination import Paginator, EmptyPage, PageNotAnInteger
 from .models import Posts
 from operation.models import UserFavorite, UserMessage
+from .forms import PostForm
 from register.models import UserInfo
 # Create your views here.
 
@@ -59,3 +61,13 @@ class AllPosts(View):
 			"my_posts_num" : my_posts_num,
 			"my_msg_num" : my_msg_num,
 			})
+
+
+class PosterView(View):
+	def post(self, request):
+		poster_form = PostForm(request.POST)
+		if poster_form.is_valid():
+			poster = poster_form.save(commit=True)
+			return HttpResponse("{'status':'success'}", content_type='application/json')
+		else:
+			return HttpResponse("{'status':'fail', 'msg':{0}}".format(poster_form.errors), content_type='application/json')
