@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="{% static 'css/community.css' %}">
 <link rel="stylesheet" type="text/css" href="{% static 'css/head.css' %}">
+<script type="text/javascript" src="{% static 'js/poster_check.js' %}"></script>
 <title>nostray - Community</title>
 <style type="text/css">
     @font-face { 
@@ -136,11 +137,15 @@
         <span class="static_page">{% trans "下一页" %}</span>
         {% endif %}
     </div>
-<form action="" class="poster">
-    <input type="file" multiple="multiple" accept="image/png,image/gif,image/jpeg" id="xxx" name="image" class="file_btn">
-    <input type="text" name="title" id="title" class="title_area" placeholder="标题（不超过20字）：">
-    <textarea name="content" class="content_area" placeholder="输入内容（不超过2000字）："></textarea>
-    <input type="submit" class="submit" value="发布">
+<form action="" class="poster" id="posterForm">
+    <input type="file" accept="image/png,image/gif,image/jpeg" id="img_input" name="image" class="file_btn" onchange="imgChange(this.value)">
+    <input type="button" class="file_front_btn" value="选择图片">
+    <input type="text" name="title" id="title" class="title_area" onchange="titleChange(this.value)" placeholder="标题（不超过20字）：">
+    <textarea name="content" id="content" class="content_area" placeholder="输入内容（不超过2000字）：" onchange="contentChange(this.value)"></textarea>
+    <div id="title_error"></div>
+    <div id="content_error"></div>
+    <input type="button" class="submit" value="发布" onclick="poster_submit()">
+    <div id="img_error"></div>
 </form>
 </div>
 <div class="main_right">
