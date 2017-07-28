@@ -27,6 +27,8 @@ function imgChange(obj) {
         flag3 = true;
         document.getElementById("img_error").innerHTML =
             "<span></span>"
+        var path = document.getElementById("img_input").value;
+        document.getElementById("img_root").innerHTML = path;
     }
 }
 
