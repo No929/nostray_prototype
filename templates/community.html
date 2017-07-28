@@ -23,7 +23,7 @@
     <a class="logo" href="{% url 'index' %}">Nostray</a>
     <div class="nav_bar">
         <a class="nav" href="{% url 'adopt' %}">领养</a>
-        <a class="nav" href="{% url 'community' %}">社区</a>
+        <a class="nav" href="{% url 'community:allpost' %}">社区</a>
         <a class="nav" href="">公益</a>
     </div>
     {% if request.user.is_authenticated %}
@@ -137,9 +137,10 @@
         {% endif %}
     </div>
 <form action="" class="poster">
-    <input type="file" multiple="multiple" accept="image/png,image/gif,image/jpeg" id="xxx" name="image" class="post_area">
-    <input type="text" name="title" id="title" class="post_area">
-    <input type="text" name="content" class="post_area">
+    <input type="file" multiple="multiple" accept="image/png,image/gif,image/jpeg" id="xxx" name="image" class="file_btn">
+    <input type="text" name="title" id="title" class="title_area" placeholder="标题（不超过20字）：">
+    <textarea name="content" class="content_area" placeholder="输入内容（不超过2000字）："></textarea>
+    <input type="submit" class="submit" value="发布">
 </form>
 </div>
 <div class="main_right">

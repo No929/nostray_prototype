@@ -222,13 +222,54 @@
 }
 .closed_click:hover{
 	text-decoration: underline;
-	color: rgb(100,140,180);
+	color: rgb(100, 140, 180);
 }
 .poster{
+	margin: 0 auto;
 	margin-top: 20px;
+	margin-right: 20px;
+	width: 700px;
 }
-.post_area{
+.file_btn{
 	display: block;
+	position: absolute;
+	margin-left: 610px;
+}
+.title_area{
+	float: left;
+	-webkit-appearance: none;
+	width: 590px;
+	height: 40px;
+	line-height: 25px;
+	padding-left: 10px;
+	border: 1px solid rgb(164, 169, 169);
+	border-radius: 2px;
+	box-shadow: 0 0 2px rgb(164, 169, 169);
+	font-family: icons;
+	font-size: 15px;
+}
+.title_area:hover{border: 1px solid #648cb4; box-shadow: 0 0 3px #648cb4
+}
+.content_area{
+	float: right;
+	margin-top: 20px;
+	-webkit-appearance: none;
+	width: 688px;
+	height: 300px;
+	line-height: 25px;
+	padding-left: 10px;
+	border: 1px solid rgb(164, 169, 169);
+	border-radius: 2px;
+	box-shadow: 0 0 2px rgb(164, 169, 169);
+	font-family: icons;
+	font-size: 15px;
+}
+.content_area:hover{border: 1px solid #648cb4; box-shadow: 0 0 3px #648cb4
+}
+.submit{
+	display: block;
+	position: absolute;
+	margin-top: 380px;
 }
 
 /*right*/
