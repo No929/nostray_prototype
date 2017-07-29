@@ -61,13 +61,19 @@ class AllPosts(View):
 			"my_posts_num" : my_posts_num,
 			"my_msg_num" : my_msg_num,
 			})
-
-
-class PosterView(View):
 	def post(self, request):
 		poster_form = PostForm(request.POST)
 		if poster_form.is_valid():
-			poster = poster_form.save(commit=True)
-			return HttpResponse("{'status':'success'}", content_type='application/json')
+			title = poster_form.POST.get('title', '')
+			content = poster_form.POST.get('content', '')
+			image = poster_form.POST.get('image', '')
+
+			form = Posts()
+			form.title = title
+			form.content = content
+			form.image = image
+			form.save()
+
+			return render(request, 'community.html', {"msg":"已发布"})
 		else:
-			return HttpResponse("{'status':'fail', 'msg':{0}}".format(poster_form.errors), content_type='application/json')
+			return render(request, 'community.html', {"msg":"失败"})

@@ -137,19 +137,17 @@
         <span class="static_page">{% trans "下一页" %}</span>
         {% endif %}
     </div>
-<form action="" class="poster" id="posterForm">
-    <input type="file" accept="image/png,image/gif,image/jpeg" id="img_input" name="image" class="file_btn" onchange="imgChange(this.value)">
-    <input type="button" class="file_front_btn" value="选择图片">
-    <input type="text" name="title" id="title" class="title_area" onchange="titleChange(this.value)" placeholder="标题（不超过20字）：">
+<form action="{% url 'community:allpost' %}" method="post" class="poster" id="posterForm">
+    {% csrf_token %}
+    <input type="file" accept="image/png,image/gif,image/jpeg" id="img_input" class="file_btn" onchange="imgChange(this.value)">
+    <input type="button" class="file_front_btn" value="选择图片" name="image">
+    <input type="text" name="title" id="title" class="title_area" placeholder="标题（不超过20字）：" onchange="titleChange(this.value)">
     <span class="img_root">已选图片：<span id="img_root" class="hidden">无</span></span>
-
-    <!-- 点击删除图片 -->
-
-    <textarea name="content" id="content" class="content_area" placeholder="输入内容（不超过2000字）：" onchange="contentChange(this.value)"></textarea>
+    <textarea name="content" id="content" name="content" class="content_area" placeholder="输入内容（不超过2000字）：" onchange="contentChange(this.value)"></textarea>
     <div id="title_error"></div>
     <div id="content_error"></div>
-    <input type="button" class="submit" value="发布" onclick="poster_submit()">
-    <div id="img_error"></div>
+    <input type="button" class="submit" id="submitBtn" value="发布" onclick="poster_submit()">
+    <div id="img_error"><script>alert("{{ msg }}")</script></div>
 </form>
 </div>
 <div class="main_right">

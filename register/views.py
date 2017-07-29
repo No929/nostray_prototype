@@ -34,12 +34,14 @@ class RegisteView(View):
 		registe_form = RegisteForm(request.POST)
 		if registe_form.is_valid():
 			username = request.POST.get('username', '')
-			if UserInfo.objects.filter(username==username or email==email):
+			if UserInfo.objects.filter(username=username):
 				return render(request, 'registe.html', {'msg':'用户已存在', 'registe_form':registe_form})
 			password = request.POST.get('password', '')
 			kind = request.POST.get('kind', '')
 			phone = request.POST.get('phone', '')
 			email = request.POST.get('email', '')
+			if UserInfo.objects.filter(email=email):
+				return render(request, 'registe.html', {'msg':'邮箱已经注册', 'registe_form':registe_form})
 
 			form = UserInfo()
 			form.username = username
