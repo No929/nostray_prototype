@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="{% static 'css/community.css' %}">
 <link rel="stylesheet" type="text/css" href="{% static 'css/head.css' %}">
-<script type="text/javascript" src="{% static 'js/poster_check.js' %}"></script>
+<script src="{% static 'js/poster_check.js' %}"></script>
 <title>nostray - Community</title>
 <style type="text/css">
     @font-face { 
@@ -137,8 +137,8 @@
         <span class="static_page">{% trans "下一页" %}</span>
         {% endif %}
     </div>
-<form action="{% url 'community:allpost' %}" method="post" class="poster" id="posterForm">
-    {% csrf_token %}
+<!--form action="" method="post" class="poster" id="posterForm">
+
     <input type="file" accept="image/png,image/gif,image/jpeg" id="img_input" class="file_btn" onchange="imgChange(this.value)">
     <input type="button" class="file_front_btn" value="选择图片" name="image">
     <input type="text" name="title" id="title" class="title_area" placeholder="标题（不超过20字）：" onchange="titleChange(this.value)">
@@ -148,8 +148,52 @@
     <div id="content_error"></div>
     <input type="button" class="submit" id="submitBtn" value="发布" onclick="poster_submit()">
     <div id="img_error"><script>alert("{{ msg }}")</script></div>
+</form-->
+<form action="{% url 'community:allpost' %}" method="post" class="poster" id="posterForm">
+    {% csrf_token %}
+    <input type="file" accept="image/png,image/gif,image/jpeg" id="img_input" class="file_btn" onchange="imgChange(this.value)>
+    <input type="button" class="file_front_btn" value="选择图片" name="image">
+    <input type="text" name="title" id="title" class="title_area" placeholder="标题（不超过20字）：">
+    <span class="img_root">已选图片：<span id="img_root" class="hidden">无</span></span>
+    <textarea name="content" id="content" name="content" class="content_area" placeholder="输入内容（不超过2000字）："></textarea>
+    <div id="title_error"></div>
+    <div id="content_error"></div>
+    <input type="button" class="submit" id="submitBtn" value="发布">
+    <div id="img_error"></div>
 </form>
 </div>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+<script>
+    $.ajaxSetup({
+    data: {csrfmiddlewaretoken: '{{ csrf_token }}' },
+});
+</script>
+<script>
+    $(document).ready(function () {
+        $("#submitBtn").click(function () {
+            $.ajax({
+                type:"POST",
+                url:"{% url 'community:poster' %}",
+                dataType:"json",
+                data:{
+                    title:$("#title").val(),
+                    content:$("#content").val(),
+                    image:$("#image").val(),
+                },
+                success:function(data){
+                    if (data.success){
+                        $("#img_error").html(data.msg)
+                    } else {
+                        $("#img_error").html(data.msg)
+                    }
+                },
+                error:function (jqXHR) {
+                    alert("发生错误："+jqXHR.status)
+                }
+            })
+        })
+    })
+</script>
 <div class="main_right">
     <div class="msg">
         <a href="" class="msg_a">

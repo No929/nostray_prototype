@@ -3,7 +3,8 @@ from __future__ import unicode_literals
 
 from django.shortcuts import render
 from django.views.generic.base import View
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
+import json
 
 from pure_pagination import Paginator, EmptyPage, PageNotAnInteger
 from .models import Posts
@@ -14,6 +15,7 @@ from register.models import UserInfo
 
 
 class AllPosts(View):
+
 	def get(self, request):
 		all_posts = Posts.objects.all()
 		
@@ -61,19 +63,14 @@ class AllPosts(View):
 			"my_posts_num" : my_posts_num,
 			"my_msg_num" : my_msg_num,
 			})
+
+
+class PosterView(View):
+
 	def post(self, request):
 		poster_form = PostForm(request.POST)
 		if poster_form.is_valid():
-			title = poster_form.POST.get('title', '')
-			content = poster_form.POST.get('content', '')
-			image = poster_form.POST.get('image', '')
-
-			form = Posts()
-			form.title = title
-			form.content = content
-			form.image = image
-			form.save()
-
-			return render(request, 'community.html', {"msg":"已发布"})
+			poster = poster_form.save(commit=True)
+			return JsonResponse({'success':True, 'msg':'成功'})
 		else:
-			return render(request, 'community.html', {"msg":"失败"})
+			return JsonResponse({'success':False, 'msg':'失败'})
