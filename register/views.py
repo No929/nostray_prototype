@@ -126,15 +126,16 @@ class ResetPwdView(View):
 		if modify_form.is_valid():
 			pwd1 = request.POST.get('password1', '')
 			pwd2 = request.POST.get('password2', '')
+			email = request.POST.get('email', '')
 			if pwd1 != pwd2:
 				return render(request, 'pwdreset.html', {'email':email, 'msg':'密码不一致'})
 			user = UserInfo.objects.get(email=email)
-			user.password = make_password(password1)
+			user.password = make_password(pwd1)
 			user.save()
 
 			return render(request, 'login.html')
 		else:
-			return render(request, 'pwdreset.html', {'email':email, 'modify_form':modify_form})
+			return render(request, 'pwdreset.html', {'modify_form':modify_form})
 
 
 class ModifyPwdView(View):
