@@ -7,7 +7,6 @@ function titleChange(obj) {
     else {
         document.getElementById('title_error').innerHTML =
             '<span></span>';
-        flag1 = true;
     }
 }
 
@@ -33,13 +32,9 @@ function imgChange(obj) {
 }
 
 function poster_submit() {
-    if (flag1 == true&&flag2 == true&&flag3 == true)
-        document.getElementById("posterForm").submit()
-
     if (flag3 == false)
         document.getElementById("img_error").innerHTML =
             "<span>未上传图片</span>";
-
     var title = document.getElementById("title").value
     var content = document.getElementById("content").value
     if (title == '' || content == '')
