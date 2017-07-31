@@ -1,0 +1,7 @@
+.tail{
+    position: fixed;
+    bottom: 0;
+    height: 45px;
+    width: 100%;
+    background-color: rgba(122, 122, 122, 0.44);
+}

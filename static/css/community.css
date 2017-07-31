@@ -228,6 +228,7 @@
 	margin: 0 auto;
 	margin-top: 20px;
 	margin-right: 20px;
+	height: 550px;
 	width: 700px;
 }
 .file_btn{
@@ -402,9 +403,3 @@
 .num1{background-color: #7D9EC0}
 .num2{background-color: #7D9EC0}
 .num3{background-color: #FF5A5A}
-
-/*Tail*/
-
-.tail{
-
-}
