@@ -3,5 +3,30 @@
     bottom: 0;
     height: 45px;
     width: 100%;
-    background-color: rgba(122, 122, 122, 0.44);
+}
+.inner_tail{
+    height: 45px;
+    width: 100%;
+    background-color: rgba(122, 122, 122, 0.7);
+}
+.tail_links{
+    position: absolute;
+    margin-top: 13px;
+    margin-left: 1050px;
+}
+.links{
+    text-decoration: none;
+    font-family: icons;
+    font-size: 13px;
+    color: white;
+    margin-left: 10px;
+}
+.links:hover{text-decoration: underline}
+.copyright{
+    position: absolute;
+    font-size: 13px;
+    font-family: icons;
+    color: white;
+    margin-top: 13px;
+    margin-left: 500px;
 }
