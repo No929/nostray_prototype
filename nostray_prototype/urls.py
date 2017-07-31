@@ -26,7 +26,6 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^captcha/', include('captcha.urls')),
     url(r'^$', TemplateView.as_view(template_name='index.html'), name='index'),
-    url(r'^head/$', TemplateView.as_view(template_name='head.html'), name='head'),
     url(r'^login/$', LoginView.as_view(), name='login'),
     url(r'^registe/$', RegisteView.as_view(), name='registe'),
     url(r'^community/', include('community.urls', namespace='community')),
