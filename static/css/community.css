@@ -283,6 +283,12 @@
 	overflow: hidden;
 	max-width: 525px;
 }
+.deleteImg{
+	display: inline-block;
+	margin-left: 15px;
+	width: 15px;
+}
+.deleteImg:hover{box-shadow: 0 0 2px red}
 .content_area{
 	float: right;
 	margin-top: 30px;
@@ -396,3 +402,9 @@
 .num1{background-color: #7D9EC0}
 .num2{background-color: #7D9EC0}
 .num3{background-color: #FF5A5A}
+
+/*Tail*/
+
+.tail{
+
+}
