@@ -6,6 +6,8 @@
 <title>nostray</title>
 <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
 <link rel="stylesheet" type="text/css" href="{% static 'css/head.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/tail.css' %}">
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
 <script type="text/javascript" src="{% static 'js/index.js' %}"></script>
 <style type="text/css">
     @font-face { 
@@ -28,7 +30,9 @@
     </div>
 </div>
         {% if request.user.is_authenticated %}
-            <div><!-- 登录后显示 --></div>
+        <div class="current_user"><a href="">
+        <img src="{{ MEDIA_URL }}{{ icon }}" title="登录状态：{{ user }}" class="curr_icon">
+        </a></div>
         {% else %}
             <button class="bar_btn1" onclick="location.href={% url 'login' %}">登录</button>
             <button class="bar_btn2" onclick="location.href={% url 'registe' %}">注册</button>
@@ -50,7 +54,27 @@
         <span index="4"></span>
     </div>
     <a href="javascript:;" class="arrow" id="prev">&lt;</a>
-    <a href="javascript:;" class="arrow" id="next">&gt;</a>  
+    <a href="javascript:;" class="arrow" id="next">&gt;</a>
   </div>
+<div class="tail" id="tail">
+</div>
+<script>
+    $(window).scroll(function(){
+        var scrollTop = $(this).scrollTop()
+        var scrollHeight = $(document).height()
+        var windowHeight = $(this).height()
+　　     if(scrollTop + windowHeight == scrollHeight){
+　　　　  $("#tail").html("<div class='inner_tail'>" +
+        "<div class='tail_links'>" +
+        "<a class='links' href=''>法律法规</a><a class='links' href=''>商业合作</a>" +
+        "<a class='links' href=''>联系我们</a><a class='links' href=''>关于我们</a>" +
+        "</div>" +
+        "<span class='copyright'>Copyright © 2017 nostray 鲁ICP备17014163号</span>" +
+        "</div>")
+　　} else {
+   $("#tail").html("")
+  }
+})
+</script>
 </body>
 </html>

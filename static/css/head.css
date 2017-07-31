@@ -95,3 +95,11 @@
 	color: white;
 	background-color: rgb(190,190,190);
 }
+.current_user{
+	position: absolute;
+	margin-left: 1050px;
+	margin-top: -31px;
+}
+.curr_icon{
+	max-width: 40px;
+}

@@ -29,7 +29,9 @@
         <a class="nav" href="">公益</a>
     </div>
     {% if request.user.is_authenticated %}
-    <div><!-- 登录后显示 --></div>
+    <div class="current_user"><a href="">
+    <img src="{{ MEDIA_URL }}{{ icon }}" title="登录状态：{{ user }}" class="curr_icon">
+    </a></div>
     {% else %}
     <button class="bar_btn1" onclick="location.href={% url 'login' %}">登录</button>
     <button class="bar_btn2" onclick="location.href={% url 'registe' %}">注册</button>

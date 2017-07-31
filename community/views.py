@@ -62,6 +62,8 @@ class AllPosts(View):
 			"my_fav_num" : my_fav_num,
 			"my_posts_num" : my_posts_num,
 			"my_msg_num" : my_msg_num,
+			"icon" : request.user.icon,
+			"user" : request.user.username,
 			})
 
 
