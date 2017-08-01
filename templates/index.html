@@ -24,20 +24,19 @@
 <div class="head_bar" style="z-index: 1;">
     <a class="logo" href="{% url 'index' %}">Nostray</a>
     <div class="nav_bar">
-        <a class="nav" href="{% url 'adopt' %}">领养</a>
+        <a class="nav" href="{% url 'adopt:market' %}">领养</a>
         <a class="nav" href="{% url 'community:allpost' %}">社区</a>
         <a class="nav" href="">公益</a>
     </div>
-</div>
         {% if request.user.is_authenticated %}
         <div class="current_user"><a href="">
-        <img src="{{ MEDIA_URL }}{{ icon }}" title="登录状态：{{ user }}" class="curr_icon">
+        <img src="{{ MEDIA_URL }}{{ user.icon }}" title="登录状态：{{ user }}" class="curr_icon">
         </a></div>
         {% else %}
             <button class="bar_btn1" onclick="location.href={% url 'login' %}">登录</button>
             <button class="bar_btn2" onclick="location.href={% url 'registe' %}">注册</button>
         {% endif %}
-        
+</div>
 <div class="main" id="container" style="z-index: 0;">
   	<div id="list" style="left:-1366px">
     	<img alt="" src="{% static 'img/login_bg.png' %}" class="img">

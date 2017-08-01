@@ -2,7 +2,9 @@
 	margin:0;
 	padding:0;
 }
-
+body{
+	background-color: rgb(245,245,245);
+}
 /*left*/
 .main_left{
 	text-align: center;
@@ -11,6 +13,7 @@
 	width: 65%;
 }
 .left_bar{
+	background-color: white;
 	margin: 0 auto;
 	margin-right: 20px;
 	margin-top: 20px;
@@ -21,6 +24,7 @@
 	box-shadow: 0 0 3px rgb(222,222,222);
 }
 .post{
+	background-color: white;
 	margin: 0 auto;
 	margin-right: 20px;
 	margin-top: 15px;
@@ -357,6 +361,7 @@
 	width: 35%;
 }
 .msg{
+	background-color: white;
 	position: fixed;
 	margin-top: 20px;
 	border-radius: 2px;
@@ -375,7 +380,7 @@
 	width: 280px;
 }
 .msg_a:hover{
-	background-color: rgb(235,235,235);
+	background-color: rgb(225,225,225);
 }
 .msg_span{
 	display: block;
