@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'register',
     'index',
     'operation',
+    'adopt',
 ]
 AUTH_USER_MODEL = "register.UserInfo"
 
