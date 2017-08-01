@@ -3,14 +3,12 @@ from __future__ import unicode_literals
 
 from django.shortcuts import render
 from django.views.generic.base import View
-from django.http import HttpResponse, JsonResponse
-import json
+from django.http import JsonResponse
 
 from pure_pagination import Paginator, EmptyPage, PageNotAnInteger
 from .models import Posts
 from operation.models import UserFavorite, UserMessage
 from .forms import PostForm
-from register.models import UserInfo
 # Create your views here.
 
 
@@ -72,7 +70,7 @@ class PosterView(View):
 	def post(self, request):
 		poster_form = PostForm(request.POST)
 		if poster_form.is_valid():
-			poster = poster_form.save(commit=True)
+			poster_form.save(commit=True)
 			return JsonResponse({'success':True, 'msg':'成功'})
 		else:
 			return JsonResponse({'success':False, 'msg':'失败'})
