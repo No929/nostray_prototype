@@ -8,6 +8,7 @@ from django.http import JsonResponse
 from pure_pagination import Paginator, EmptyPage, PageNotAnInteger
 from .models import Posts
 from operation.models import UserFavorite, UserMessage
+from register.models import UserInfo
 from .forms import PostForm
 # Create your views here.
 
@@ -43,26 +44,41 @@ class AllPosts(View):
 		p = Paginator(all_posts, 7, request=request)
 		posts = p.page(page)
 
-		my_fav = UserFavorite.objects.all()
-		my_fav_num = my_fav.filter(user=request.user).count()
-
-		my_posts_num = all_posts.filter(user=request.user).count()
-
-		my_msg = UserMessage.objects.all()
-		my_msg_num = my_msg.filter(user=request.user, has_read=False).count()
-
-		return render(request, 'community.html', {
-			"all_posts" : posts,
-			"post_num" : post_num,
-			"animal_kind" : animal_kind,
-			"post_kind" : post_kind,
-			"sort" : sort,
-			"my_fav_num" : my_fav_num,
-			"my_posts_num" : my_posts_num,
-			"my_msg_num" : my_msg_num,
-			"icon" : request.user.icon,
-			"user" : request.user.username,
+		if request.user.is_authenticated():
+			my_fav = UserFavorite.objects.all()
+			my_fav_num = my_fav.filter(user=request.user).count()
+			my_posts_num = all_posts.filter(user=request.user).count()
+			my_msg = UserMessage.objects.all()
+			my_msg_num = my_msg.filter(user=request.user, has_read=False).count()
+			all_user = UserInfo.objects.all()
+			user = all_user.get(username=request.user)
+			return render(request, 'community.html', {
+				"all_posts": posts,
+				"post_num": post_num,
+				"animal_kind": animal_kind,
+				"post_kind": post_kind,
+				"sort": sort,
+				"my_fav_num": my_fav_num,
+				"my_posts_num": my_posts_num,
+				"my_msg_num": my_msg_num,
+				"icon": user.icon,
+				"user": user.username,
 			})
+		else:
+			my_fav_num = 0
+			my_msg_num = 0
+			my_posts_num = 0
+			return render(request, 'community.html', {
+				"all_posts": posts,
+				"post_num": post_num,
+				"animal_kind": animal_kind,
+				"post_kind": post_kind,
+				"sort": sort,
+				"my_fav_num": my_fav_num,
+				"my_posts_num": my_posts_num,
+				"my_msg_num": my_msg_num,
+			})
+
 
 
 class PosterView(View):
