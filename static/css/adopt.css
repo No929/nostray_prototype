@@ -9,17 +9,18 @@ body{
     padding-top: 65px;
     height: 80px;
     width: 100%;
+    text-align: center;
 }
 #search{
     -webkit-appearance: none;
     height: 39px;
     width: 370px;
     border: 2px solid rgb(255, 147, 51);
-    margin-left: 30%;
     margin-top: 15px;
     font-size: 13px;
     font-family: icons;
     line-height: 15px;
+    box-shadow: 0 0 2px #858989;
 }
 .searchBtn{
     font-family: icons;
@@ -32,7 +33,55 @@ body{
     border: none;
     margin-top: 15px;
     margin-left: -4px;
+    box-shadow: 0 0 2px #858989;
 }
 .searchBtn:hover{
     background-color: rgb(255, 177, 68);
 }
+.hot{
+    display: block;
+    margin-top: 7px;
+    font-size: 13px;
+    font-family: icons;
+    color: rgb(87, 81, 83);
+}
+.hot_link{
+    color: rgb(87, 81, 83);
+    text-decoration: none;
+}
+.hot_link:hover{
+    text-decoration: underline;
+}
+.top_choice{
+    margin: auto;
+    margin-top: 30px;
+    width: 1200px;
+    height: 40px;
+    border-bottom: 2px solid #ff9333;
+    font-family: icons;
+    font-size: 19px;
+}
+.stationBtn{
+    padding-top: 8px;
+    float: left;
+    margin-left: 480px;
+    height: 32px;
+    width: 100px;
+    background-color: #ffb144;
+    color: white;
+    text-decoration: none;
+    box-shadow: 0 0 2px #858989;
+}
+.stationBtn:hover{background-color: #ff9333}
+.animalBtn{
+    padding-top: 8px;
+    float: right;
+    margin-right: 480px;
+    height: 32px;
+    width: 100px;
+    background-color: #ffb144;
+    color: white;
+    text-decoration: none;
+    box-shadow: 0 0 2px #858989;
+}
+.animalBtn:hover{background-color: #ff9333}
