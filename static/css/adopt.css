@@ -33,3 +33,6 @@ body{
     margin-top: 15px;
     margin-left: -4px;
 }
+.searchBtn:hover{
+    background-color: rgb(255, 177, 68);
+}
