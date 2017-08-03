@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     {% load staticfiles %}
+    {% load i18n %}
     <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="{% static 'css/adopt.css' %}">
 <link rel="stylesheet" type="text/css" href="{% static 'css/head.css' %}">
@@ -45,6 +46,41 @@
     <a href="" class="stationBtn">救助站</a>
     <a href="" class="animalBtn">流浪动物</a>
 </div>
+</div>
+<div class="main">
+    <div class="cell_container">
+
+        <div class="cell"></div>
+        <div class="page_turn">
+        {% if all_stations.has_previous %}
+        <a href="?{{ all_stations.previous_page_number.querystring }}" class="link_page">{% trans "上一页" %}</a>
+        {% else %}
+        <span class="static_page">{% trans "上一页" %}</span>
+        {% endif %}
+
+        {% for page in all_stations.pages %}
+        {% if page %}
+            {% ifequal page all_stations.number %}
+                <span class="static_page">{{ page }}</span>
+            {% else %}
+                <a href="?{{ page.querystring }}" class="link_page">{{ page }}</a>
+            {% endifequal %}
+        {% else %}
+            ...
+        {% endif %}
+        {% endfor %}
+
+        {% if all_stations.has_next %}
+        <a href="?{{ all_stations.next_page_number.querystring }}" class="link_page">{% trans "下一页" %}</a>
+        {% else %}
+        <span class="static_page">{% trans "下一页" %}</span>
+        {% endif %}
+    </div>
+    </div>
+    <div class="filter">
+
+    </div>
+
 </div>
 <div class="tail" id="tail">
 </div>
