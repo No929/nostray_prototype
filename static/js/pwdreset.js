@@ -1,4 +1,4 @@
-﻿var flag1 = false,flag2=false;
+﻿var flag1 = false, flag2 = false;
 function chang1(obj) {
 	var obValue = obj.value;
 	
@@ -11,7 +11,7 @@ function chang1(obj) {
 		var style = document.getElementById("txt1");
 		style.style.color='green';
 		document.getElementById("txt1").value = "·√";
-		flag1=true;;
+		flag1=true;
 	}
 }
 function chang2(obj) {
