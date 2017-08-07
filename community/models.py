@@ -29,7 +29,6 @@ class Posts(models.Model):
 	animal_cate = models.CharField(max_length=10, choices=ANIMAL_CATE_CHOICES, null=True, verbose_name="动物类型")
 	comment_num = models.IntegerField(default=0, verbose_name=u"评论数量")
 	likes = models.IntegerField(default=0, verbose_name=u"顶")
-	dislikes = models.IntegerField(default=0, verbose_name=u"踩")
 
 	class Meta:
 		verbose_name = u"帖子"
