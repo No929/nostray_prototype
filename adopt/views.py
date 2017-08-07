@@ -16,7 +16,8 @@ class ShowNearBy(View):
 		all_user = UserInfo.objects.all()
 		user = all_user.get(username=request.user)
 
-		all_stations = UserInfo.objects.filter(kind='station')
+		all = UserInfo.objects.all()
+		all_stations = all.filter(kind='救助站')
 		try:
 			page = request.GET.get('page', 1)
 		except PageNotAnInteger:
