@@ -42,15 +42,14 @@
 <input type="button" value="搜索" class="searchBtn">
 <span class="hot">热门搜索：&nbsp;&nbsp;<a href="" class="hot_link">啊啊啊啊</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="" class="hot_link">啊啊啊啊</a>
     &nbsp;&nbsp;&nbsp;<a href="" class="hot_link">啊啊啊啊</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="" class="hot_link">啊啊啊啊</a></span>
-<div class="top_choice">
-    <a href="" class="stationBtn">救助站</a>
-    <a href="" class="animalBtn">流浪动物</a>
-</div>
+<!-- 在这添加切换浏览模式选项 -->
 </div>
 <div class="main">
     <div class="cell_container">
+    {% for station in all_stations.object_list %}
+        <div class="cell">{{ station.username }}</div>
+    {% endfor %}
 
-        <div class="cell"></div>
         <div class="page_turn">
         {% if all_stations.has_previous %}
         <a href="?{{ all_stations.previous_page_number.querystring }}" class="link_page">{% trans "上一页" %}</a>
