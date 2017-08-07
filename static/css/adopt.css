@@ -97,7 +97,7 @@ body{
     box-shadow: 0 0 3px #a4a9a9 inset;
     border-radius: 2px;
 }
-.cell:hover{box-shadow: 0 0 3px #a4a9a9}
+.cell:hover{box-shadow: 0 0 15px #a4a9a9}
 .filter{
 
 }
