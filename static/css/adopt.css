@@ -92,7 +92,7 @@ body{
 }
 .cell{
     float: left;
-    width: 227px;
+    width: 231px;
     height: 300px;
     box-shadow: 0 0 3px #a4a9a9 inset;
     border-radius: 2px;
