@@ -141,7 +141,7 @@
         {% endif %}
     </div>
 <script src="{% static 'js/poster_check.js' %}"></script>
-    <form action="{% url 'community:allpost' %}" method="post" class="poster" id="posterForm">
+<form action="{% url 'community:allpost' %}" method="post" class="poster" id="posterForm">
         {% csrf_token %}
         <input type="file" accept="image/png,image/gif,image/jpeg" id="img_input" class="file_btn" onchange="imgChange(this.value)">
         <input type="button" class="file_front_btn" value="选择图片" name="image">
@@ -152,7 +152,7 @@
         <div id="content_error"></div>
         <input type="button" class="submit" id="submitBtn" value="发布">
         <div id="img_error"></div>
-    </form>
+</form>
 </div>
 <script>
     $.ajaxSetup({
@@ -207,7 +207,7 @@
 <div class="tail" id="tail">
 </div>
 <script>
-    $(window).scroll(function(){
+$(window).scroll(function(){
 　　var scrollTop = $(this).scrollTop()
 　　var scrollHeight = $(document).height()
 　　var windowHeight = $(this).height()
