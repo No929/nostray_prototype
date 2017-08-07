@@ -104,7 +104,8 @@
         <span class="name_span">{{ post.user.username }}</span>
         </a>
         <span class="time">发表时间：{{ post.add_time }}</span>
-        <span class="clicked">回复：{{ post.comment_num }}</span>
+        <span class="replys">回复：{{ post.comment_num }}</span>
+
         <a href="">
         <img class="post_img" src="{{ MEDIA_URL }}{{ post.image }}">
         <div class="article">
@@ -224,5 +225,6 @@ $(window).scroll(function(){
   }
 })
 </script>
+
 </body>
 </html>
