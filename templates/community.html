@@ -106,6 +106,14 @@
         <span class="time">发表时间：{{ post.add_time }}</span>
         <span class="replys">回复：{{ post.comment_num }}</span>
 
+<div class="praise">
+    <a>
+	<span id="praise"><img src="{% static 'img/like.png' %}" id="praise-img" /></span>
+	<span id="praise-txt">{{ post.likes }}</span>
+	<span id="add-num"><em>+1</em></span>
+    </a>
+</div>
+
         <a href="">
         <img class="post_img" src="{{ MEDIA_URL }}{{ post.image }}">
         <div class="article">
