@@ -5,7 +5,7 @@ from datetime import datetime
 from django.db import models
 from register.models import UserInfo
 #from animal.models import Animals
-#from community.models import Posts
+from community.models import Posts
 # Create your models here.
 
 
@@ -31,4 +31,13 @@ class UserMessage(models.Model):
 
 	class Meta:
 		verbose_name = u"用户消息"
+		verbose_name_plural = verbose_name
+
+
+class UserLikes(models.Model):
+	user = models.ForeignKey(UserInfo, verbose_name=u"点赞用户")
+	post_id = models.ForeignKey(Posts, verbose_name=u"点赞帖子id")
+
+	class Meta:
+		verbose_name = u"点赞信息"
 		verbose_name_plural = verbose_name
