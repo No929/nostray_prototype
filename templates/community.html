@@ -116,6 +116,7 @@
     </div>
     {% endfor %}
     {% endifequal %}
+<script src="{% static 'js/post_like.js' %}"></script>
     <div class="page_turn">
         {% if all_posts.has_previous %}
         <a href="?{{ all_posts.previous_page_number.querystring }}" class="link_page">{% trans "上一页" %}</a>
@@ -158,34 +159,9 @@
 <script>
     $.ajaxSetup({
     data: {csrfmiddlewaretoken: '{{ csrf_token }}' },
-});
+    });
 </script>
-<script>
-    $(document).ready(function () {
-        $("#submitBtn").click(function () {
-            $.ajax({
-                type:"POST",
-                url:"{% url 'community:poster' %}",
-                dataType:"json",
-                data:{
-                    title:$("#title").val(),
-                    content:$("#content").val(),
-                    image:$("#image").val(),
-                },
-                success:function(data){
-                    if (data.success){
-                        $("#img_error").html(data.msg)
-                    } else {
-                        $("#img_error").html(data.msg)
-                    }
-                },
-                error:function (jqXHR) {
-                    alert("发生错误："+jqXHR.status)
-                }
-            })
-        })
-    })
-</script>
+<script src="{% static 'js/poster_ajax.js' %}"></script>
 <div class="main_right">
     <div class="msg">
         <a href="" class="msg_a">
@@ -207,24 +183,6 @@
 </div>
 <div class="tail" id="tail">
 </div>
-<script>
-$(window).scroll(function(){
-　　var scrollTop = $(this).scrollTop()
-　　var scrollHeight = $(document).height()
-　　var windowHeight = $(this).height()
-　　if(scrollTop + windowHeight == scrollHeight){
-　　　　$("#tail").html("<div class='inner_tail'>" +
-        "<div class='tail_links'>" +
-        "<a class='links' href=''>法律法规</a><a class='links' href=''>商业合作</a>" +
-        "<a class='links' href=''>联系我们</a><a class='links' href=''>关于我们</a>" +
-        "</div>" +
-        "<span class='copyright'>Copyright © 2017 nostray 鲁ICP备17014163号</span>" +
-        "</div>")
-　　} else {
-      $("#tail").html("")
-  }
-})
-</script>
-
+<script src = "{% static 'js/tail.js' %}"></script>
 </body>
 </html>
