@@ -3,11 +3,12 @@ from __future__ import unicode_literals
 
 from django.shortcuts import render
 from django.views.generic.base import View
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse
+from django.contrib.auth.decorators import login_required
 
 from pure_pagination import Paginator, EmptyPage, PageNotAnInteger
 from .models import Posts
-from operation.models import UserFavorite, UserMessage
+from operation.models import UserFavorite, UserMessage, UserLikes
 from register.models import UserInfo
 from .forms import PostForm
 # Create your views here.
@@ -79,6 +80,9 @@ class AllPosts(View):
 				"my_msg_num": my_msg_num,
 			})
 
+@login_required
+def likeView(request):
+	pass
 
 
 class PosterView(View):
