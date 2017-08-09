@@ -1,5 +1,5 @@
 # nostray_prototype
-<a href="www.github.com/klawens">欢迎光临寒舍</a><br>
+<a href="klawens">欢迎光临寒舍</a><br>
 <img src="http://ww3.sinaimg.cn/large/6af89bc8gw1f8stov4xdyj204u05it8j.jpg">
 <br><br>
 A none-frofit orgnization for saving stray animals, created by Klawens Snow in March, 2017.<br/>
