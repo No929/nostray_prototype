@@ -37,11 +37,6 @@ class AllPosts(View):
 
 		post_num = all_posts.count()
 
-		all_likes = UserLikes.objects.all()
-		postID = request.GET.get('id', '')
-		like = all_likes.filter(post_id=postID)
-		like_num = like.count()
-
 		try:
 			page = request.GET.get('page', 1)
 		except PageNotAnInteger:
@@ -69,7 +64,6 @@ class AllPosts(View):
 				"my_msg_num": my_msg_num,
 				"icon": user.icon,
 				"user": user.username,
-				'like_num': like_num,
 			})
 		else:
 			my_fav_num = 0
@@ -84,30 +78,13 @@ class AllPosts(View):
 				"my_fav_num": my_fav_num,
 				"my_posts_num": my_posts_num,
 				"my_msg_num": my_msg_num,
-				'like_num': like_num,
 			})
 
 
 class LikeView(View):
 	@login_required
-	def get(self, request):
-		all_likes = UserLikes.objects.all()
-		postID = request.GET.get('id', '')
-		all_likes = all_likes.filter(post_id=postID)
-		like_num = all_likes.count()
-		add_like = request.GET.get('like_count', 0)
-
-		if like_num < like_num+int(add_like):
-			like_table = UserLikes(request.GET)
-			like_table.post_id = postID
-			like_table.user = request.user
-			like_table.save()
-		elif like_num > like_num+int(add_like):
-			row = all_likes.filter(user=request.user)
-			if row:
-				row.delete()
-		else:
-			pass
+	def post(self, request):
+		pass
 
 
 class PosterView(View):

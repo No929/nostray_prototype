@@ -107,9 +107,8 @@
         <span class="replys">回复：{{ post.comment_num }}</span>
 
     <div class="praise">
-    <input type="hidden" name="id" value="{{ post.id }}">
 	<span id="praise"><img src="{% static 'img/like.png' %}" id="praise-img" /></span>
-	<span id="praise-txt">{{ like_num }}</span>
+	<span id="praise-txt"></span>
 	<span id="add-num"><em>+1</em></span>
     </div>
 
