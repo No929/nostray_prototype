@@ -147,3 +147,5 @@ EMAIL_HOST_USER = 'klawens@qq.com'
 EMAIL_HOST_PASSWORD = 'klawens0424'#'ijkkhncdfybteajg'
 EMAIL_USE_TLS = False
 EMAIL_FROM = 'klawens@qq.com'#xxx@xxx.com
+
+LOGIN_URL = '/login/'
