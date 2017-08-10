@@ -1,0 +1,119 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>下拉菜单</title>
+<style type="text/css">
+*{ 
+	margin:0px; 
+	padding:0px;
+}
+.showmenu{
+	z-index:999px;
+	position:fixed;
+	width:100px;
+	height:130px;
+	margin-left:200px;
+	margin-top:20px;
+	border:0px solid #000;
+}
+
+
+
+
+#li0{
+	list-style:none;
+	background-color: rgb(122, 122, 122); 
+	width:100px; 
+	height:40px;
+	line-height:40px; 
+	text-align:center;
+	border:0px solid #000;
+	
+}
+
+#li1,#li2{
+	list-style:none;
+	width:100px; 
+	height:40px;
+	line-height:40px; 
+	text-align:center;
+	background-color: rgb(122, 122, 122); 
+	margin-top:2px;
+	border:0px solid #000;
+}
+
+a{ 
+	text-decoration:none;
+	color:#000;
+	display:block; 
+	width:100px;
+	
+}
+a:hover{
+	background-color: #936;
+}
+
+ 
+</style>
+<script src="js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	
+	$(".ul_li").children(".ul_li_ul").hide();
+	$(".ul_li").mouseover(function(){
+		 $(this).children(".ul_li_ul").show();
+		 
+		 
+		 })
+	 $(".ul_li").children(".ul_li_ul").mouseout(function(){
+		 
+		 $(this).hide();
+		 
+		 })
+		 
+     $('#a0').mousedown(function() {
+		 $(".ul_li").children(".ul_li_ul").hide();
+	 })
+	 $('#a1').mousedown(function() {
+        var txt1 = $('.ul_li').children('#a0').html();
+        var txt = $('#li1').children('#a1').html();
+		
+        $('#li1').children('#a1').html(txt1);
+        $('.ul_li').children('#a0').html(txt);
+		
+		$(".ul_li").children(".ul_li_ul").hide();
+           
+    });
+	
+	$('#a2').mousedown(function() {
+        var txt1 = $('.ul_li').children('#a0').html();
+        var txt = $('#li2').children('#a2').html();
+		
+        $('#li2').children('#a2').html(txt1);
+        $('.ul_li').children('#a0').html(txt);
+		
+		$(".ul_li").children(".ul_li_ul").hide();
+           
+    });
+	
+})
+</script>
+</head>
+
+
+<body>
+<div class="showmenu">
+
+<ul  class="menu">
+	<li class="ul_li" id="li0"><a href="#" id="a0">救助站</a>
+      <ul class="ul_li_ul">  
+         <li class="ul_li_ul_li" id="li1"><a href="#" id="a1">流浪动物</a></li>
+         <li class="ul_li_ul_li" id="li2"><a href="#" id="a2">混合模式</a></li>
+      </ul>
+  	</li>
+</ul>
+
+</div>
+</body>
+</html>
