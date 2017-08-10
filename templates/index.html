@@ -24,9 +24,9 @@
 <div class="head_bar" style="z-index: 1;">
     <a class="logo" href="{% url 'index' %}">Nostray</a>
     <div class="nav_bar">
-        <a class="nav" href="{% url 'adopt:market' %}">领养</a>
-        <a class="nav" href="{% url 'community:allpost' %}">社区</a>
-        <a class="nav" href="">公益</a>
+        <a class="nav" href="{% url 'adopt:market' %}"><span class="roll" id="adopt">领养</span></a>
+        <a class="nav" href="{% url 'community:allpost' %}"><span class="roll" id="community">社区</span></a>
+        <a class="nav" href=""><span class="roll" id="charity">公益</span></a>
     </div>
         {% if request.user.is_authenticated %}
         <div class="current_user"><a href="">
