@@ -38,11 +38,20 @@
     {% endif %}
 </div>
 <div class="operate_bar">
+    <span class="mod_choice">选择浏览方式：</span>
+    <div class="showmenu">
+    <ul  class="menu">
+        <li class="ul_li" id="li0"><a href="#" id="a0" class="menu_a">救助站</a>
+          <ul class="ul_li_ul">
+             <li class="ul_li_ul_li" id="li1"><a href="#" id="a1" class="menu_a">流浪动物</a></li>
+          </ul>
+        </li>
+    </ul>
+    </div><script src="{% static 'js/show_menu.js' %}"></script>
 <input type="search" placeholder="搜索救助站，动物品种" id="search">
 <input type="button" value="搜索" class="searchBtn">
 <span class="hot">热门搜索：&nbsp;&nbsp;<a href="" class="hot_link">啊啊啊啊</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="" class="hot_link">啊啊啊啊</a>
     &nbsp;&nbsp;&nbsp;<a href="" class="hot_link">啊啊啊啊</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="" class="hot_link">啊啊啊啊</a></span>
-<!-- 在这添加切换浏览模式选项 -->
 </div>
 <div class="main">
     <div class="cell_container">
