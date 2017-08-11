@@ -10,9 +10,6 @@ def index(request):
 	all_user = UserInfo.objects.all()
 	user = all_user.get(username=request.user)
 
-	print user.icon
-	print 'aaaaaaaaa'
-
 	return render(request, 'index.html', {
 		"icon": user.icon,
 		"user": user.username,

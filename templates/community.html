@@ -78,12 +78,6 @@
         <span class="time">发表时间：{{ post.add_time }}</span>
         <span class="replys">回复：{{ post.comment_num }}</span>
 
-    <div class="praise">
-	<span id="praise"><img src="{% static 'img/like.png' %}" id="praise-img" /></span>
-	<span id="praise-txt"></span>
-	<span id="add-num"><em>+1</em></span>
-    </div>
-
         <a href="">
         <img class="post_img" src="{{ MEDIA_URL }}{{ post.image }}">
         <div class="article">
@@ -94,7 +88,7 @@
     </div>
     {% endfor %}
     {% endifequal %}
-<script src="{% static 'js/post_like.js' %}"></script>
+
     <div class="page_turn">
         {% if all_posts.has_previous %}
         <a href="?{{ all_posts.previous_page_number.querystring }}" class="link_page">{% trans "上一页" %}</a>
