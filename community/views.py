@@ -51,8 +51,6 @@ class AllPosts(View):
 			my_posts_num = all_posts.filter(user=request.user).count()
 			my_msg = UserMessage.objects.all()
 			my_msg_num = my_msg.filter(user=request.user, has_read=False).count()
-			all_user = UserInfo.objects.all()
-			user = all_user.get(username=request.user)
 			return render(request, 'community.html', {
 				"all_posts": posts,
 				"post_num": post_num,
@@ -62,8 +60,6 @@ class AllPosts(View):
 				"my_fav_num": my_fav_num,
 				"my_posts_num": my_posts_num,
 				"my_msg_num": my_msg_num,
-				"icon": user.icon,
-				"user": user.username,
 			})
 		else:
 			my_fav_num = 0

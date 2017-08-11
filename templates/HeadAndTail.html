@@ -29,8 +29,8 @@
         <a class="nav" href=""><span class="roll" id="charity">公益</span></a>
     </div>
         {% if request.user.is_authenticated %}
-        <div class="current_user"><a href="">
-        <img src="{{ MEDIA_URL }}{{ icon }}" title="登录状态：{{ user }}" class="curr_icon">
+        <div class="current_user"><a href="{% url 'center:home' request.user.id %}">
+        <img src="{{ MEDIA_URL }}{{ request.user.icon }}" title="登录状态：{{ request.user.username }}" class="curr_icon">
         </a></div>
         {% else %}
             <button class="bar_btn1" onclick="location.href={% url 'login' %}">登录</button>

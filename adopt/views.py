@@ -13,9 +13,6 @@ from pure_pagination import Paginator, EmptyPage, PageNotAnInteger
 class ShowNearBy(View):
 
 	def get(self, request):
-		all_user = UserInfo.objects.all()
-		user = all_user.get(username=request.user)
-
 		all = UserInfo.objects.all()
 		all_stations = all.filter(kind='救助站')
 		try:
@@ -27,7 +24,5 @@ class ShowNearBy(View):
 		stations = p.page(page)
 
 		return render(request, "adopt.html", {
-			'icon': user.icon,
-			'user': user.username,
 			'all_stations': stations,
 		})
