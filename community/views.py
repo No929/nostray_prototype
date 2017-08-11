@@ -52,7 +52,7 @@ class AllPosts(View):
 			my_msg = UserMessage.objects.all()
 			my_msg_num = my_msg.filter(user=request.user, has_read=False).count()
 			all_user = UserInfo.objects.all()
-			user = all_user.get(username=request.user.username)
+			user = all_user.get(username=request.user)
 			return render(request, 'community.html', {
 				"all_posts": posts,
 				"post_num": post_num,

@@ -7,10 +7,13 @@ from register.models import UserInfo
 
 # Create your views here.
 def index(request):
-	if request.method == 'GET':
-		all_user = UserInfo.objects.all()
-		user = all_user.filter(username=request.user.username)
-		return render(request, 'index.html', {
-			"icon": user.icon,
-			"user": user.username,
-		})
+	all_user = UserInfo.objects.all()
+	user = all_user.get(username=request.user)
+
+	print user.icon
+	print 'aaaaaaaaa'
+
+	return render(request, 'index.html', {
+		"icon": user.icon,
+		"user": user.username,
+	})

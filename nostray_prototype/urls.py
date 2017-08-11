@@ -19,13 +19,13 @@ from django.views.generic import TemplateView
 from django.views.static import serve
 
 from register.views import LoginView, RegisteView, ActiveUserView, ForgetPwdView, ResetPwdView, ModifyPwdView
-from adopt.views import ShowNearBy
+from index.views import index
 from nostray_prototype.settings import MEDIA_ROOT
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^captcha/', include('captcha.urls')),
-    url(r'^$', TemplateView.as_view(template_name='index.html'), name='index'),
+    url(r'^$', index, name='index'),
     url(r'^login/$', LoginView.as_view(), name='login'),
     url(r'^registe/$', RegisteView.as_view(), name='registe'),
     url(r'^community/', include('community.urls', namespace='community')),
