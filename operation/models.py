@@ -13,6 +13,7 @@ class UserFavorite(models.Model):
 	FAV_TYPE_CHOICES = [
 		(1, 'animal'),
 		(2, 'post'),
+		(3, 'station'),
 	]
 	user = models.ForeignKey(UserInfo, verbose_name=u"用户")
 	fav_id = models.IntegerField(default=0, verbose_name=u"数据ID")
@@ -22,6 +23,8 @@ class UserFavorite(models.Model):
 		verbose_name = u"用户收藏"
 		verbose_name_plural = verbose_name
 
+	def __unicode__(self):
+		return self.user.username
 
 class UserMessage(models.Model):
 	user = models.ForeignKey(UserInfo, verbose_name=u"接收用户")

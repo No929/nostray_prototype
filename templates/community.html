@@ -1,42 +1,14 @@
-<!DOCTYPE html>
-<html>
+{% extends 'HeadAndTail.html' %}
 {% load staticfiles %}
 {% load i18n %}
-<head>
-<meta charset="UTF-8">
+
+{% block title %}nostray - 社区{% endblock %}
+
+{% block css %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/community.css' %}">
-<link rel="stylesheet" type="text/css" href="{% static 'css/head.css' %}">
-<link rel="stylesheet" type="text/css" href="{% static 'css/tail.css' %}">
-<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
-<title>nostray - Community</title>
-<style type="text/css">
-    @font-face { 
-      font-family: icons; 
-      src: url("{% static 'font/icons.woff2' %}");
-    }
-    @font-face {
-      font-family: lemon; 
-      src: url("{% static 'font/AaMissLemon.ttf' %}");
-    }
-</style>
-</head>
-<body>
-<div class="head_bar" >
-    <a class="logo" href="{% url 'index' %}">Nostray</a>
-    <div class="nav_bar">
-        <a class="nav" href="{% url 'adopt:market' %}"><span class="roll" id="adopt">领养</span></a>
-        <a class="nav" href="{% url 'community:allpost' %}"><span class="roll" id="community">社区</span></a>
-        <a class="nav" href=""><span class="roll" id="charity">公益</span></a>
-    </div>
-    {% if request.user.is_authenticated %}
-    <div class="current_user"><a href="">
-    <img src="{{ MEDIA_URL }}{{ icon }}" title="登录状态：{{ user }}" class="curr_icon">
-    </a></div>
-    {% else %}
-    <button class="bar_btn1" onclick="location.href={% url 'login' %}">登录</button>
-    <button class="bar_btn2" onclick="location.href={% url 'registe' %}">注册</button>
-    {% endif %}
-</div>
+{% endblock %}
+
+{% block content %}
 <div class="main_left">
     <div class="left_bar">
         <a class="a_post" href="#title">
@@ -65,7 +37,7 @@
     <a href="?animal=other&kind={{ post_kind }}&{{ sort }}">
     <span class="cate_span {% ifequal animal_kind 'other' %}chosen{% endifequal %}">其他</span>
     </a>
-    
+
     <span class="cate_span0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;排序：</span>
         <a href="?kind={{ post_kind }}&animal={{ animal_kind }}" class="cate_span {% ifequal sort '' %}chosen{% endifequal %}">不限</a>
         <a href="?sort=add_time&kind={{ post_kind }}&animal={{ animal_kind }}" class="cate_span {% ifequal sort 'add_time' %}chosen{% endifequal %}">时间</a>
@@ -187,8 +159,4 @@
         </a>
     </div>
 </div>
-<div class="tail" id="tail">
-</div>
-<script src = "{% static 'js/tail.js' %}"></script>
-</body>
-</html>
+{% endblock %}

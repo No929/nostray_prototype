@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+{% load staticfiles %}
+<head>
+<meta charset="UTF-8">
+<title>{% block title %}nostray{% endblock %}</title>
+<link rel="stylesheet" type="text/css" href="{% static 'css/head.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/tail.css' %}">
+<style type="text/css">
+    @font-face {
+      font-family: icons;
+      src: url("{% static 'font/icons.woff2' %}");
+    }
+    @font-face {
+      font-family: lemon;
+      src: url("{% static 'font/AaMissLemon.ttf' %}");
+    }
+</style>
+{% block css %}{% endblock %}
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+{% block js %}{% endblock %}
+</head>
+<body>
+<div class="head_bar" style="z-index: 1;">
+    <a class="logo" href="{% url 'index' %}">Nostray</a>
+    <div class="nav_bar">
+        <a class="nav" href="{% url 'adopt:market' %}"><span class="roll" id="adopt">领养</span></a>
+        <a class="nav" href="{% url 'community:allpost' %}"><span class="roll" id="community">社区</span></a>
+        <a class="nav" href=""><span class="roll" id="charity">公益</span></a>
+    </div>
+        {% if request.user.is_authenticated %}
+        <div class="current_user"><a href="">
+        <img src="{{ MEDIA_URL }}{{ icon }}" title="登录状态：{{ user }}" class="curr_icon">
+        </a></div>
+        {% else %}
+            <button class="bar_btn1" onclick="location.href={% url 'login' %}">登录</button>
+            <button class="bar_btn2" onclick="location.href={% url 'registe' %}">注册</button>
+        {% endif %}
+</div>
+{% block content %}
+
+{% endblock %}
+<div class="tail" id="tail">
+</div>
+<script src="{% static 'js/tail.js' %}"></script>
+</body>
+</html>

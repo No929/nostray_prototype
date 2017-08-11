@@ -1,42 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    {% load staticfiles %}
-    {% load i18n %}
-    <meta charset="UTF-8">
+{% extends 'HeadAndTail.html' %}
+{% load staticfiles %}
+{% load i18n %}
+
+{% block css %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/adopt.css' %}">
-<link rel="stylesheet" type="text/css" href="{% static 'css/head.css' %}">
-<link rel="stylesheet" type="text/css" href="{% static 'css/tail.css' %}">
-<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
-    <title>nostray - adopt</title>
-<style type="text/css">
-    @font-face {
-      font-family: icons;
-      src: url("{% static 'font/icons.woff2' %}");
-    }
-    @font-face {
-      font-family: lemon;
-      src: url("{% static 'font/AaMissLemon.ttf' %}");
-    }
-</style>
-</head>
-<body>
-<div class="head_bar" >
-    <a class="logo" href="{% url 'index' %}">Nostray</a>
-    <div class="nav_bar">
-        <a class="nav" href="{% url 'adopt:market' %}"><span class="roll" id="adopt">领养</span></a>
-        <a class="nav" href="{% url 'community:allpost' %}"><span class="roll" id="community">社区</span></a>
-        <a class="nav" href=""><span class="roll" id="charity">公益</span></a>
-    </div>
-    {% if request.user.is_authenticated %}
-    <div class="current_user"><a href="">
-    <img src="{{ MEDIA_URL }}{{ icon }}" title="登录状态：{{ user }}" class="curr_icon">
-    </a></div>
-    {% else %}
-    <button class="bar_btn1" onclick="location.href={% url 'login' %}">登录</button>
-    <button class="bar_btn2" onclick="location.href={% url 'registe' %}">注册</button>
-    {% endif %}
-</div>
+{% endblock %}
+
+{% block title %}nostray - 领养{% endblock %}
+
+{% block content %}
 <div class="operate_bar">
     <span class="mod_choice">选择浏览方式：</span>
     <div class="showmenu">
@@ -90,8 +62,4 @@
 </div>
 
 </div>
-<div class="tail" id="tail">
-</div>
-<script src="{% static 'js/tail.js' %}"></script>
-</body>
-</html>
+{% endblock %}
