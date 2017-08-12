@@ -11,6 +11,7 @@ from .models import Posts
 from operation.models import UserFavorite, UserMessage, UserLikes
 from register.models import UserInfo
 from .forms import PostForm
+from utils.imgResize import pImgResize
 # Create your views here.
 
 
@@ -88,7 +89,21 @@ class PosterView(View):
 	def post(self, request):
 		poster_form = PostForm(request.POST)
 		if poster_form.is_valid():
-			poster_form.save(commit=True)
+			title = request.POST.get('title')
+			content = request.POST.get('content')
+			print request.POST.get('image', 'aaa')
+			if 'image' in request.FILES:
+				print 'bbb'
+				img = request.FILES['image']
+				url = pImgResize(img)
+				post = Posts(title=title, content=content, image=url, post_cate='GV')
+				post.save()
+			else:
+				print 'ccc'
+				post = Posts(title=title, content=content, post_cate='GV')
+				post.save()
+
 			return JsonResponse({'success':True, 'msg':'成功'})
 		else:
+			print 'ffff'
 			return JsonResponse({'success':False, 'msg':'失败'})
