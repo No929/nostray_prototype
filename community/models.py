@@ -20,11 +20,10 @@ class Posts(models.Model):
 		('OTHER', 'other'),
 	]
 	user = models.ForeignKey(UserInfo, related_name='user_name', verbose_name=u"所属用户")
-	icon = models.ForeignKey(UserInfo, related_name='user_icon', verbose_name=u"用户头像")
-	title = models.CharField(max_length=100, verbose_name=u"帖子标题")
+	title = models.CharField(max_length=20, verbose_name=u"帖子标题")
 	content = models.TextField(null=True, blank=True, verbose_name=u"帖子内容")
 	add_time = models.DateTimeField(default=datetime.now, verbose_name=u"发帖时间")
-	image = models.ImageField(max_length=100, upload_to='post_img/%Y/%m', null=True, verbose_name=u"贴图")
+	image = models.ImageField(max_length=100, upload_to='post_img/%Y/%m', null=True, blank=True, verbose_name=u"贴图")
 	post_cate = models.CharField(max_length=2, choices=POST_CATE_CHOICES, verbose_name="帖子类型")
 	animal_cate = models.CharField(max_length=10, choices=ANIMAL_CATE_CHOICES, null=True, verbose_name="动物类型")
 	comment_num = models.IntegerField(default=0, verbose_name=u"评论数量")
