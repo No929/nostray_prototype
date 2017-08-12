@@ -119,7 +119,8 @@ body{
 }
 .icon{
 	display: block;
-	width: 40px;position: absolute;
+	width: 40px;
+	position: absolute;
 	box-shadow: 0 0 2px rgb(100,100,100);
 }
 .name_span{

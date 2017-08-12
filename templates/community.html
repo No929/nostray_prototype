@@ -122,6 +122,7 @@
         <input type="text" name="title" id="title" class="title_area" placeholder="标题（不超过20字）：" onchange="titleChange(this.value)">
         <span class="img_root">已选图片：<span id="img_root" class="hidden">无</span><img class="deleteImg" onclick="clearImg()" src="{% static 'img/delete.png' %}"></span>
         <textarea name="content" id="content" name="content" class="content_area" placeholder="输入内容（不超过2000字）：" onchange="contentChange(this.value)"></textarea>
+        <select name="post_cate"></select>
         <div id="title_error"></div>
         <div id="content_error"></div>
         <input type="button" class="submit" id="submitBtn" value="发布">
