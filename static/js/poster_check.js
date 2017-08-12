@@ -1,5 +1,5 @@
 function titleChange(obj) {
-    if (obj.length>20 || obj.length<1)
+    if (obj.length>20 || obj.length<6)
         document.getElementById('title_error').innerHTML =
             '<span>标题长度不规范(1-20)</span>';
     else {
@@ -9,7 +9,7 @@ function titleChange(obj) {
 }
 
 function contentChange(obj) {
-    if (obj.length>2000 || obj.length<1)
+    if (obj.length>1000 || obj.length<2)
         document.getElementById('content_error').innerHTML =
             '<span>内容长度不规范(1-2000)</span>';
     else {
