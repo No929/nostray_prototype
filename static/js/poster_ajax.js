@@ -7,7 +7,7 @@
                 data:{
                     title:$("#title").val(),
                     content:$("#content").val(),
-                    image:$("#image").val(),
+                    image:$("#img_input").val(),
                 },
                 success:function(data){
                     if (data.success){
