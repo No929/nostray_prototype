@@ -24,9 +24,6 @@ function imgChange(obj) {
             "<span></span>";
         var path = document.getElementById("img_input").value;
         document.getElementById("img_root").innerHTML = path;
-    if (onj.length == 0) {
-        document.getElementById("img_error").innerHTML = "未上传图片";
-    }
     }
 }
 
