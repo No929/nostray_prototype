@@ -23,9 +23,9 @@ class AllPosts(View):
 		animal_kind = request.GET.get('animal', '')
 		post_kind = request.GET.get('kind', '')
 		if animal_kind:
-			all_posts = all_posts.filter(animal_cate=animal_kind).order_by("-likes")
+			all_posts = all_posts.filter(animal_cate=animal_kind).order_by("-comment_num")
 		if post_kind:
-			all_posts = all_posts.filter(post_cate=post_kind).order_by("-likes")
+			all_posts = all_posts.filter(post_cate=post_kind).order_by("-comment_num")
 
 		sort = request.GET.get('sort', '')
 		if sort:
@@ -33,8 +33,6 @@ class AllPosts(View):
 				all_posts = all_posts.order_by('-add_time')
 			elif sort == 'comment_num':
 				all_posts = all_posts.order_by('-comment_num')
-			elif sort == 'likes':
-				all_posts = all_posts.order_by('-likes')
 
 		post_num = all_posts.count()
 
@@ -91,16 +89,17 @@ class PosterView(View):
 		if poster_form.is_valid():
 			title = request.POST.get('title')
 			content = request.POST.get('content')
+			post_cate = request.POST.get('post_cate')
 			print request.POST.get('image', 'aaa')
 			if 'image' in request.FILES:
 				print 'bbb'
 				img = request.FILES['image']
 				url = pImgResize(img)
-				post = Posts(title=title, content=content, image=url, post_cate='GV')
+				post = Posts(title=title, content=content, image=url, post_cate=post_cate)
 				post.save()
 			else:
 				print 'ccc'
-				post = Posts(title=title, content=content, post_cate='GV')
+				post = Posts(title=title, content=content, post_cate=post_cate)
 				post.save()
 
 			return JsonResponse({'success':True, 'msg':'成功'})

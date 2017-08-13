@@ -9,15 +9,15 @@ from register.models import UserInfo
 
 class Posts(models.Model):
 	POST_CATE_CHOICES = [
-		('GV', 'giving'),
-		('WT', 'want'),
-		('NE', 'new_explorer'),
-		('TS', 'tell_story'),
+		('赠送', 'giving'),
+		('寻求', 'want'),
+		('流浪动物', 'new_explorer'),
+		('文章', 'tell_story'),
 	]
 	ANIMAL_CATE_CHOICES = [
-		('DOG', 'dog'),
-		('CAT', 'cat'),
-		('OTHER', 'other'),
+		('狗', 'dog'),
+		('猫', 'cat'),
+		('其他', 'other'),
 	]
 	user = models.ForeignKey(UserInfo, related_name='user_name', verbose_name=u"所属用户")
 	title = models.CharField(max_length=20, verbose_name=u"帖子标题")
