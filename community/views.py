@@ -7,7 +7,7 @@ from django.http import JsonResponse, HttpResponse
 from django.contrib.auth.decorators import login_required
 
 from pure_pagination import Paginator, EmptyPage, PageNotAnInteger
-from .models import Posts
+from .models import Posts, Comments
 from operation.models import UserFavorite, UserMessage, UserLikes
 from register.models import UserInfo
 from .forms import PostForm
@@ -110,5 +110,7 @@ class PosterView(View):
 
 class ContentView(View):
 
-	def get(self, request):
+	def get(self, request, post_id):
+		comment = Comments.objects.get(post=int(post_id))
+
 		return render(request, 'pContent.html')
