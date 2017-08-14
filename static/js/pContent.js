@@ -1,4 +1,4 @@
 
 function on() {
-$("#dianzan").attr("src","img/like1.jpg");
+$("#dianzan").attr("src","/static/img/like1.jpg");
 }
