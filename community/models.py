@@ -40,7 +40,6 @@ class Comments(models.Model):
 	image = models.ImageField(max_length=100, upload_to='comment_img/%Y/%m', null=True, verbose_name=u"评论图片")
 	add_time = models.DateTimeField(default=datetime.now, verbose_name=u"评论时间")
 	likes = models.IntegerField(default=0, verbose_name=u"顶")
-	dislikes = models.IntegerField(default=0, verbose_name=u"踩")
 
 	class Meta:
 		verbose_name = u"评论"
