@@ -177,7 +177,8 @@ body{
 	color: rgb(100,100,100);	
 }
 .content{
-	overflow: hidden;
+	overflow:hidden;
+	text-overflow: ellipsis;
 	text-align: left;
 	display: block;
 	height: 91px;
