@@ -106,3 +106,9 @@ class PosterView(View):
 		else:
 			print 'ffff'
 			return JsonResponse({'success':False, 'msg':'失败'})
+
+
+class ContentView(View):
+
+	def get(self, request):
+		return render(request, 'pContent.html')
