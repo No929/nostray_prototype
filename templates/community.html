@@ -77,7 +77,7 @@
         <span class="time">发表时间：{{ post.add_time }}</span>
         <span class="replys">回复：{{ post.comment_num }}</span>
 
-        <a href="{% url 'community:content' %}">
+        <a href="{% url 'community:content' post.id %}">
         <img class="post_img" src="{{ MEDIA_URL }}{{ post.image }}">
         <div class="article">
         <h3 class="title">{{ post.title }}</h3>

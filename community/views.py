@@ -111,6 +111,11 @@ class PosterView(View):
 class ContentView(View):
 
 	def get(self, request, post_id):
-		comment = Comments.objects.get(post=int(post_id))
+		post = Posts.objects.get(id=int(post_id))
+		all_comment = Comments.objects.all()
+		comment = all_comment.filter(post=int(post_id))
 
-		return render(request, 'pContent.html')
+		return render(request, 'pContent.html', {
+			'post' : post,
+			'all_comment' : comment,
+		})
