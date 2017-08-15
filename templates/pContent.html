@@ -32,7 +32,7 @@
     <div class="comment">
     {% for comment in all_comment %}
         <div class="comment_cell">
-        <a href="{% url 'center:home' comment.user.username %}">{{ comment.user.username }}</a>
+        <a href="{% url 'center:home' comment.user.id %}">{{ comment.user.username }}</a>
         <span>{{ comment.content }}</span>
         </div>
     {% endfor %}
