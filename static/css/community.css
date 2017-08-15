@@ -171,6 +171,8 @@ body{
 .article:hover{opacity: 0.9}
 .title{
 	overflow: hidden;
+	word-wrap: break-word;
+	text-overflow: ellipsis;
 	text-align: left;
 	display: block;
 	height: 30px;
@@ -178,8 +180,9 @@ body{
 }
 .content{
 	overflow:hidden;
-	text-overflow: ellipsis;
+	word-wrap: break-word;
 	text-align: left;
+	white-space: pre;
 	display: block;
 	height: 91px;
 	color: rgb(60,60,60);
