@@ -1,44 +1,43 @@
 {% extends 'HeadAndTail.html' %}
 {% load staticfiles %}
 
-{% block title %}{% endblock %}
+{% block title %}nostray - {{ post.title }}{% endblock %}
 
 {% block css %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/pContent.css' %}">
 {% endblock %}
 
 {% block content %}
-<div class="main">
+<div class="wrap">
+    <div class="main">
 	<div class="top">
-        	<a href="{% url 'center:home' request.user.id %}">
-                <img class="avatar" src="{% static 'img/head.png' %}"/>
+        	<a href="{% url 'center:home' post.user.id %}">
+                <img class="avatar" src="{{ MEDIA_URL }}{{ post.user.icon }}"/>
             </a>
 
         <div class="info">
-        	<span class="user"><a href="{% url 'center:home' request.user.id %}">橘子味的猫</a></span>
-            <span class="post_date">发表于：2017/08/10</span>
+        	<span class="user"><a href="{% url 'center:home' post.user.id %}">{{ post.user.username }}</a></span>
+            <span class="post_date">发表于：{{ post.add_time }}</span>
         </div>
 
-        	<span class="title" title="">解忧杂货店：野野口修的手记</span>
-        
-<div class="operation">
-  <select id="sources" class="custom-select sources" placeholder="操作">
-    <option>收藏</option>
-    <option>举报</option>
-  </select>
-</div>
-        <script src="{% static 'js/pSelect.js' %}"></script>
+        	<span class="title" title="">{{ post.title }}</span>
     </div>
     <img>
     <div class="content">
-    	<article class="content_span">东野圭吾写过很多揭露人性丑恶的推理小说，但是同时也彰显人性的善意。《解忧杂货店》中，浪矢爷爷几乎就是东野的化身。东野圭吾收到的咨询信，不一定真的有时间一封一封回复，但是他通过小说回答了很多问题，比如浪矢爷爷说：“这么多年咨询信看下来，逐渐明白，很多时候，咨询的人心里已经有了答案，来咨询只是想确认自己的决定是对的。”浪矢爷爷总是很认真地回复别人的问题，哪怕是恶作剧。他说：“我不但要写回信，而且要好好思考再写。人的心声是绝对不能无视的。”临死之前，他收到了很多感谢信，他很谦虚地说：“像我这样的糟老头子，怎么可能有左右别人的力量？如果说我的回答起了作用，是因为他们自己很努力。如果自己不想积极认真地生活，不管得到什么样的回答都没用。”
-            </br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;所有的回答都非常温馨、主流，以爱和家庭为核心。比如说，劝说运动员放弃训练去陪伴得了绝症的男朋友；父亲欠了债，即使逃亡，也应该一家人在一起；父母要竭尽全力给孩子幸福。新经典文化的外国文学总编辑黎遥说：“作者用温柔的笔触抚慰人们内心中的种种烦恼，每一个情节无不让人为之动情”。编剧史航说《解忧杂货店》利用时空扭转，歪打正着。三个抢劫犯回答时劝说来信人别这么干，结果写信人以为是在受考验，因为时光倒错，一切都得以成全。评论家止庵也说《解忧杂货店》运用了超现实因素，但是用得非常克制，充分利用了误解，唤起内心的善。最终咨询人是按照自己的内心做出的选择，由此可见东野虽然是畅销书作家，但是他确实对人心和人与人之间的关系，有着深刻的理解。"
-            </br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;小说中一共有五位咨询者倾诉了他们的烦恼，每一个咨询者都讲述了一个故事。如果故事这么一个个讲下去的话，这本书会变成一颗颗散落的珍珠，虽然也可称为佳作，但是毕竟失之凌乱。因此作者采用了截然不同的角度来分别讲述这几个故事，分开看独立成章，连起来又对情节起到了层层推进的作用。小说中有几段故事，人物遭遇看似独立，看完后却发现其实每个人物都牵动着彼此，都和“浪矢杂货店”有渊源，都隐隐地和“浪矢杂货店”以及孤儿院“丸光园”有着千丝万缕的联系，每个故事前后呼应。其间每个人不经意间的选择和行为，都像投入水面的石子一样，造成了持续不断的涟漪，这些涟漪不断扩大，渐渐形成了牢不可破的羁绊，过去未来终于交汇。
-        </article>
+    	<article class="content_span">&nbsp;&nbsp;&nbsp;&nbsp;{{ post.content }}</article>
     </div>
 
 </div>
 
+    <div class="comment">
+    {% for comment in all_comment %}
+        <div class="comment_cell">
+        <a href="{% url 'center:home' comment.user.username %}">{{ comment.user.username }}</a>
+        <span>{{ comment.content }}</span>
+        </div>
+    {% endfor %}
+    </div>
+</div>
 <div class="operate">
     <a href="#">
         <img src="{% static 'img/share.png' %}" class="share_img" />
@@ -57,8 +56,5 @@
 </div>
     <div style="height: 100px;"></div>
 
-<div class="comment">
-{% for %}
-{% endfor %}
-</div>
+<div class="empty"></div>
 {% endblock %}
