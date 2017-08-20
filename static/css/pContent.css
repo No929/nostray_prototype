@@ -111,3 +111,27 @@ a:active{
 	height: 630px;
     border-left: 1px solid #a4a9a9;
 }
+.comment_cell{
+	min-height: 80px;
+	max-height: 150px;
+	width: 535px;
+	border-radius: 2px;
+	margin: 10px;
+	box-shadow: 0 0 4px #6c6c6c;
+}
+.comment_avatar{
+	float: left;
+	max-width: 30px;
+	border-radius: 50%;
+	margin: 5px;
+}
+.comment_user{
+	margin-top: 12px;
+	float: left;
+	font-size: 13px;
+}
+.comment_image{
+	display: block;
+	max-height: 120px;
+	margin-top: 20px;
+}

@@ -32,8 +32,14 @@
     <div class="comment">
     {% for comment in all_comment %}
         <div class="comment_cell">
-        <a href="{% url 'center:home' comment.user.id %}">{{ comment.user.username }}</a>
-        <span>{{ comment.content }}</span>
+        <a href="{% url 'center:home' comment.user.id %}">
+            <img src="{{ MEDIA_URL }}{{ comment.user.icon }}" class="comment_avatar">
+            <span class="comment_user">{{ comment.user.username }}</span>
+        </a>
+            {% if comment.image %}
+            <img src="{{ MEDIA_URL }}{{ comment.image }}" class="comment_image">
+            {% endif %}
+            <span>{{ comment.content }}</span>
         </div>
     {% endfor %}
     </div>
