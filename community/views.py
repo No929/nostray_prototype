@@ -119,3 +119,33 @@ class ContentView(View):
 			'post' : post,
 			'all_comment' : comment,
 		})
+
+
+class PostFavView(View):
+
+	def post(self, request):
+		fav_id = request.POST.get('fav_id', '0')
+		fav_type = request.POST.get('fav_type', '')
+
+		if not request.user.is_authenticated:
+			info = {"status":"fail"}, {"msg":"未登录"}
+			return JsonResponse(info, safe=False)
+
+		exist_record = UserFavorite.objects.filter(user=request,
+												 fav_id=int(fav_id), fav_type=fav_type)
+		print exist_record
+		if exist_record:
+			exist_record.delete()
+			info = {"status":"fail", "msg":"收藏"}
+			return JsonResponse(info, safe=False)
+		else:
+			user_fav = UserFavorite()
+			if int(fav_id) > 0 and fav_type:
+				user_fav.fav_id = int(fav_id)
+				user_fav.fav_type = fav_type
+				user_fav.save()
+				info = {'status':'success', 'msg':'已收藏'}
+				return JsonResponse(info, safe=False)
+			else:
+				info = {"status":"fail", "msg":"收藏失败"}
+				return JsonResponse(info, safe=False)

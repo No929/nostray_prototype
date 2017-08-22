@@ -60,6 +60,13 @@
     </a>
     <a href="#" class="foot_a">赞(161)</a>
 </div>
+    <button id="collect">收藏</button>
+    <script src="{% static 'js/add_fav.js' %}"></script>
+    <script>
+    $('#collect').on('click', function () {
+        add_fav($(this), {{ post.id }}, 'post', '{{ csrf_token }}')
+    })
+    </script>
     <div style="height: 100px;"></div>
 
 <div class="empty"></div>
