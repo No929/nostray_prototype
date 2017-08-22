@@ -11,9 +11,9 @@ from community.models import Posts
 
 class UserFavorite(models.Model):
 	FAV_TYPE_CHOICES = [
-		(1, 'animal'),
-		(2, 'post'),
-		(3, 'station'),
+		('animal', 1),
+		('post', 2),
+		('station', 3),
 	]
 	user = models.ForeignKey(UserInfo, verbose_name=u"用户")
 	fav_id = models.IntegerField(default=0, verbose_name=u"数据ID")
