@@ -17,7 +17,7 @@ class UserFavorite(models.Model):
 	]
 	user = models.ForeignKey(UserInfo, verbose_name=u"用户")
 	fav_id = models.IntegerField(default=0, verbose_name=u"数据ID")
-	fav_type = models.IntegerField(choices=FAV_TYPE_CHOICES, default=1, verbose_name=u"收藏类型")
+	fav_type = models.CharField(max_length=10, choices=FAV_TYPE_CHOICES, verbose_name=u"收藏类型")
 
 	class Meta:
 		verbose_name = u"用户收藏"
