@@ -51,28 +51,27 @@ class AllPosts(View):
 			my_msg = UserMessage.objects.all()
 			my_msg_num = my_msg.filter(user=request.user, has_read=False).count()
 			return render(request, 'community.html', {
-				"all_posts": posts,
-				"post_num": post_num,
-				"animal_kind": animal_kind,
-				"post_kind": post_kind,
-				"sort": sort,
-				"my_fav_num": my_fav_num,
-				"my_posts_num": my_posts_num,
-				"my_msg_num": my_msg_num,
+				"all_posts" : posts,
+				"post_num" : post_num,
+				"animal_kind" : animal_kind,
+				"post_kind" : post_kind,
+				"sort" : sort,
+				"my_fav_num" : my_fav_num,
+				"my_posts_num" : my_posts_num,
+				"my_msg_num" : my_msg_num,
 			})
 		else:
 			my_fav_num = 0
 			my_msg_num = 0
 			my_posts_num = 0
 			return render(request, 'community.html', {
-				"all_posts": posts,
-				"post_num": post_num,
-				"animal_kind": animal_kind,
-				"post_kind": post_kind,
-				"sort": sort,
-				"my_fav_num": my_fav_num,
-				"my_posts_num": my_posts_num,
-				"my_msg_num": my_msg_num,
+				"all_posts" : posts,
+				"post_num" : post_num,
+				"animal_kind" : animal_kind,
+				"post_kind" : post_kind,
+				"sort" : sort,
+				"my_fav_num" : my_fav_num,
+				"my_posts_num" : my_posts_num,
 			})
 
 
@@ -116,6 +115,8 @@ class ContentView(View):
 
 	def get(self, request, post_id):
 		post = Posts.objects.get(id=int(post_id))
+		post.click_num += 1
+		post.save()
 		all_comment = Comments.objects.all()
 		comment = all_comment.filter(post=int(post_id))
 		exist_fav = UserFavorite.objects.filter(user=post.user, fav_id=int(post_id), fav_type='post')
