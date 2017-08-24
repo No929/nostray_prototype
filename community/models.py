@@ -26,11 +26,14 @@ class Posts(models.Model):
 	image = models.ImageField(max_length=100, upload_to='post_img/%Y/%m', null=True, blank=True, verbose_name=u"贴图")
 	post_cate = models.CharField(max_length=2, choices=POST_CATE_CHOICES, verbose_name="帖子类型")
 	animal_cate = models.CharField(max_length=10, choices=ANIMAL_CATE_CHOICES, null=True, verbose_name="动物类型")
-	comment_num = models.IntegerField(default=0, verbose_name=u"评论数量")
+	click_num = models.IntegerField(default=0, verbose_name=u"点击数")
 
 	class Meta:
 		verbose_name = u"帖子"
 		verbose_name_plural = verbose_name
+
+	def get_comment_num(self):
+		return self.comments_set.all().count()
 
 	def __unicode__(self):
 		return self.title
