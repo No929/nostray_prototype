@@ -120,6 +120,7 @@ body{
 .icon{
 	display: block;
 	width: 40px;
+	border-radius: 50%;
 	position: absolute;
 	box-shadow: 0 0 2px rgb(100,100,100);
 }

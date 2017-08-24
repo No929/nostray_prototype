@@ -70,7 +70,7 @@
     {% else %}
     {% for post in all_posts.object_list %}
     <div class="post">
-        <a href="" class="user_a">
+        <a href="{% url 'center:home' post.user.id %}" class="user_a">
         <img class="icon" src="{{ MEDIA_URL }}{{ post.user.icon }}">
         <span class="name_span">{{ post.user.username }}</span>
         </a>
