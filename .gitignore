@@ -4,3 +4,5 @@ media/
 .idea/
 jquery*.min.js
 community/migrations/0010_auto_20170815_1403.py
+
+community/migrations/0011_remove_posts_comment_num.py
