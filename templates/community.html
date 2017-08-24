@@ -136,12 +136,12 @@
         <div id="img_error"></div>
 </form>
 </div>
+<script src="{% static 'js/poster_ajax.jQuery.js' %}"></script>
 <script>
-    $.ajaxSetup({
-    data: {csrfmiddlewaretoken: '{{ csrf_token }}' },
-    });
+$("#submitBtn").on('click', function () {
+    poster($(this), {{ csrf_token }}, $('#title').html(), $('#content').html(), $('#img_input').value(), $('#sources').value())
+})
 </script>
-<script src="{% static 'js/poster_ajax.js' %}"></script>
 <div class="main_right">
     <div class="msg">
         <a href="" class="msg_a">

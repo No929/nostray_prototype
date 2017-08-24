@@ -85,6 +85,9 @@ class LikeView(View):
 class PosterView(View):
 
 	def post(self, request):
+		if not request.user.is_authenticated:
+			info = {'status':'fail', 'msg':'NO_LOGIN'}
+			return JsonResponse(info, safe=False)
 		poster_form = PostForm(request.POST)
 		if poster_form.is_valid():
 			title = request.POST.get('title')
@@ -101,11 +104,12 @@ class PosterView(View):
 				print 'ccc'
 				post = Posts(title=title, content=content, post_cate=post_cate)
 				post.save()
-
-			return JsonResponse({'success':True, 'msg':'成功'})
+			info = {'status':'success', 'msg':'成功'}
+			return JsonResponse(info, safe=False)
 		else:
 			print 'ffff'
-			return JsonResponse({'success':False, 'msg':'失败'})
+			info = {'status':'fail', 'msg':'失败'}
+			return JsonResponse(info, safe=False)
 
 
 class ContentView(View):
@@ -114,7 +118,7 @@ class ContentView(View):
 		post = Posts.objects.get(id=int(post_id))
 		all_comment = Comments.objects.all()
 		comment = all_comment.filter(post=int(post_id))
-		exist_fav = UserFavorite.objects.filter(user=request.user, fav_id=int(post_id), fav_type='post')
+		exist_fav = UserFavorite.objects.filter(user=post.user, fav_id=int(post_id), fav_type='post')
 
 		return render(request, 'pContent.html', {
 			'post' : post,
@@ -130,7 +134,7 @@ class PostFavView(View):
 		fav_type = request.POST.get('fav_type', '')
 
 		if not request.user.is_authenticated:
-			info = {'status':'fail', 'msg':'未登录'}
+			info = {'status':'fail', 'msg':'NO_LOGIN'}
 			return JsonResponse(info, safe=False)
 
 		exist_record = UserFavorite.objects.filter(user=request.user, fav_id=fav_id, fav_type=fav_type)
