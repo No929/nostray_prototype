@@ -69,7 +69,7 @@
     </a>
     <a href="#" class="foot_a">赞(161)</a>
 </div>
-    <script src="{% static 'js/add_fav.js' %}"></script>
+    <script src="{% static 'js/collect.jQuery.js' %}"></script>
     <script>
     $('#collect').on('click', function () {
         add_fav($(this), {{ post.id }}, 'post', '{{ csrf_token }}')
