@@ -71,7 +71,7 @@
     {% for post in all_posts.object_list %}
     <div class="post">
         <a href="" class="user_a">
-        <img class="icon" src="{{ post.icon.icon.url }}">
+        <img class="icon" src="{{ MEDIA_URL }}{{ post.user.icon }}">
         <span class="name_span">{{ post.user.username }}</span>
         </a>
         <span class="time">发表时间：{{ post.add_time }}</span>
