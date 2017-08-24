@@ -6,3 +6,5 @@ jquery*.min.js
 community/migrations/0010_auto_20170815_1403.py
 
 community/migrations/0011_remove_posts_comment_num.py
+
+community/migrations/0012_posts_click_num.py
