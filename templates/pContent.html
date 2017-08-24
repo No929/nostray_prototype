@@ -21,7 +21,15 @@
         </div>
 
         	<span class="title" title="">{{ post.title }}</span>
-        <button id="collect">&hearts;&nbsp;收藏</button>
+
+    <button id="collect">
+        {% if not exist_fav %}
+        &hearts;&nbsp;收藏
+        {% else %}
+        已收藏
+        {% endif %}
+    </button>
+
     </div>
     <img>
     <div class="content">

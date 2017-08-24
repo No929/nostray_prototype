@@ -114,10 +114,12 @@ class ContentView(View):
 		post = Posts.objects.get(id=int(post_id))
 		all_comment = Comments.objects.all()
 		comment = all_comment.filter(post=int(post_id))
+		exist_fav = UserFavorite.objects.filter(user=request.user, fav_id=int(post_id), fav_type='post')
 
 		return render(request, 'pContent.html', {
 			'post' : post,
 			'all_comment' : comment,
+			'exist_fav' : exist_fav,
 		})
 
 
