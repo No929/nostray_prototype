@@ -128,6 +128,28 @@ class ContentView(View):
 		})
 
 
+class CommentView(View):
+	def post(self, request):
+		if not request.user.is_authenticated:
+			info = {'status':'fail', 'msg':'NO_LOGIN'}
+			return JsonResponse(info, safe=False)
+		post = request.POST.get('post', 0)
+		content = request.POST.get('content', '')
+		print post
+		print content
+		if post and content:
+			comment = Comments()
+			comment.content = content
+			comment.post = post
+			comment.user = request.user
+			comment.save()
+			info = {'status':'success', 'msg':'发布成功'}
+			return JsonResponse(info, safe=False)
+		else:
+			info = {'status':'fail', 'msg':'发布失败'}
+			return JsonResponse(info, safe=False)
+
+
 class PostFavView(View):
 
 	def post(self, request):

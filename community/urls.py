@@ -2,7 +2,7 @@
 
 from django.conf.urls import url
 
-from community.views import AllPosts, PosterView, LikeView, ContentView, PostFavView
+from community.views import AllPosts, PosterView, LikeView, ContentView, PostFavView, CommentView
 
 
 urlpatterns = [
@@ -11,4 +11,5 @@ urlpatterns = [
     url(r'^like/$', LikeView.as_view(), name='like'),
     url(r'^content/(?P<post_id>\d+)', ContentView.as_view(), name='content'),
     url(r'^fav/$', PostFavView.as_view(), name='favorite'),
+    url(r'^comment/$', CommentView.as_view(), name='comment')
 ]
