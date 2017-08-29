@@ -4,18 +4,27 @@
 {% block title %}个人主页{% endblock %}
 
 {% block css %}
-    <link rel="stylesheet" type="text/css" href="">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/center_home.css' %}">
 {% endblock %}
 
 {% block js %}{% endblock %}
 
 {% block content %}
+    <div id="wrapper">
     <div class="top">
+    <img src="{{ MEDIA_URL }}{{ user.icon }}" class="avatar">
+    <span>{{ user.username }}</span>
+    <button>&cross;&nbsp;关注</button>
+    <span>{{ follower }}粉丝</span>
+    <span>{{ user.click_num }}人拜访过</span>
+    <span>信誉值：{{ user.creditrating }}</span>
     </div>
 
     <div class="activity">
     </div>
 
     <div class="fixed_menu">
+    </div>
+
     </div>
 {% endblock %}

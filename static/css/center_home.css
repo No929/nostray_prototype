@@ -1,0 +1,9 @@
+*{
+    font-family: icons;
+}
+#wrapper{
+    padding-top: 80px;
+}
+.avatar{
+    width: 80px;
+}
