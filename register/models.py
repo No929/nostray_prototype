@@ -3,8 +3,8 @@ from __future__ import unicode_literals
 from datetime import datetime
 
 from django.db import models
-
 from django.contrib.auth.models import AbstractUser
+
 
 # Create your models here.
 
@@ -31,8 +31,7 @@ class UserInfo(AbstractUser):
 	icon = models.ImageField(upload_to='user_icon/%Y/%m', default="default.png", max_length=100, verbose_name=u"头像")
 	photo = models.ImageField(upload_to='user_photo/%Y/%m', default="default.png",max_length=100, verbose_name=u"相册")
 	creditrating = models.IntegerField(default=60, verbose_name=u"信誉评分")
-	following = models.IntegerField(default=0, verbose_name=u"关注数")
-	follower = models.IntegerField(default=0, verbose_name=u"被关注数")
+	click_num = models.IntegerField(default=0,verbose_name=u"点击数")
 
 	class Meta:
 		verbose_name = u"用户信息"

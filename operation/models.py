@@ -4,7 +4,6 @@ from datetime import datetime
 
 from django.db import models
 from register.models import UserInfo
-#from animal.models import Animals
 from community.models import Posts
 # Create your models here.
 
@@ -43,4 +42,13 @@ class UserLikes(models.Model):
 
 	class Meta:
 		verbose_name = u"点赞信息"
+		verbose_name_plural = verbose_name
+
+
+class UserFollowing(models.Model):
+	follow = models.ForeignKey(UserInfo, related_name='follow_set', verbose_name=u"关注用户")
+	followed = models.ForeignKey(UserInfo, related_name='followed_set', verbose_name=u"被关注用户")
+
+	class Meta:
+		verbose_name = u"关注信息"
 		verbose_name_plural = verbose_name
