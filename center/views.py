@@ -14,5 +14,9 @@ class CenterHome(View):
     def get(self, request, user_id):
         user = UserInfo.objects.get(id=int(user_id))
 
-
-        return render(request, 'center_home.html', {})
+        if user:
+            user.click_num += 1
+            user.save()
+        return render(request, 'center_home.html', {
+            'user' : user,
+        })
