@@ -135,12 +135,10 @@ class CommentView(View):
 			return JsonResponse(info, safe=False)
 		post = request.POST.get('post', 0)
 		content = request.POST.get('content', '')
-		print post
-		print content
 		if post and content:
 			comment = Comments()
 			comment.content = content
-			comment.post = post
+			comment.post.id = post
 			comment.user = request.user
 			comment.save()
 			info = {'status':'success', 'msg':'发布成功'}
