@@ -4,6 +4,31 @@
 #wrapper{
     padding-top: 80px;
 }
+.field{
+    height: 500px;
+}
+#navigator{
+    margin-top: 40px;
+    float: left;
+    width: 20%;
+    border: 1px solid #6c6c6c;
+    border-radius: 3px;
+    box-shadow: 0 0 3px #6c6c6c;
+}
+#navigator>a{
+    font-size: 20px;
+    display: block;
+    height: 40px;
+    border-radius: 3px;
+}
+#navigator>a:hover{
+    border: none;
+    box-shadow: 0 0 3px #86adff}
+#child_src{
+    height: 300px;
+    float: left;
+    width: 70%;
+}
 .avatar{
     width: 80px;
 }

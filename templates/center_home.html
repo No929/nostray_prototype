@@ -14,13 +14,20 @@
     <div class="top">
     <img src="{{ MEDIA_URL }}{{ user.icon }}" class="avatar">
     <span>{{ user.username }}</span>
-    <button>&cross;&nbsp;关注</button>
+    <button>&plus;&nbsp;关注</button>
     <span>{{ follower }}粉丝</span>
     <span>{{ user.click_num }}人拜访过</span>
     <span>信誉值：{{ user.creditrating }}</span>
     </div>
-
-    <div class="activity">
+    <div class="field">
+    <div id="navigator">
+        <a name="activity">动态</a>
+        <a name="my_collect">我的收藏</a>
+        <a name="my_post">我的发表</a>
+        <a name="my_message">我的消息</a>
+    </div>
+        <div id="child_src">
+        </div>
     </div>
 
     <div class="fixed_menu">
