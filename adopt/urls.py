@@ -2,9 +2,10 @@
 
 from django.conf.urls import url, include
 
-from adopt.views import ShowNearBy
+from adopt.views import Animal, Station
 
 
 urlpatterns =[
-    url(r'^market/$', ShowNearBy.as_view(), name='market'),
+    url(r'^animals/$', Animal.as_view(), name='animals'),
+    url(r'^stations/$', Station.as_view(), name='stations'),
 ]

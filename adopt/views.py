@@ -10,7 +10,7 @@ from pure_pagination import Paginator, EmptyPage, PageNotAnInteger
 # Create your views here.
 
 
-class ShowNearBy(View):
+class Animal(View):
 
 	def get(self, request):
 		all = UserInfo.objects.all()
@@ -26,3 +26,9 @@ class ShowNearBy(View):
 		return render(request, "adopt.html", {
 			'all_stations': stations,
 		})
+
+
+class Station(View):
+
+	def get(self, request):
+		pass
