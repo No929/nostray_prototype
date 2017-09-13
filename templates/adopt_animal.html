@@ -1,0 +1,39 @@
+{% extends 'adopt_station.html' %}
+{% load staticfiles %}
+{% load i18n %}
+
+{% block name1 %}流浪动物{% endblock %}
+{% block name2 %}救助站{% endblock %}
+{% block href %}{% url 'adopt:stations' %}{% endblock %}
+
+{% block contains %}
+    {% for animal in all_stray.object_list %}
+        <div class="cell">{{ animal.name }}</div>
+    {% endfor %}
+
+        <div class="page_turn">
+        {% if all_stray.has_previous %}
+        <a href="?{{ all_stray.previous_page_number.querystring }}" class="link_page">{% trans "上一页" %}</a>
+        {% else %}
+        <span class="static_page">{% trans "上一页" %}</span>
+        {% endif %}
+
+        {% for page in all_stray.pages %}
+        {% if page %}
+            {% ifequal page all_stray.number %}
+                <span class="static_page">{{ page }}</span>
+            {% else %}
+                <a href="?{{ page.querystring }}" class="link_page">{{ page }}</a>
+            {% endifequal %}
+        {% else %}
+            ...
+        {% endif %}
+        {% endfor %}
+
+        {% if all_stray.has_next %}
+        <a href="?{{ all_stray.next_page_number.querystring }}" class="link_page">{% trans "下一页" %}</a>
+        {% else %}
+        <span class="static_page">{% trans "下一页" %}</span>
+        {% endif %}
+    </div>
+{% endblock %}
