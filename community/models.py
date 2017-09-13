@@ -5,6 +5,7 @@ from datetime import datetime
 from django.db import models
 
 from register.models import UserInfo
+from operation.models import UserLikes
 # Create your models here.
 
 class Posts(models.Model):
@@ -34,6 +35,9 @@ class Posts(models.Model):
 
 	def get_comment_num(self):
 		return self.comments_set.all().count()
+
+	def get_like_num(self):
+		return self.userlikes_set.all().count()
 
 	def __unicode__(self):
 		return self.title

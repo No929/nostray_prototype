@@ -31,8 +31,8 @@ class AllPosts(View):
 		if sort:
 			if sort == 'add_time':
 				all_posts = all_posts.order_by('-add_time')
-			elif sort == 'comment_num':
-				all_posts = all_posts.order_by('-comment_num')
+			elif sort == 'click_num':
+				all_posts = all_posts.order_by('-click_num')
 
 		post_num = all_posts.count()
 
