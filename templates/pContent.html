@@ -66,12 +66,16 @@
     <a href="#">
         <img src="{% static 'img/comment.png' %}" class="comment_img" />
     </a>
-    <a href="#" class="foot_a">评论(1440)</a>
+    <a href="#" class="foot_a">
+        评论({% if post.get_comment_num %}{{ post.get_comment_num }}{% else %}0{% endif %})
+    </a>
 
     <a href="#">
         <img id="praise" src="{% static 'img/like.png' %}" class="like_img"/>
     </a>
-    <a href="#" class="foot_a">赞(161)</a>
+    <a href="#" class="foot_a">
+        赞({% if post.get_like_num %}{{ post.get_like_num }}{% else %}0{% endif %})
+    </a>
 </div>
     <script src="{% static 'js/collect.jQuery.js' %}"></script>
     <script type="text/javascript">
