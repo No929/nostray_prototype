@@ -2,13 +2,17 @@
 {% load staticfiles %}
 {% load i18n %}
 
+<link rel="stylesheet" type="text/css" href="{% static 'css/adopt_animal.css' %}">
 {% block name1 %}流浪动物{% endblock %}
 {% block name2 %}救助站{% endblock %}
 {% block href %}{% url 'adopt:stations' %}{% endblock %}
 
 {% block contains %}
     {% for animal in all_stray.object_list %}
-        <div class="cell">{{ animal.name }}</div>
+        <div class="cell">
+            <span>{{ animal.name }}</span>
+            <img id="animal_tumb" src="{{ MEDIA_URL }}{{ animal.photo }}">
+        </div>
     {% endfor %}
 
         <div class="page_turn">
