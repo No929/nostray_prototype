@@ -1,3 +1,10 @@
-#animal_tumb{
-    width: 230px;
+*{
+    font-family: icons;
+}
+.name{
+    font-size: 20px;
+}
+.animal_tumb{
+    display: block;
+    max-width: 230px;
 }
