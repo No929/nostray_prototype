@@ -13,14 +13,12 @@
     <span class="mod_choice">选择浏览方式：</span>
     <div class="showmenu">
     <ul  class="menu">
-        <li class="ul_li" id="li0"><a href="" id="a0" class="menu_a">{% block name1 %}救助站{% endblock %}</a>
+        <li class="ul_li" id="li0"><a href="#" id="a0" class="menu_a">{% block name1 %}救助站{% endblock %}</a>
           <ul class="ul_li_ul">
-             <li class="ul_li_ul_li" id="li1"><a href="" id="a1" class="menu_a">{% block name2 %}流浪动物{% endblock %}</a></li>
+             <li class="ul_li_ul_li" id="li1"><a href="{% block href %}{% url 'adopt:animals' %}{% endblock %}" id="a1" class="menu_a">{% block name2 %}流浪动物{% endblock %}</a></li>
           </ul>
         </li>
-    </ul><script>$('#a1').on('click', function () {
-        window.location.href = ({% block href %}{% url 'adopt:animals' %}{% endblock %})
-    })</script>
+    </ul>
     </div><script src="{% static 'js/show_menu.js' %}"></script>
 <input type="search" placeholder="搜索救助站，动物品种" id="search">
 <input type="button" value="搜索" class="searchBtn">
