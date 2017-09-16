@@ -2,9 +2,53 @@
     font-family: icons;
 }
 .name{
+    margin-top: 10px;
     font-size: 20px;
+    display: block;
 }
 .animal_tumb{
     display: block;
-    max-width: 230px;
+    width: 230px;
+    height: 190px;
+}
+.cell>label{
+    float: left;
+    margin-left: 10px;
+    font-size: 13px;
+    color: #7a7a7a;
+}
+.cell>a{
+    float: left;
+    font-size: 13px;
+    color: #7a7a7a;
+    text-decoration: none;
+}
+.cell>a:hover{
+    text-decoration: underline;
+}
+.price_lable{
+    display: block;
+    font-size: 18px;
+    margin-top: 10px;
+    margin-left: 45px;
+    color: #ff7d4d;
+    float: left;
+}
+.price{
+    display: block;
+    margin-top: 10px;
+    font-size: 18px;
+    float: left;
+}
+.free{
+    color: #7cb93c;
+}
+.consult{
+    color: #3168cc;
+}
+.notfree{
+    color: #cc3c34;
+}
+.clicked{
+    display: block;
 }
