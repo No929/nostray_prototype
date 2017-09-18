@@ -14,13 +14,16 @@
             <img class="animal_tumb" src="{{ MEDIA_URL }}{{ animal.photo }}">
             <span class="name">{{ animal.name }}</span>
             <label>种类:</label><a href="">{{ animal.species }}</a>
-            <label>救助站:</label><a href="">{{ animal.station_id.username }}</a>
+            <label>救助站:</label><a href="{% url 'center:home' animal.station_id.id %}">{{ animal.station_id.username }}</a>
+            <label style="font-size: 11px">{% if animal.click_num > 9999 %}1万人浏览过
+            {% else %}
+                {{ animal.click_num }}人浏览过{% endif %}</label>
             <span class="price_lable">价格：</span>
-            <span class="price {% if animal.price == '免费' %}free{% elif animal.price == '咨询' %}consult{% else %}notfree{% endif %}">
+            <span class="price {% if animal.price == '免费' %}free
+            {% elif animal.price == '咨询' %}consult{% else %}notfree{% endif %}">
             {% if animal.price == '免费' or animal.price == '咨询' %}
             {{ animal.price }}{% else %}{{ animal.price }}¥
             {% endif %}</span>
-            <span class="clicked">{{ animal.click_num }}</span>
         </div>
     {% endfor %}
 

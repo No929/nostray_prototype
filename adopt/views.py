@@ -34,6 +34,7 @@ class Animal(View):
 	def get(self, request):
 		all = Animals.objects.all()
 		all_stray = all.filter(is_stray='是')
+
 		try:
 			page = request.GET.get('page', 1)
 		except PageNotAnInteger:

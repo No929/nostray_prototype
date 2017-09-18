@@ -32,7 +32,7 @@ body{
     width: 65px;
     border: none;
     margin-top: 15px;
-    margin-left: -4px;
+    margin-left: -8px;
     box-shadow: 0 0 2px #858989;
 }
 .searchBtn:hover{

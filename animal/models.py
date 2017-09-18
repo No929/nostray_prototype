@@ -23,7 +23,7 @@ class Animals(models.Model):
 		('是', 'yes'),
 	]
 	animal_id = models.AutoField(max_length=10, primary_key=True, verbose_name=u"动物编号")
-	station_id = models.ForeignKey(UserInfo, verbose_name=u"救助站编号")
+	station_id = models.ForeignKey(UserInfo, verbose_name=u"所属救助站")
 	name = models.CharField(max_length=10, null=True, verbose_name=u"动物名")
 	sex = models.CharField(max_length=6, choices=SEX_CHOICES, verbose_name=u"性别")
 	age = models.IntegerField(null=True, verbose_name=u"年龄")
