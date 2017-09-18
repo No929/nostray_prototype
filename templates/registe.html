@@ -1,58 +1,31 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 {% load staticfiles %}
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>nostray : Join us</title>
-<link rel="stylesheet" type="text/css" href="{% static 'css/registe.css' %}">
-<script type="text/javascript" src="{% static 'js/registe_check.js' %}"></script>
+    <meta charset="UTF-8">
+    <title>nostray : Join us</title>
+    <style type="text/css">
+    @font-face {
+      font-family: icons;
+      src: url("{% static 'font/icons.woff2' %}");
+    }
+    @font-face {
+      font-family: lemon;
+      src: url("{% static 'font/AaMissLemon.ttf' %}");
+    }
+</style>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/registe.css' %}">
 </head>
 <body>
- <div class="wrapper">
- 	<div class="logo"><img src="{% static 'img/logo.png' %}" alt="无法加载图片" id="img_logo"/></div>
- 	<div class="form">
- 		<form action="" method="post" name="form">
- 		{% csrf_token %}
- 			<div class="area area_font">
- 			<label>用户名</label>
- 			<input type="text" name="username" class="" id="username" onchange="CheckUsername(this.value)" required="required" placeholder="用户名" value="">
- 			</div>
- 			<div id="name_feedback"></div>
- 			<div class="area area_font">
- 			<label>密码</label>
- 			<input type="password" name="password" class="" id="password1" onchange="CheckPwd1(this.value)" required="required" placeholder="密码" value="">
- 			</div>
- 			<div id="pwd_feedback1"></div>
- 			<div class="area area_font">
- 			<label>确认密码</label>
- 			<input type="password" class="" id="password2" onchange="CheckPwd2(this.value)" placeholder="请重复输入密码" value="">
- 			</div>
- 			<div id="pwd_feedback2"></div>
- 			<div class="area area_font">
- 			<label>账户类型</label>
- 			<select class="" name="kind">
-                <option value="individual" selected>个人</option>
-                <option value="station">救助站</option>
-                <option value="org">团体组织</option>
-            </select>
- 			</div>
- 			<div class="area area_font">
- 			<label>手机号</label>
- 			<input type="text" name="phone" placeholder="手机号">
- 			</div>
- 			<div class="area area_font">
- 			<label>邮箱</label>
- 			<input type="text" name="email" placeholder="邮箱">
- 			</div>
- 			<div class="area area_font">
- 			<label>验证码</label>
- 			{{ registe_form.captcha }}
- 			</div>
- 			<div class="btn">
- 			<button name="submit" class="" onclick="Submit()">注册</button>
- 			</div>
- 		</form>
- 	</div>
- </div>
+<div class="wrapper">
+    <div class="main">
+        <a href="{% url 'index' %}" class="logo">Nostray</a>
+        <span class="descp">一个为了全体流浪动物和流浪动物救助站的公益平台</span>
+        <form action="" method="post">
+        {% csrf_token %}
+        
+        </form>
+    </div>
+</div>
 </body>
 </html>
