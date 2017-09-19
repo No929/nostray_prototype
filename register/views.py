@@ -7,10 +7,13 @@ from django.contrib.auth.backends import ModelBackend
 from django.db.models import Q
 from django.views.generic.base import View
 from django.contrib.auth.hashers import make_password
+from django.http import JsonResponse, HttpResponse
 
 from .models import UserInfo, EmailVerifyRecord
 from .forms import LoginForm, RegisteForm, ForgetForm, ModifyPwdForm
 from utils.email_send import emailVerify
+from captcha.models import CaptchaStore
+from captcha.helpers import captcha_image_url
 
 
 class CustomBackend(ModelBackend):
@@ -28,9 +31,22 @@ class CustomBackend(ModelBackend):
 class RegisteView(View):
 	def get(self, request):
 		registe_form = RegisteForm()
-		return render(request, 'registe.html', {'registe_form':registe_form})
+		hashkey = CaptchaStore.generate_key()
+		image_url = captcha_image_url(hashkey)
+		return render(request, 'registe.html', {
+			'registe_form':registe_form,
+			'hashkey':hashkey,
+			'image_url':image_url,
+		})
 
 	def post(self, request):
+		captcha_refresh = request.POST.get('refresh', '')
+		hashkey = CaptchaStore.generate_key()
+		image_url = captcha_image_url(hashkey)
+		if captcha_refresh == 'refresh':
+			info = {'hashkey':hashkey, 'image_url':image_url}
+			return JsonResponse(info, safe=False)
+
 		registe_form = RegisteForm(request.POST)
 		if registe_form.is_valid():
 			username = request.POST.get('username', '')
@@ -38,7 +54,6 @@ class RegisteView(View):
 				return render(request, 'registe.html', {'msg':'用户已存在', 'registe_form':registe_form})
 			password = request.POST.get('password', '')
 			kind = request.POST.get('kind', '')
-			phone = request.POST.get('phone', '')
 			email = request.POST.get('email', '')
 			if UserInfo.objects.filter(email=email):
 				return render(request, 'registe.html', {'msg':'邮箱已经注册', 'registe_form':registe_form})
@@ -47,7 +62,6 @@ class RegisteView(View):
 			form.username = username
 			form.password = make_password(password)
 			form.kind = kind
-			form.phone = phone
 			form.email = email
 			form.is_active = False
 

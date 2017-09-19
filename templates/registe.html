@@ -15,6 +15,7 @@
     }
 </style>
     <link rel="stylesheet" type="text/css" href="{% static 'css/registe.css' %}">
+    <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
 </head>
 <body>
 <div class="wrapper">
@@ -23,8 +24,40 @@
         <span class="descp">一个为了全体流浪动物和流浪动物救助站的公益平台</span>
         <form action="" method="post">
         {% csrf_token %}
-        
+            <div class="input_contain"><label class="input_label">用户名</label>
+            <input class="text_input" name="username" type="text" placeholder="请创建2-16位用户名"></div>
+            <div class="input_contain"><label class="input_label">密&nbsp;&nbsp;码</label>
+            <input class="text_input" name="password" type="password" placeholder="请创建6-16位密码"></div>
+            <div class="input_contain"><label class="input_label">确认密码</label>
+            <input class="text_input" type="password" placeholder="请重新输入密码"></div>
+            <div class="container">
+                <div class="dropdown">
+                <button>注册类型</button>
+                 <ul class="dropdown-options">
+                 <li class="option">
+                   <a href="#">个人</a>
+                 </li>
+                 <li class="option">
+                    <a href="#">救助站</a>
+                 </li>
+                 <li class="option">
+                    <a href="#">团体组织</a>
+                 </li>
+                <li class="option">
+                   <a href="#">管理员</a>
+                </li>
+                </ul>
+            </div>
+            </div>
+            <div class="input_contain"><label class="input_label">验证码</label>
+            <input class="text_input" type="password" placeholder="请输入图中验证码">
+            <img id="image_url" src="{{ image_url }}" class="captcha">
+            <input id="hashkey" type="hidden" value="{{ hashkey }}"><input id="csrf" type="hidden" value="{{ csrf_token }}"></div>
+            <div class="input_contain"><label class="input_label">邮&nbsp;&nbsp;箱</label>
+            <input class="text_input" name="email" type="email" placeholder="请输入有效邮箱"></div>
+            <button id="submit">注&nbsp;册</button>
         </form>
+        <script type="text/javascript" src="{% static 'js/register.jQuery.js' %}"></script>
     </div>
 </div>
 </body>
