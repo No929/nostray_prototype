@@ -51,3 +51,11 @@ for (var i = 0; i < optionLinks.length; i++) {
 }
 
 //form check
+var username = $('#username')
+var pwd1 = $('#pwd1')
+var pwd2 = $('#pwd2')
+function pwdCheck() {
+    if (pwd1.val() != pwd2.val()){
+    flag2 = false
+}
+}

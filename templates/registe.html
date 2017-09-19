@@ -25,11 +25,11 @@
         <form action="" method="post">
         {% csrf_token %}
             <div class="input_contain"><label class="input_label">用户名</label>
-            <input class="text_input" name="username" type="text" placeholder="请创建2-16位用户名"></div>
+            <input class="text_input" id="username" name="username" type="text" placeholder="请创建2-16位用户名"></div>
             <div class="input_contain"><label class="input_label">密&nbsp;&nbsp;码</label>
-            <input class="text_input" name="password" type="password" placeholder="请创建6-16位密码"></div>
+            <input class="text_input" id="pwd1" name="password" type="password" placeholder="请创建6-16位密码"></div>
             <div class="input_contain"><label class="input_label">确认密码</label>
-            <input class="text_input" type="password" placeholder="请重新输入密码"></div>
+            <input class="text_input" id="pwd2" type="password" placeholder="请重新输入密码"></div>
             <div class="container">
                 <div class="dropdown">
                 <button>注册类型</button>
