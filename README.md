@@ -8,4 +8,4 @@
 > Developed on macOS 10.12
 > Django version 1.11.1
 > Python version 2.7.10
-> Python Editor: Sublime Text Build 3126
+> Python Editor: Sublime Text Build 3143 and PyCharm 2017.2
