@@ -24,7 +24,7 @@ class UserInfo(AbstractUser):
 	username = models.CharField(max_length=100, verbose_name=u"用户名")
 	gender = models.CharField(max_length=6, null=True, choices=SEX_CHOICES, verbose_name=u"性别", default="SECRET")
 	kind = models.CharField(max_length=50, choices=USER_KIND_CHOICES , verbose_name=u"用户类型")
-	phone = models.CharField(max_length=20, verbose_name=u"联系电话")
+	phone = models.CharField(max_length=20, null=True, blank=True, verbose_name=u"联系电话")
 	introduce = models.CharField(max_length=100, null=True, blank=True, verbose_name=u"介绍")
 	adress = models.CharField(max_length=45, null=True, blank=True, verbose_name=u"地址")
 	real_name = models.CharField(max_length=10, null=True, blank=True, verbose_name=u"真实姓名")
