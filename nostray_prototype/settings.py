@@ -142,11 +142,11 @@ STATICFILES_DIRS = [
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-EMAIL_HOST = 'smtp.qq.com'#SMPT
+EMAIL_HOST = 'smtp.sina.com'#SMPT
 EMAIL_PORT = 25
-EMAIL_HOST_USER = 'klawens@qq.com'
-EMAIL_HOST_PASSWORD = 'klawens0424'#'ijkkhncdfybteajg'
+EMAIL_HOST_USER = 'klawens@sina.com'
+EMAIL_HOST_PASSWORD = 'Ab19970424'#'ijkkhncdfybteajg'
 EMAIL_USE_TLS = False
-EMAIL_FROM = 'klawens@qq.com'#xxx@xxx.com
+EMAIL_FROM = 'klawens@sina.com'#xxx@xxx.com
 
 LOGIN_URL = '/login/'
