@@ -47,7 +47,7 @@ form{
     height: 40px;
     width: 250px;
     padding-left: 100px;
-    line-height: 35px;
+    line-height: 25px;
     border-radius: 5px;
     border: 1px solid rgba(203, 203, 203, 0.55);
     font-size: 15px;
@@ -144,7 +144,7 @@ form{
     -moz-appearance: none;
     height: 40px;
     width: 80px;
-    margin-top: 10px;
+    margin-top: 15px;
     border: none;
     border-radius: 3px;
     background-color: #0099CC;
@@ -154,4 +154,11 @@ form{
 }
 #submit:hover{
     box-shadow: 0 0 3px #9ebbff inset;
+}
+span>img{
+    width: 20px;
+}
+#pwd1feeback, #pwd2feeback, #usrfeedback{
+    font-size: 12px;
+    color: #cc3c34;
 }

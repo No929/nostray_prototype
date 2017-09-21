@@ -43,6 +43,7 @@ class RegisteView(View):
 		captcha_refresh = request.POST.get('refresh', '')
 		hashkey = CaptchaStore.generate_key()
 		image_url = captcha_image_url(hashkey)
+
 		if captcha_refresh == 'refresh':
 			info = {'hashkey':hashkey, 'image_url':image_url}
 			return JsonResponse(info, safe=False)
