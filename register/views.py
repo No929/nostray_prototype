@@ -71,7 +71,10 @@ class RegisteView(View):
 			emailVerify(email, 'registe')
 			return render(request, 'verify.html')
 		else:
-			return render(request, 'registe.html', {'registe_form':registe_form})
+			return render(request, 'registe.html', {
+				'registe_form': registe_form,
+				'formFail': '表单数据错误'
+			})
 
 
 class ActiveUserView(View):

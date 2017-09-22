@@ -3,7 +3,7 @@
 {% load staticfiles %}
 <head>
     <meta charset="UTF-8">
-    <title>nostray : Join us</title>
+    <title>nostray : Join us{{ formFail }}</title>
     <style type="text/css">
     @font-face {
       font-family: icons;
@@ -17,7 +17,7 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/registe.css' %}">
     <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
 </head>
-<body>
+<body bgcolor="#fbfbd5">
 <div class="wrapper">
     <div class="main">
         <a href="{% url 'index' %}" class="logo">Nostray</a>
